@@ -32,7 +32,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${
 
   <text x="80" y="300" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-weight="800" font-size="92" fill="#f6f1e4">Keyza Zaki Arkana</text>
 
-  <text x="80" y="382" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-weight="600" font-size="38" fill="#e9f4ee" fill-opacity="0.82">Junior Web Developer — Tasikmalaya, Indonesia</text>
+  <text x="80" y="382" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-weight="600" font-size="38" fill="#e9f4ee" fill-opacity="0.82">Web Developer — Tasikmalaya, Indonesia</text>
 
   <rect x="80" y="440" width="140" height="7" fill="#f9e9a8" />
 
