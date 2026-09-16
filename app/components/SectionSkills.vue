@@ -4,7 +4,7 @@ const { t } = useI18n()
 const groups = [
   {
     titleKey: 'skills.frontend',
-    items: ['HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'Vue.js', 'Tailwind CSS'],
+    items: ['HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'Nuxt.js', 'Vue.js', 'Tailwind CSS'],
   },
   {
     titleKey: 'skills.backend',
