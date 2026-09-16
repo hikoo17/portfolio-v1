@@ -15,12 +15,14 @@ const localeOptions = [
 ]
 
 const links = computed(() => [
-  { label: t('nav.work'), href: '#work' },
-  { label: t('nav.about'), href: '#about' },
-  { label: t('nav.journey'), href: '#journey' },
-  { label: t('nav.blog'), href: '#blog' },
-  { label: t('nav.contact'), href: '#contact' },
+  { id: 'work', label: t('nav.work'), href: '#work' },
+  { id: 'about', label: t('nav.about'), href: '#about' },
+  { id: 'journey', label: t('nav.journey'), href: '#journey' },
+  { id: 'blog', label: t('nav.blog'), href: '#blog' },
+  { id: 'contact', label: t('nav.contact'), href: '#contact' },
 ])
+
+const activeSection = useActiveSection(links.value.map(link => link.id))
 </script>
 
 <template>
@@ -29,7 +31,7 @@ const links = computed(() => [
       class="animate-rise-in relative flex w-full max-w-3xl items-center justify-between gap-4 rounded-full bg-cream/95 py-2.5 pr-2.5 pl-5 shadow-paper backdrop-blur-sm"
       aria-label="Main navigation"
     >
-      <a href="#top" class="font-serif text-xl italic text-ink">
+      <a href="#top" class="font-hand text-2xl leading-none text-ink">
         Keyza
       </a>
 
@@ -37,8 +39,17 @@ const links = computed(() => [
         <li v-for="link in links" :key="link.href">
           <a
             :href="link.href"
-            class="text-sm font-medium text-ink-soft transition-colors hover:text-emerald-deep"
+            class="inline-flex items-center gap-1.5 text-sm font-medium transition-colors"
+            :class="activeSection === link.id
+              ? 'font-semibold text-emerald-deep'
+              : 'text-ink-soft hover:text-emerald-deep'"
+            :aria-current="activeSection === link.id ? 'true' : undefined"
           >
+            <span
+              class="size-1.5 rotate-45 bg-emerald-base transition-all duration-300"
+              :class="activeSection === link.id ? 'scale-100 opacity-100' : 'scale-0 opacity-0'"
+              aria-hidden="true"
+            />
             {{ link.label }}
           </a>
         </li>
@@ -71,42 +82,31 @@ const links = computed(() => [
           aria-label="Toggle navigation menu"
           @click="open = !open"
         >
-          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-            <path
-              v-if="!open"
-              d="M2 4.5h14M2 9h14M2 13.5h9"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-            />
-            <path
-              v-else
-              d="M4 4l10 10M14 4L4 14"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-            />
-          </svg>
+          <Icon
+            :name="open ? 'ph:x' : 'ph:list'"
+            class="block size-[18px]"
+            aria-hidden="true"
+          />
         </button>
       </div>
 
-      <transition
-        enter-active-class="transition duration-200 ease-out"
-        enter-from-class="opacity-0 -translate-y-1"
-        enter-to-class="opacity-100 translate-y-0"
-        leave-active-class="transition duration-150 ease-in"
-        leave-from-class="opacity-100 translate-y-0"
-        leave-to-class="opacity-0 -translate-y-1"
+      <div
+        v-auto-animate
+        class="absolute top-full right-0 mt-3 w-44 md:hidden"
       >
         <ul
           v-if="open"
           id="mobile-menu"
-          class="absolute top-full right-0 mt-3 w-44 rotate-1 rounded-md bg-cream p-2 shadow-paper-lift md:hidden"
+          class="rotate-1 rounded-md bg-cream p-2 shadow-paper-lift"
         >
           <li v-for="link in links" :key="link.href">
             <a
               :href="link.href"
-              class="block rounded-sm px-3 py-2 text-sm font-medium text-ink transition-colors hover:bg-emerald-base/10"
+              class="block rounded-sm px-3 py-2 text-sm font-medium transition-colors"
+              :class="activeSection === link.id
+                ? 'bg-emerald-base/10 font-semibold text-emerald-deep'
+                : 'text-ink hover:bg-emerald-base/10'"
+              :aria-current="activeSection === link.id ? 'true' : undefined"
               @click="open = false"
             >
               {{ link.label }}
@@ -122,7 +122,7 @@ const links = computed(() => [
             </a>
           </li>
         </ul>
-      </transition>
+      </div>
     </nav>
   </header>
 </template>
