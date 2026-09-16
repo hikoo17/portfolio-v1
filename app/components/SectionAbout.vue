@@ -6,6 +6,15 @@ const notes = [
   { key: 'internship', color: 'blue' as const, rotation: '-2.5deg' },
   { key: 'basedIn', color: 'green' as const, rotation: '1.5deg' },
 ]
+
+// The body holds several paragraphs separated by blank lines so the copy can
+// grow without touching this component.
+const aboutParagraphs = computed(() =>
+  t('about.body')
+    .split('\n\n')
+    .map(paragraph => paragraph.trim())
+    .filter(Boolean),
+)
 </script>
 
 <template>
@@ -29,8 +38,12 @@ const notes = [
             <p class="text-lg leading-relaxed text-ink sm:text-xl">
               {{ t('about.lead') }}
             </p>
-            <p class="mt-5 leading-relaxed text-ink-soft">
-              {{ t('about.body') }}
+            <p
+              v-for="(paragraph, i) in aboutParagraphs"
+              :key="i"
+              class="mt-5 leading-relaxed text-ink-soft"
+            >
+              {{ paragraph }}
             </p>
             <p class="mt-6 font-hand text-2xl text-emerald-deep/80">— Keyza</p>
           </ThePaper>
