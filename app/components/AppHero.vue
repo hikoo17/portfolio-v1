@@ -1,5 +1,8 @@
 <script setup lang="ts">
 const { t } = useI18n()
+
+// Split so the name can carry its own word spacing, evenly between every word.
+const nameWords = computed(() => t('hero.name').split(' ').filter(Boolean))
 </script>
 
 <template>
@@ -36,7 +39,14 @@ const { t } = useI18n()
           <span class="block text-base font-semibold tracking-[0.2em] text-cream/60 uppercase sm:text-lg">
             {{ t('hero.greeting') }}
           </span>
-          <span class="mt-2 block whitespace-nowrap text-2xl sm:text-4xl xl:text-5xl">{{ t('hero.name') }}</span>
+          <span class="mt-2 block whitespace-nowrap text-2xl sm:text-4xl xl:text-5xl">
+            <span
+              v-for="(word, i) in nameWords"
+              :key="word"
+              class="inline-block"
+              :class="i > 0 ? 'ml-[0.34em]' : ''"
+            >{{ word }}</span>
+          </span>
         </h1>
 
         <p
