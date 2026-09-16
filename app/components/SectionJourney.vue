@@ -7,7 +7,7 @@ const milestones = [
   { key: 'lks2025', year: '2025', color: 'yellow' as const, rotation: '-2deg' },
   { key: 'lks2026', year: '2026', color: 'pink' as const, rotation: '1.2deg' },
   { key: 'province', year: '2026', color: 'green' as const, rotation: '-1.2deg' },
-  { key: 'iot', year: '2026', color: 'orange' as const, rotation: '2deg' },
+  { key: 'iot', year: '2025', color: 'orange' as const, rotation: '2deg' },
 ]
 </script>
 
