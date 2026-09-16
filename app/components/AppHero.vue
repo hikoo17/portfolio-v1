@@ -1,9 +1,13 @@
+<script setup lang="ts">
+const { t } = useI18n()
+</script>
+
 <template>
   <section
     class="grid-paper grid-paper--fine relative min-h-screen overflow-hidden bg-emerald-deep text-cream"
   >
     <div
-      class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_90%_60%_at_50%_-10%,rgba(122,201,175,0.16),transparent_65%)]"
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_85%_55%_at_62%_-10%,rgba(122,201,175,0.15),transparent_65%)]"
       aria-hidden="true"
     />
 
@@ -11,81 +15,35 @@
       class="pointer-events-none absolute top-6 right-8 hidden font-mono text-[10px] tracking-[0.3em] text-cream/30 lg:block"
       aria-hidden="true"
     >
-      6.9°S — 107.6°E
-    </span>
-    <span
-      class="pointer-events-none absolute top-1/2 left-4 hidden -translate-y-1/2 -rotate-90 font-mono text-[10px] tracking-[0.35em] text-cream/25 xl:block"
-      aria-hidden="true"
-    >
-      FIG. 01 — THE WORKSPACE
+      7.3°S — 108.2°E
     </span>
     <span
       class="pointer-events-none absolute bottom-6 right-8 hidden font-mono text-[10px] tracking-[0.3em] text-cream/30 lg:block"
       aria-hidden="true"
     >
-      EST. 2024 / 01·06
+      EST. 2024 / 01·07
     </span>
 
     <div
-      class="relative z-10 mx-auto flex min-h-screen w-full max-w-6xl items-stretch gap-6 px-6 pt-36 pb-28 lg:px-8"
+      class="relative z-10 mx-auto grid min-h-screen w-full max-w-6xl items-center gap-14 px-6 pt-36 pb-28 lg:grid-cols-[45fr_55fr] lg:gap-6 lg:px-8"
     >
-      <!-- Left paper rail -->
-      <div
-        class="hidden w-36 shrink-0 flex-col justify-between py-14 lg:flex"
-        aria-hidden="true"
-      >
-        <ThePaper
-          color="yellow"
-          rotation="-4deg"
-          tape="top-center"
-          tape-tilt="-3deg"
-          class="paper-drift ml-1 mt-6 px-4 py-3.5"
-          style="--rise-delay: 480ms"
-        >
-          <p class="font-hand text-xl leading-snug text-ink">
-            currently building<br />something new...
-          </p>
-        </ThePaper>
-
-        <ThePaper
-          color="white"
-          rotation="-2deg"
-          variant="torn"
-          class="paper-drift mr-3 mb-10 px-4 py-3"
-          style="--rise-delay: 720ms; --drift-duration: 10s"
-        >
-          <p class="font-mono text-[10px] font-semibold tracking-[0.25em] text-ink/70 uppercase">
-            01 — Selected Work ↓
-          </p>
-        </ThePaper>
-      </div>
-
-      <!-- Center content -->
-      <div class="flex min-w-0 flex-1 flex-col justify-center">
-        <p
-          class="animate-rise-in text-xs font-semibold tracking-[0.3em] text-cream/60 uppercase"
-          style="animation-delay: 80ms"
-        >
-          Creative Developer / Digital Maker
-        </p>
-
+      <!-- LEFT — introduction -->
+      <div class="flex flex-col justify-center">
         <h1
-          class="animate-rise-in mt-6 text-5xl leading-[1.04] font-extrabold tracking-tight sm:text-6xl lg:text-6xl xl:text-7xl"
+          class="animate-rise-in text-5xl leading-[1.04] font-extrabold tracking-tight sm:text-6xl xl:text-7xl"
           style="animation-delay: 160ms"
         >
-          Hi, I'm Keyza.
-          <span class="mt-2 block font-serif text-[1.06em] font-normal italic text-note-yellow">
-            I turn ideas into
-            <span class="ink-underline">digital experiences</span>.
+          <span class="block text-base font-semibold tracking-[0.2em] text-cream/60 uppercase sm:text-lg">
+            {{ t('hero.greeting') }}
           </span>
+          <span class="mt-2 block whitespace-nowrap text-2xl sm:text-4xl xl:text-5xl">{{ t('hero.name') }}</span>
         </h1>
 
         <p
           class="animate-rise-in mt-7 max-w-xl text-base leading-relaxed text-cream/75 sm:text-lg"
           style="animation-delay: 260ms"
         >
-          Developer focused on building thoughtful web experiences, experimenting
-          with technology, and turning late-night ideas into useful products.
+          {{ t('hero.intro') }}
         </p>
 
         <div
@@ -94,126 +52,86 @@
         >
           <a
             href="#work"
-            class="group inline-flex -rotate-1 items-center gap-2 rounded-sm bg-cream px-6 py-3 text-sm font-bold text-emerald-deep shadow-paper transition-all duration-300 hover:translate-y-[-3px] hover:rotate-0 hover:shadow-paper-lift"
+            class="group inline-flex -rotate-1 items-center gap-2 rounded-sm bg-cream px-6 py-3 text-sm font-bold text-emerald-deep shadow-paper transition-all duration-300 hover:-translate-y-1 hover:rotate-0 hover:shadow-paper-lift"
           >
-            View My Work
-            <span
-              class="transition-transform duration-300 group-hover:translate-x-1"
-              aria-hidden="true"
-            >
-              →
-            </span>
+            {{ t('hero.viewWork') }}
+            <span class="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
           </a>
           <a
             href="#contact"
-            class="text-sm font-semibold text-cream/90 underline decoration-cream/40 underline-offset-8 transition-colors hover:text-note-yellow hover:decoration-note-yellow"
+            class="inline-flex rotate-[0.5deg] items-center rounded-sm border border-cream/35 px-6 py-3 text-sm font-semibold text-cream/90 transition-all duration-300 hover:-translate-y-1 hover:rotate-0 hover:border-cream/70 hover:bg-cream/5"
           >
-            Let's Talk
+            {{ t('hero.letsTalk') }}
           </a>
           <p
-            class="hand-arrow hidden rotate-[-4deg] xl:block"
+            class="hand-arrow hidden -rotate-3 xl:block"
             aria-hidden="true"
           >
-            start here!
+            {{ t('hero.startHere') }}
           </p>
-        </div>
-
-        <div class="mt-14 flex flex-wrap items-center gap-4 lg:hidden">
-          <ThePaper
-            color="yellow"
-            rotation="-2deg"
-            tape="top-left"
-            tape-color="rgba(255,255,255,0.5)"
-            class="animate-rise-in px-4 py-3"
-            style="animation-delay: 420ms"
-          >
-            <p class="font-hand text-lg leading-tight text-ink">
-              currently building<br />something new...
-            </p>
-          </ThePaper>
-          <ThePaper
-            color="blue"
-            rotation="2deg"
-            class="animate-rise-in px-4 py-3"
-            style="animation-delay: 500ms"
-          >
-            <p class="text-[11px] font-bold tracking-[0.2em] text-ink/80 uppercase">
-              available for<br />creative projects
-            </p>
-          </ThePaper>
         </div>
       </div>
 
-      <!-- Right paper rail -->
-      <div
-        class="hidden w-44 shrink-0 flex-col items-end justify-between py-10 lg:flex"
-        aria-hidden="true"
-      >
-        <ThePaper
-          color="cream"
-          rotation="2deg"
-          tape="top-right"
-          tape-color="rgba(216,230,239,0.8)"
-          class="paper-drift mr-2 mt-4 w-40 px-5 pt-8 pb-5"
-          style="--rise-delay: 560ms; --drift-duration: 8s"
+      <!-- RIGHT — the photograph -->
+      <div class="relative mt-14 lg:mt-0 lg:-mr-4 lg:translate-y-4 xl:-mr-12">
+        <div
+          class="animate-photo-in relative mx-auto w-full max-w-[20rem] sm:max-w-[24rem] lg:ml-auto lg:max-w-[27rem]"
+          style="animation-delay: 420ms"
         >
-          <ul class="space-y-2 text-sm font-bold tracking-[0.25em] text-ink/85 uppercase">
-            <li class="flex items-center gap-2">
-              <span class="inline-block size-2 bg-emerald-base" /> Code
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="inline-block size-2 border-2 border-ink/40" /> Design
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="inline-block size-2 border-2 border-ink/40" /> Experiment
-            </li>
-          </ul>
-        </ThePaper>
-
-        <svg
-          class="paper-drift mr-8 size-9 text-note-yellow"
-          style="--rise-delay: 800ms; --drift-duration: 6s; --tilt: 12deg"
-          viewBox="0 0 40 40"
-          fill="currentColor"
-        >
-          <path
-            d="M20 2c1.6 8.2 3.2 12.6 18 18-14.8 5.4-16.4 9.8-18 18-1.6-8.2-3.2-12.6-18-18 14.8-5.4 16.4-9.8 18-18Z"
-          />
-        </svg>
-
-        <ThePaper
-          color="pink"
-          rotation="3deg"
-          class="paper-drift mb-2 w-44 px-5 py-4"
-          style="--rise-delay: 640ms; --drift-duration: 9s"
-        >
-          <p class="text-[11px] font-bold tracking-[0.2em] text-ink/80 uppercase">
-            available for<br />creative projects
+          <p
+            class="paper-drift hand-arrow absolute -top-9 -left-1 z-10 -rotate-6 sm:-left-7"
+            style="--rise-delay: 900ms; --drift-duration: 8s; --tilt: -6deg; font-size: 1.9rem"
+            aria-hidden="true"
+          >
+            {{ t('hero.thatsMe') }}
           </p>
-          <p class="mt-2 font-hand text-lg leading-none text-emerald-deep/80">
-            say hello →
-          </p>
-        </ThePaper>
+
+          <figure
+            class="paper photo-sheet"
+            style="--tilt: -2.5deg; --paper-color: var(--color-cream-warm)"
+          >
+            <span
+              class="tape tape--top-center"
+              style="--tape-tilt: -5deg; --tape-color: rgba(246, 241, 228, 0.5)"
+              aria-hidden="true"
+            />
+            <div class="relative overflow-hidden border border-ink/15">
+              <NuxtImg
+                src="/images/keyza.webp"
+                alt="Portrait photograph of Keyza"
+                class="block aspect-[4/5] w-full object-cover"
+                width="640"
+                height="800"
+                fit="cover"
+                preload
+                fetchpriority="high"
+                decoding="async"
+              />
+              <div
+                class="pointer-events-none absolute inset-0 shadow-[inset_0_1px_6px_rgba(10,20,15,0.22)]"
+                aria-hidden="true"
+              />
+            </div>
+            <figcaption class="flex items-end justify-between gap-3 px-1.5 pt-3.5 pb-1.5">
+              <span class="-rotate-1 font-hand text-[1.7rem] leading-none text-ink/85">
+                {{ t('hero.photoCaption') }}
+              </span>
+              <span
+                class="mb-0.5 font-mono text-[9px] font-semibold tracking-[0.28em] text-ink/45 uppercase"
+              >
+                fig. 01
+              </span>
+            </figcaption>
+          </figure>
+        </div>
       </div>
     </div>
-
-    <svg
-      class="paper-drift pointer-events-none absolute bottom-[14%] left-[30%] hidden size-5 text-note-pink xl:block"
-      style="--rise-delay: 880ms; --drift-duration: 8s; --tilt: -6deg"
-      viewBox="0 0 40 40"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <path
-        d="M20 2c1.6 8.2 3.2 12.6 18 18-14.8 5.4-16.4 9.8-18 18-1.6-8.2-3.2-12.6-18-18 14.8-5.4 16.4-9.8 18-18Z"
-      />
-    </svg>
 
     <a
       href="#work"
       class="absolute bottom-7 left-1/2 hidden -translate-x-1/2 font-hand text-lg text-cream/50 transition-colors hover:text-note-yellow [@media(min-height:780px)]:block"
     >
-      keep exploring ↓
+      {{ t('hero.keepExploring') }}
     </a>
   </section>
 </template>
