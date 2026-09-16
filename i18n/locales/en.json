@@ -1,0 +1,175 @@
+{
+  "nav": {
+    "work": "Work",
+    "about": "About",
+    "journey": "Journey",
+    "blog": "Blog",
+    "contact": "Contact",
+    "letsTalk": "Let's Talk",
+    "language": "Language"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Keyza Zaki Arkana",
+    "intro": "I'm a junior web developer from Tasikmalaya, Indonesia, currently interning at CV Access Media — bringing good ideas to life through clean, purposeful code.",
+    "viewWork": "View My Work",
+    "letsTalk": "Let's Talk",
+    "startHere": "start here!",
+    "thatsMe": "that's me →",
+    "photoCaption": "building things since 2023",
+    "keepExploring": "keep exploring ↓"
+  },
+  "gallery": {
+    "prev": "Previous screenshot",
+    "next": "Next screenshot",
+    "dot": "Show screenshot {n}"
+  },
+  "projects": {
+    "eyebrow": "02 — Digital Works",
+    "titleA": "Selected",
+    "titleB": "Works",
+    "note1": "four favorites, picked with love",
+    "note2": "& a little bias",
+    "projectLabel": "Project {number}",
+    "viewProject": "View Project",
+    "viewProjectAria": "View details of {title}",
+    "detailsAria": "{title} project details",
+    "closeAria": "Close project details",
+    "projectMeta": "Project {number} / {year}",
+    "story": "The story",
+    "highlights": "Highlights",
+    "role": "Role",
+    "visitLive": "Visit Live Site",
+    "viewCode": "View Code",
+    "pressEsc": "press esc or click outside to close",
+    "items": {
+      "nihon": {
+        "short": "A production site from my internship at CV Access Media, with a Japanese-inspired identity.",
+        "description": "A production site from my internship at CV Access Media — clean structure, careful details, and a Japanese-inspired identity.",
+        "tagline": "details, done right",
+        "highlights": ["Production deployment", "Japanese-inspired design", "SEO-friendly structure"],
+        "role": "Web Developer Intern"
+      },
+      "karoto": {
+        "short": "An internship project at CV Access Media — designed and shipped for a real client.",
+        "description": "A website built during my internship at CV Access Media — designed and shipped for a real client, from first wireframe to deployment.",
+        "tagline": "client work, shipped",
+        "highlights": ["Built for a real client", "Responsive across devices", "Deployed to production"],
+        "role": "Web Developer Intern"
+      },
+      "pointku": {
+        "short": "A points and rewards platform — tracking and redeeming made simple, fast, and clear.",
+        "description": "A points platform that makes tracking and redeeming rewards simple — built to be fast, clear, and enjoyable to use.",
+        "tagline": "every point in its place",
+        "highlights": ["Point tracking dashboard", "Reward redemption flow", "Responsive everywhere"],
+        "role": "Frontend Developer"
+      },
+      "sipiket": {
+        "short": "A digital piket board for schools — duty rosters, attendance, and classroom accountability in one place.",
+        "description": "A digital piket board for schools — schedule duty rosters, record daily attendance, and keep every classroom accountable from a single dashboard.",
+        "tagline": "piket, minus the paper",
+        "highlights": ["Duty roster scheduling", "Daily attendance tracking", "Clean, single dashboard"],
+        "role": "Full-stack Developer"
+      }
+    }
+  },
+  "about": {
+    "eyebrow": "03 — About",
+    "titleA": "Behind",
+    "titleB": "the screen",
+    "lead": "I'm a junior web developer who enjoys turning ideas into real digital products.",
+    "body": "These days I'm interning as a web developer at CV Access Media, learning what real projects demand. Most of what I know comes from building things that didn't exist yet, breaking them, and building them better — from LKS Web Technology stages to an IoT win with my school's Electrical Engineering department. Right now I'm diving into cloud technologies: Linux, Docker, CI/CD, and GitHub Actions.",
+    "handNote": "actual desk energy →",
+    "currentlyInto": "CURRENTLY INTO",
+    "currentlyIntoText": "Cloud tech — Linux, Docker, CI/CD, GitHub Actions, SQL Server",
+    "internship": "INTERNSHIP",
+    "internshipText": "Web developer intern at CV Access Media",
+    "basedIn": "BASED IN",
+    "basedInText": "Tasikmalaya, Indonesia"
+  },
+  "skills": {
+    "eyebrow": "04 — Toolbox",
+    "titleA": "Tools of",
+    "titleB": "the trade",
+    "note1": "collected, tested,",
+    "note2": "and slightly loved",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "database": "Database",
+    "learning": "Currently Learning"
+  },
+  "journey": {
+    "eyebrow": "05 — Journey",
+    "titleA": "The journey",
+    "titleB": "so far",
+    "handNote": "one idea at a time →",
+    "milestones": {
+      "first": {
+        "title": "First line of code",
+        "text": "A curious “hello world” that quietly rewired my plans."
+      },
+      "serious": {
+        "title": "Started building seriously",
+        "text": "Learned by finishing small projects instead of starting big ones."
+      },
+      "lks2025": {
+        "title": "LKS Web Technology",
+        "text": "City level in Tasikmalaya. My first competition podium in web technology.",
+        "badge": "2nd Place — City"
+      },
+      "lks2026": {
+        "title": "LKS Web Technology",
+        "text": "City level in Tasikmalaya — champions, and a ticket to the provincial round.",
+        "badge": "1st Place — City"
+      },
+      "province": {
+        "title": "LKS West Java Provincial",
+        "text": "Representing Tasikmalaya against the best web developers across West Java.",
+        "badge": "6th Place — Province"
+      },
+      "iot": {
+        "title": "IoT Competition",
+        "text": "1st place in my school's Electrical Engineering department — hardware and code working together.",
+        "badge": "1st Place — IoT"
+      }
+    }
+  },
+  "blog": {
+    "eyebrow": "06 — Simple Blog",
+    "titleA": "Simple",
+    "titleB": "Blog",
+    "note1": "coverage of the work,",
+    "note2": "written by other people",
+    "readMore": "Read the article",
+    "opensInNewTab": "(opens in a new tab)",
+    "items": {
+      "tasikzone": {
+        "excerpt": "Local coverage of the LKS PPLG Kota Tasikmalaya 2025 event at SMK BPN Tasikmalaya, including the full Web Technology ranking.",
+        "imageAlt": "Participants working at laptops during the LKS PPLG Kota Tasikmalaya 2025 competition.",
+        "imageCredit": "Photo: Tasik Zone"
+      },
+      "radartasik": {
+        "excerpt": "A report on the city-level LKS PPLG 2025, listing the Web Technology winners and how the competition was judged.",
+        "imageAlt": "Participants taking part in the competition held by MGMP Kota Tasikmalaya at SMK BPN, Saturday 26 April 2025.",
+        "imageCredit": "Photo: Firgiawan/Radartasik.id"
+      }
+    }
+  },
+  "contact": {
+    "eyebrow": "07 — Say Hello",
+    "title": "Have an idea?",
+    "subtitle": "Let's make something worth remembering.",
+    "startConversation": "Start a Conversation",
+    "note": "no forms, just email — I reply fast"
+  },
+  "footer": {
+    "credit": "Designed & built by {name} — © 2026",
+    "thanks": "Thanks for stopping by.",
+    "endOfPage": "end of page — 07/07"
+  },
+  "seo": {
+    "title": "Keyza Zaki Arkana — Junior Web Developer",
+    "description": "Portfolio of Keyza Zaki Arkana, a junior web developer from Tasikmalaya, Indonesia — building clean, purposeful web experiences and currently interning at CV Access Media.",
+    "ogImageAlt": "Keyza Zaki Arkana — Junior Web Developer"
+  }
+}

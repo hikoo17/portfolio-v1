@@ -1,0 +1,176 @@
+{
+  "nav": {
+    "work": "Karya",
+    "about": "Tentang",
+    "journey": "Perjalanan",
+    "blog": "Blog",
+    "contact": "Kontak",
+    "letsTalk": "Ngobrol Yuk",
+    "language": "Bahasa"
+  },
+  "hero": {
+    "greeting": "Hai, aku",
+    "name": "Keyza Zaki Arkana",
+    "headingHighlight": "pengalaman digital",
+    "intro": "Aku junior web developer dari Tasikmalaya, Indonesia, yang sedang magang di CV Access Media — mewujudkan ide-ide baik lewat kode yang bersih dan bermakna.",
+    "viewWork": "Lihat Karyaku",
+    "letsTalk": "Ngobrol Yuk",
+    "startHere": "mulai di sini!",
+    "thatsMe": "ini aku →",
+    "photoCaption": "ngoding sejak 2023",
+    "keepExploring": "lanjut scroll ↓"
+  },
+  "gallery": {
+    "prev": "Screenshot sebelumnya",
+    "next": "Screenshot berikutnya",
+    "dot": "Tampilkan screenshot {n}"
+  },
+  "projects": {
+    "eyebrow": "02 — Karya Digital",
+    "titleA": "Karya",
+    "titleB": "Pilihan",
+    "note1": "empat favorit, dipilih dengan cinta",
+    "note2": "& sedikit bias",
+    "projectLabel": "Proyek {number}",
+    "viewProject": "Lihat Proyek",
+    "viewProjectAria": "Lihat detail {title}",
+    "detailsAria": "Detail proyek {title}",
+    "closeAria": "Tutup detail proyek",
+    "projectMeta": "Proyek {number} / {year}",
+    "story": "Ceritanya",
+    "highlights": "Poin Utama",
+    "role": "Peran",
+    "visitLive": "Kunjungi Situs",
+    "viewCode": "Lihat Kode",
+    "pressEsc": "tekan esc atau klik di luar untuk menutup",
+    "items": {
+      "nihon": {
+        "short": "Situs produksi dari magangku di CV Access Media, dengan identitas bergaya Jepang.",
+        "description": "Situs produksi dari magangku di CV Access Media — struktur rapi, detail cermat, dan identitas bergaya Jepang.",
+        "tagline": "detail, ditangani dengan tepat",
+        "highlights": ["Deploy ke produksi", "Desain bergaya Jepang", "Struktur ramah SEO"],
+        "role": "Magang Web Developer"
+      },
+      "karoto": {
+        "short": "Proyek magang di CV Access Media — didesain dan dikirim untuk klien sungguhan.",
+        "description": "Website yang kubangun selama magang di CV Access Media — didesain dan diluncurkan untuk klien sungguhan, dari wireframe pertama hingga deploy.",
+        "tagline": "karya klien, sudah rilis",
+        "highlights": ["Dibuat untuk klien sungguhan", "Responsif di semua perangkat", "Sudah live di produksi"],
+        "role": "Magang Web Developer"
+      },
+      "pointku": {
+        "short": "Platform poin dan hadiah — pelacakan dan penukaran yang sederhana, cepat, dan jelas.",
+        "description": "Platform poin yang membuat pelacakan dan penukaran hadiah jadi sederhana — dibangun agar cepat, jelas, dan menyenangkan digunakan.",
+        "tagline": "setiap poin di tempatnya",
+        "highlights": ["Dashboard pelacakan poin", "Alur penukaran hadiah", "Responsif di mana saja"],
+        "role": "Frontend Developer"
+      },
+      "sipiket": {
+        "short": "Papan piket digital untuk sekolah — jadwal piket, absensi, dan tanggung jawab kelas dalam satu tempat.",
+        "description": "Papan piket digital untuk sekolah — atur jadwal piket, catat absensi harian, dan pantau tanggung jawab tiap kelas dari satu dashboard.",
+        "tagline": "piket, tanpa kertas",
+        "highlights": ["Penjadwalan jadwal piket", "Pencatatan absensi harian", "Satu dashboard yang rapi"],
+        "role": "Full-stack Developer"
+      }
+    }
+  },
+  "about": {
+    "eyebrow": "03 — Tentang",
+    "titleA": "Di balik",
+    "titleB": "layar",
+    "lead": "Aku junior web developer yang senang mengubah ide menjadi produk digital nyata.",
+    "body": "Belakangan ini aku magang sebagai web developer di CV Access Media, belajar apa yang dibutuhkan proyek sungguhan. Sebagian besar ilmuku datang dari membangun sesuatu yang belum ada, merusaknya, lalu membangunnya lebih baik — dari panggung LKS Web Technology hingga juara IoT di jurusan Teknik Listrik sekolahku. Sekarang aku sedang mendalami teknologi cloud: Linux, Docker, CI/CD, dan GitHub Actions.",
+    "handNote": "energi meja kerja asli →",
+    "currentlyInto": "SEDANG DIPELAJARI",
+    "currentlyIntoText": "Teknologi cloud — Linux, Docker, CI/CD, GitHub Actions, SQL Server",
+    "internship": "MAGANG",
+    "internshipText": "Magang web developer di CV Access Media",
+    "basedIn": "BERDOMISILI DI",
+    "basedInText": "Tasikmalaya, Indonesia"
+  },
+  "skills": {
+    "eyebrow": "04 — Toolbox",
+    "titleA": "Perkakas",
+    "titleB": "andalan",
+    "note1": "dikumpulkan, diuji,",
+    "note2": "& sedikit disayang",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "database": "Database",
+    "learning": "Sedang Dipelajari"
+  },
+  "journey": {
+    "eyebrow": "05 — Perjalanan",
+    "titleA": "Perjalanan",
+    "titleB": "sejauh ini",
+    "handNote": "satu ide per langkah →",
+    "milestones": {
+      "first": {
+        "title": "Baris kode pertama",
+        "text": "“Hello world” penasaran yang diam-diam mengubah rencanaku."
+      },
+      "serious": {
+        "title": "Mulai serius membangun",
+        "text": "Belajar dengan menyelesaikan proyek kecil, bukan sekadar memulai proyek besar."
+      },
+      "lks2025": {
+        "title": "LKS Web Technology",
+        "text": "Tingkat kota di Tasikmalaya. Podium kompetisi pertamaku di bidang web technology.",
+        "badge": "Juara 2 — Kota"
+      },
+      "lks2026": {
+        "title": "LKS Web Technology",
+        "text": "Tingkat kota di Tasikmalaya — juara, dan tiket ke babak provinsi.",
+        "badge": "Juara 1 — Kota"
+      },
+      "province": {
+        "title": "LKS Jawa Barat",
+        "text": "Mewakili Tasikmalaya melawan web developer terbaik se-Jawa Barat.",
+        "badge": "Juara 6 — Provinsi"
+      },
+      "iot": {
+        "title": "Kompetisi IoT",
+        "text": "Juara 1 di jurusan Teknik Listrik sekolahku — hardware dan kode bekerja sama.",
+        "badge": "Juara 1 — IoT"
+      }
+    }
+  },
+  "blog": {
+    "eyebrow": "06 — Blog Sederhana",
+    "titleA": "Blog",
+    "titleB": "Sederhana",
+    "note1": "liputan tentang karya,",
+    "note2": "ditulis orang lain",
+    "readMore": "Baca artikel",
+    "opensInNewTab": "(terbuka di tab baru)",
+    "items": {
+      "tasikzone": {
+        "excerpt": "Liputan lokal soal LKS PPLG Kota Tasikmalaya 2025 di SMK BPN Tasikmalaya, lengkap dengan peringkat kategori Web Technology.",
+        "imageAlt": "Peserta mengerjakan soal di laptop saat lomba LKS PPLG Kota Tasikmalaya 2025.",
+        "imageCredit": "Foto: Tasik Zone"
+      },
+      "radartasik": {
+        "excerpt": "Laporan soal LKS PPLG tingkat kota 2025, memuat daftar juara Web Technology dan cara penilaian lombanya.",
+        "imageAlt": "Peserta mengikuti perlombaan yang digelar MGMP Kota Tasikmalaya di SMK BPN, Sabtu 26 April 2025.",
+        "imageCredit": "Foto: Firgiawan/Radartasik.id"
+      }
+    }
+  },
+  "contact": {
+    "eyebrow": "07 — Sapa Aku",
+    "title": "Punya ide?",
+    "subtitle": "Mari buat sesuatu yang berkesan.",
+    "startConversation": "Mulai Obrolan",
+    "note": "tanpa form, cukup email — aku balas cepat"
+  },
+  "footer": {
+    "credit": "Didesain & dibangun oleh {name} — © 2026",
+    "thanks": "Terima kasih sudah mampir.",
+    "endOfPage": "akhir halaman — 07/07"
+  },
+  "seo": {
+    "title": "Keyza Zaki Arkana — Junior Web Developer",
+    "description": "Portofolio Keyza Zaki Arkana, junior web developer dari Tasikmalaya, Indonesia — membangun pengalaman web yang bersih dan bermakna, saat ini magang di CV Access Media.",
+    "ogImageAlt": "Keyza Zaki Arkana — Junior Web Developer"
+  }
+}
