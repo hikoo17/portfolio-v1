@@ -16,7 +16,7 @@ const groups = [
   },
   {
     titleKey: 'skills.learning',
-    items: ['Linux', 'Docker', 'GitHub Actions', 'CI/CD'],
+    items: ['Linux', 'Docker', 'CI/CD', 'AWS'],
   },
 ]
 
