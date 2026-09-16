@@ -1,12 +1,26 @@
 <script setup lang="ts">
 const open = ref(false)
 
-const links = [
-  { label: 'Work', href: '#work' },
-  { label: 'About', href: '#about' },
-  { label: 'Journey', href: '#journey' },
-  { label: 'Contact', href: '#contact' },
+const { t, locale, setLocale } = useI18n()
+const localeCookie = useCookie('locale', { maxAge: 31536000 })
+
+async function switchLocale(code: string) {
+  await setLocale(code)
+  localeCookie.value = code
+}
+
+const localeOptions = [
+  { code: 'en', label: 'EN' },
+  { code: 'id', label: 'ID' },
 ]
+
+const links = computed(() => [
+  { label: t('nav.work'), href: '#work' },
+  { label: t('nav.about'), href: '#about' },
+  { label: t('nav.journey'), href: '#journey' },
+  { label: t('nav.blog'), href: '#blog' },
+  { label: t('nav.contact'), href: '#contact' },
+])
 </script>
 
 <template>
@@ -15,8 +29,8 @@ const links = [
       class="animate-rise-in relative flex w-full max-w-3xl items-center justify-between gap-4 rounded-full bg-cream/95 py-2.5 pr-2.5 pl-5 shadow-paper backdrop-blur-sm"
       aria-label="Main navigation"
     >
-      <a href="#top" class="flex items-baseline gap-1 font-serif text-xl italic text-ink">
-        Keyza<span class="font-sans text-sm font-bold not-italic text-emerald-base">.dev</span>
+      <a href="#top" class="font-serif text-xl italic text-ink">
+        Keyza
       </a>
 
       <ul class="hidden items-center gap-6 md:flex">
@@ -31,12 +45,23 @@ const links = [
       </ul>
 
       <div class="flex items-center gap-2">
-        <a
-          href="#contact"
-          class="hidden rounded-full bg-emerald-base px-4 py-1.5 text-sm font-semibold text-cream shadow-sm transition-colors hover:bg-emerald-deep sm:inline-block"
+        <div
+          class="flex items-center rounded-full border border-ink/15 p-0.5"
+          role="group"
+          :aria-label="t('nav.language')"
         >
-          Let's Talk
-        </a>
+          <button
+            v-for="l in localeOptions"
+            :key="l.code"
+            type="button"
+            class="cursor-pointer rounded-full px-2 py-0.5 text-[11px] font-bold tracking-wide transition-colors"
+            :class="locale === l.code ? 'bg-emerald-base text-cream' : 'text-ink-soft hover:text-emerald-deep'"
+            :aria-pressed="locale === l.code"
+            @click="switchLocale(l.code)"
+          >
+            {{ l.label }}
+          </button>
+        </div>
 
         <button
           type="button"
@@ -93,7 +118,7 @@ const links = [
               class="block rounded-sm px-3 py-2 text-sm font-semibold text-emerald-deep"
               @click="open = false"
             >
-              Let's Talk →
+              {{ t('nav.letsTalk') }} →
             </a>
           </li>
         </ul>

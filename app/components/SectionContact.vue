@@ -1,9 +1,10 @@
 <script setup lang="ts">
+const { t } = useI18n()
+
 const channels = [
-  { label: 'Email', value: 'hello@keyza.dev', href: 'mailto:hello@keyza.dev', color: 'white' as const, rotation: '-2deg' },
-  { label: 'GitHub', value: '@keyza', href: 'https://github.com', color: 'blue' as const, rotation: '1.5deg' },
-  { label: 'LinkedIn', value: '/in/keyza', href: 'https://linkedin.com', color: 'green' as const, rotation: '-1deg' },
-  { label: 'Instagram', value: '@keyza.makes', href: 'https://instagram.com', color: 'pink' as const, rotation: '2deg' },
+  { label: 'Email', value: 'thespikekeyza@gmail.com', href: 'mailto:thespikekeyza@gmail.com', color: 'white' as const, rotation: '-2deg' },
+  { label: 'GitHub', value: '@hikoo17', href: 'https://github.com/hikoo17', color: 'blue' as const, rotation: '1.5deg' },
+  { label: 'LinkedIn', value: 'in/keyza-zaki', href: 'https://www.linkedin.com/in/keyza-zaki-18324741b', color: 'green' as const, rotation: '-1.2deg' },
 ]
 </script>
 
@@ -14,28 +15,28 @@ const channels = [
   >
     <div class="mx-auto max-w-4xl px-6 text-center lg:px-8">
       <p class="reveal font-mono text-[11px] font-semibold tracking-[0.3em] text-ink-faint uppercase">
-        06 — Say Hello
+        {{ t('contact.eyebrow') }}
       </p>
 
       <h2
         class="reveal mt-4 text-5xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl"
         :style="{ '--reveal-delay': '80ms' }"
       >
-        Have an idea?
+        {{ t('contact.title') }}
       </h2>
       <p
         class="reveal mt-4 font-serif text-2xl italic text-ink-soft sm:text-3xl"
         :style="{ '--reveal-delay': '160ms' }"
       >
-        Let's make something worth remembering.
+        {{ t('contact.subtitle') }}
       </p>
 
       <div class="reveal mt-10" :style="{ '--reveal-delay': '240ms' }">
         <a
-          href="mailto:hello@keyza.dev"
+          href="mailto:thespikekeyza@gmail.com"
           class="group inline-flex -rotate-1 items-center gap-2 rounded-sm bg-emerald-base px-8 py-4 text-base font-bold text-cream shadow-paper transition-all duration-300 hover:translate-y-[-3px] hover:rotate-0 hover:shadow-paper-lift"
         >
-          Start a Conversation
+          {{ t('contact.startConversation') }}
           <span
             class="transition-transform duration-300 group-hover:translate-x-1"
             aria-hidden="true"
@@ -44,7 +45,7 @@ const channels = [
           </span>
         </a>
         <p class="mt-4 font-hand text-xl text-ink-faint" aria-hidden="true">
-          no forms, just email — I reply fast
+          {{ t('contact.note') }}
         </p>
       </div>
 
