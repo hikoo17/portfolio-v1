@@ -36,6 +36,9 @@ useSeoMeta({
 <template>
   <div id="top" class="bg-emerald-deep">
     <NuxtRouteAnnouncer />
+    <ClientOnly>
+      <ScrollProgress />
+    </ClientOnly>
     <AppNavbar />
     <main>
       <AppHero />
