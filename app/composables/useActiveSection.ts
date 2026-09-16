@@ -18,15 +18,22 @@ export function useActiveSection(ids: string[]) {
     }
 
     // A thin band around the middle of the viewport decides which section is
-    // "current", so the indicator flips as soon as a section reaches reading
-    // position instead of waiting for it to fill most of the screen.
+    // "current". Sections are tracked as a set rather than overwritten per
+    // entry, so scrolling back up leaves no stale section highlighted and the
+    // empty state (hero) can be used to mark "Home" active.
+    const visible = new Set<string>()
+
     observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            activeId.value = entry.target.id
+            visible.add(entry.target.id)
+          } else {
+            visible.delete(entry.target.id)
           }
         }
+
+        activeId.value = ids.find((id) => visible.has(id)) ?? ''
       },
       { rootMargin: '-45% 0px -50% 0px', threshold: 0 },
     )
