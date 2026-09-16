@@ -97,11 +97,11 @@ export default defineNuxtConfig({
     ],
     defaultLocale: 'en',
     strategy: 'no_prefix',
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'locale',
-      redirectOn: 'root',
-    },
+    // Always boot in English. Browser-language detection runs on the client
+    // only, so a phone with `id-ID` re-rendered the prerendered English page
+    // into Indonesian after hydration and desynced the language toggle.
+    // An explicit choice is persisted in the `locale` cookie instead.
+    detectBrowserLanguage: false,
   },
 
   sitemap: {
