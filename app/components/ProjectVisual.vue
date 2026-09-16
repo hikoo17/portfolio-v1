@@ -1,7 +1,8 @@
 <script setup lang="ts">
 defineProps<{
-  variant: 'pos' | 'plant' | 'quiz' | 'art'
+  variant?: 'pos' | 'plant' | 'quiz' | 'art'
   label: string
+  image?: string
 }>()
 </script>
 
@@ -9,8 +10,21 @@ defineProps<{
   <div
     class="relative aspect-[16/10] w-full overflow-hidden rounded-sm border border-ink/10 transition-transform duration-500 ease-out group-hover:scale-[1.04]"
     role="img"
-    :aria-label="`Abstract preview of the ${label} project`"
+    :aria-label="`Preview of the ${label} project`"
   >
+    <NuxtImg
+      v-if="image"
+      :src="image"
+      :alt="`Screenshot of the ${label} website`"
+      class="absolute inset-0 h-full w-full bg-white object-contain"
+      width="640"
+      height="400"
+      fit="inside"
+      loading="lazy"
+      decoding="async"
+    />
+
+    <template v-else>
     <div
       class="absolute inset-0 bg-gradient-to-br from-emerald-soft via-emerald-deep to-[#03302a]"
       aria-hidden="true"
@@ -117,6 +131,7 @@ defineProps<{
           />
         </div>
       </div>
+    </template>
     </template>
   </div>
 </template>

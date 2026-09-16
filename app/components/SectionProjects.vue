@@ -1,99 +1,92 @@
 <script setup lang="ts">
 import type { ProjectDetail } from './ProjectModal.vue'
 
-const projects: (ProjectDetail & { rotation: string; span: string; short: string })[] = [
+const { t } = useI18n()
+
+interface ProjectCard extends ProjectDetail {
+  rotation: string
+  span: string
+}
+
+const projects: ProjectCard[] = [
   {
+    key: 'nihon',
     number: '01',
-    title: 'Kirana',
-    description:
-      'Inventory and point-of-sale platform for small neighborhood shops — stock, sales, and insights in one place.',
-    short:
-      'Inventory and point-of-sale platform for small neighborhood shops — stock, sales, and insights in one place.',
-    tagline: 'small shops, serious software',
-    highlights: [
-      'Offline-first stock syncing',
-      'Daily sales reports',
-      'Receipt printing',
-    ],
-    tags: ['Laravel', 'Vue', 'Inertia', 'MySQL'],
-    role: 'Full-stack Developer',
+    title: 'NihonAccess',
     year: '2026',
-    variant: 'pos' as const,
     rotation: '-1.4deg',
     span: 'lg:col-span-7',
-    liveUrl: '#',
-    codeUrl: '#',
+    tags: ['JavaScript', 'CSS3', 'PHP'],
+    images: {
+      front: '/images/nihon-accessmedia-id-front.png',
+      left: '/images/nihon-accessmedia-id-left.png',
+      right: '/images/nihon-accessmedia-id-right.png',
+    },
+    liveUrl: 'https://nihon.accessmedia.id',
+    codeUrl: 'https://github.com/hikoo17',
   },
   {
+    key: 'karoto',
     number: '02',
-    title: 'Tandur',
-    description:
-      'A plant-care journal PWA with watering reminders and growth photos you actually enjoy keeping.',
-    short:
-      'A plant-care journal PWA with watering reminders and growth photos you actually enjoy keeping.',
-    tagline: 'for plants that deserve better',
-    highlights: [
-      'Smart watering reminders',
-      'Growth photo timeline',
-      'Installable PWA',
-    ],
-    tags: ['Nuxt', 'TypeScript', 'PostgreSQL'],
-    role: 'Solo Builder',
-    year: '2025',
-    variant: 'plant' as const,
+    title: 'Karoto',
+    year: '2026',
     rotation: '1.8deg',
     span: 'lg:col-span-5 lg:mt-16',
-    liveUrl: '#',
-    codeUrl: '#',
+    tags: ['JavaScript', 'CSS3', 'PHP'],
+    images: {
+      front: '/images/karoto-accessmedia-id-front.png',
+      left: '/images/karoto-accessmedia-id-left.png',
+      right: '/images/karoto-accessmedia-id-right.png',
+    },
+    liveUrl: 'https://karoto.accessmedia.id',
+    codeUrl: 'https://github.com/hikoo17',
   },
   {
+    key: 'pointku',
     number: '03',
-    title: 'Ketuk',
-    description:
-      'Realtime quiz arena for classrooms — live leaderboards, instant scoring, and loud celebrations.',
-    short:
-      'Realtime quiz arena for classrooms — live leaderboards, instant scoring, and loud celebrations.',
-    tagline: 'learning, but make it loud',
-    highlights: [
-      'Realtime WebSocket scoring',
-      'Live leaderboard screen',
-      'Room codes, zero logins',
-    ],
-    tags: ['Laravel', 'WebSocket', 'Redis'],
-    role: 'Backend & Realtime',
-    year: '2025',
-    variant: 'quiz' as const,
+    title: 'Pointku',
+    year: '2026',
     rotation: '1.2deg',
     span: 'lg:col-span-5',
-    liveUrl: '#',
-    codeUrl: '#',
+    tags: ['Vue.js', 'TypeScript', 'Tailwind CSS'],
+    images: {
+      front: '/images/pointku-kezadev-my-id-front.png',
+      left: '/images/pointku-kezadev-my-id-left.png',
+      right: '/images/pointku-kezadev-my-id-right.png',
+    },
+    liveUrl: 'https://pointku.kezadev.my.id',
+    codeUrl: 'https://github.com/hikoo17',
   },
   {
+    key: 'sipiket',
     number: '04',
-    title: 'Rupa',
-    description:
-      'A generative art playground where code paints pictures — patterns, palettes, and happy accidents.',
-    short:
-      'A generative art playground where code paints pictures — patterns, palettes, and happy accidents.',
-    tagline: 'code that paints',
-    highlights: [
-      'Seeded pattern generator',
-      'Palette mixer',
-      'One-click PNG export',
-    ],
-    tags: ['Canvas API', 'TypeScript'],
-    role: 'Creative Developer',
-    year: '2024',
-    variant: 'art' as const,
+    title: 'SI-Piket',
+    year: '2026',
     rotation: '-1.6deg',
     span: 'lg:col-span-7 lg:mt-16',
-    liveUrl: '#',
-    codeUrl: '#',
+    tags: ['Laravel', 'MySQL', 'Tailwind CSS'],
+    images: {
+      front: '/images/si-piket-kezadev-my-id-front.png',
+      left: '/images/si-piket-kezadev-my-id-left.png',
+      right: '/images/si-piket-kezadev-my-id-right.png',
+    },
+    liveUrl: 'https://si-piket.kezadev.my.id',
+    codeUrl: 'https://github.com/hikoo17',
   },
 ]
 
 const activeProject = ref<ProjectDetail | null>(null)
 const lastTrigger = ref<HTMLElement | null>(null)
+
+// The project modal is client-only, so its screenshots are never part of the
+// initial render. Rendering them here (hidden + lazy) lets the static image
+// provider emit every optimized variant at build time, while costing the
+// browser no layout, paint or network work.
+const modalImages = projects.flatMap((project) => [
+  project.images.front,
+  project.images.left,
+  project.images.right,
+])
 
 function openProject(p: ProjectDetail, e: Event) {
   lastTrigger.value = e.currentTarget as HTMLElement
@@ -114,21 +107,21 @@ watch(activeProject, (open) => {
       <div class="reveal flex flex-wrap items-end justify-between gap-6">
         <div>
           <p class="font-mono text-[11px] font-semibold tracking-[0.3em] text-ink-faint uppercase">
-            02 — Digital Works
+            {{ t('projects.eyebrow') }}
           </p>
           <h2 class="mt-3 text-4xl font-extrabold tracking-tight sm:text-5xl">
-            Selected <span class="font-serif font-normal italic">Works</span>
+            {{ t('projects.titleA') }} <span class="font-serif font-normal italic">{{ t('projects.titleB') }}</span>
           </h2>
         </div>
         <p class="max-w-xs font-hand text-xl leading-tight text-ink-faint">
-          four favorites, picked with love<br />& a little bias
+          {{ t('projects.note1') }}<br />{{ t('projects.note2') }}
         </p>
       </div>
 
       <div class="mt-16 grid gap-10 lg:grid-cols-12 lg:gap-x-12">
         <article
           v-for="(project, i) in projects"
-          :key="project.title"
+          :key="project.key"
           class="reveal group"
           :class="project.span"
           :style="{ '--reveal-delay': `${(i % 2) * 120}ms` }"
@@ -144,20 +137,20 @@ watch(activeProject, (open) => {
               <p
                 class="font-mono text-[10px] font-semibold tracking-[0.3em] text-ink-faint uppercase"
               >
-                Project {{ project.number }}
+                {{ t('projects.projectLabel', { number: project.number }) }}
               </p>
               <p class="font-hand text-xl leading-none text-emerald-deep/70">
                 {{ project.year }}
               </p>
             </div>
 
-            <ProjectVisual :variant="project.variant" :label="project.title" class="mt-4" />
+            <ProjectVisual :label="project.title" :image="project.images.front" class="mt-4" />
 
             <h3 class="mt-5 text-2xl font-bold tracking-tight">
               {{ project.title }}
             </h3>
             <p class="mt-2 text-sm leading-relaxed text-ink-soft">
-              {{ project.short }}
+              {{ t(`projects.items.${project.key}.short`) }}
             </p>
 
             <div class="mt-4 flex flex-wrap gap-2">
@@ -173,10 +166,10 @@ watch(activeProject, (open) => {
             <button
               type="button"
               class="mt-5 inline-flex cursor-pointer items-center gap-1.5 text-sm font-bold text-emerald-deep transition-colors hover:text-emerald-soft"
-              :aria-label="`View details of ${project.title}`"
+              :aria-label="t('projects.viewProjectAria', { title: project.title })"
               @click="openProject(project, $event)"
             >
-              View Project
+              {{ t('projects.viewProject') }}
               <span
                 class="transition-transform duration-300 group-hover:translate-x-1"
                 aria-hidden="true"
@@ -187,6 +180,20 @@ watch(activeProject, (open) => {
           </ThePaper>
         </article>
       </div>
+    </div>
+
+    <div hidden aria-hidden="true">
+      <NuxtImg
+        v-for="src in modalImages"
+        :key="src"
+        :src="src"
+        width="640"
+        height="440"
+        fit="inside"
+        loading="lazy"
+        decoding="async"
+        alt=""
+      />
     </div>
 
     <ProjectModal :project="activeProject" @close="activeProject = null" />

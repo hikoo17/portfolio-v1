@@ -1,17 +1,16 @@
 <script setup lang="ts">
 export interface ProjectDetail {
+  key: string
   number: string
   title: string
   year: string
-  variant: 'pos' | 'plant' | 'quiz' | 'art'
-  tagline: string
-  description: string
-  highlights: string[]
   tags: string[]
-  role: string
+  images?: { front: string; left: string; right: string }
   liveUrl: string
   codeUrl: string
 }
+
+const { t, tm, rt } = useI18n()
 
 const props = defineProps<{
   project: ProjectDetail | null
@@ -20,6 +19,13 @@ const props = defineProps<{
 const emit = defineEmits<{
   close: []
 }>()
+
+const highlights = computed(() => {
+  if (!props.project) return []
+  const raw = tm(`projects.items.${props.project.key}.highlights`)
+  if (!Array.isArray(raw)) return []
+  return raw.map(highlight => rt(highlight))
+})
 
 const panel = ref<HTMLElement | null>(null)
 const closeButton = ref<HTMLButtonElement | null>(null)
@@ -96,7 +102,7 @@ onBeforeUnmount(() => {
             ref="panel"
             role="dialog"
             aria-modal="true"
-            :aria-label="`${project.title} project details`"
+            :aria-label="t('projects.detailsAria', { title: project.title })"
             class="relative my-auto w-full max-w-2xl"
           >
             <ThePaper
@@ -110,7 +116,7 @@ onBeforeUnmount(() => {
                 ref="closeButton"
                 type="button"
                 class="absolute top-4 right-4 rounded-full p-2 text-ink/60 transition-colors hover:bg-ink/10 hover:text-ink"
-                aria-label="Close project details"
+                :aria-label="t('projects.closeAria')"
                 @click="emit('close')"
               >
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -120,7 +126,7 @@ onBeforeUnmount(() => {
 
               <div class="flex items-center justify-between pr-10">
                 <p class="font-mono text-[10px] font-semibold tracking-[0.3em] text-ink-faint uppercase">
-                  Project {{ project.number }} / {{ project.year }}
+                  {{ t('projects.projectMeta', { number: project.number, year: project.year }) }}
                 </p>
               </div>
 
@@ -128,11 +134,12 @@ onBeforeUnmount(() => {
                 {{ project.title }}
               </h3>
               <p class="mt-1 font-hand text-2xl text-emerald-deep/75">
-                {{ project.tagline }}
+                {{ t(`projects.items.${project.key}.tagline`) }}
               </p>
 
-              <ProjectVisual
-                :variant="project.variant"
+              <LazyProjectGallery
+                v-if="project.images"
+                :images="[project.images.front, project.images.left, project.images.right]"
                 :label="project.title"
                 class="mt-6"
               />
@@ -140,19 +147,19 @@ onBeforeUnmount(() => {
               <div class="mt-6 grid gap-6 sm:grid-cols-5">
                 <div class="sm:col-span-3">
                   <h4 class="font-mono text-[10px] font-bold tracking-[0.3em] text-ink-faint uppercase">
-                    The story
+                    {{ t('projects.story') }}
                   </h4>
                   <p class="mt-2 text-sm leading-relaxed text-ink-soft">
-                    {{ project.description }}
+                    {{ t(`projects.items.${project.key}.description`) }}
                   </p>
                 </div>
                 <div class="sm:col-span-2">
                   <h4 class="font-mono text-[10px] font-bold tracking-[0.3em] text-ink-faint uppercase">
-                    Highlights
+                    {{ t('projects.highlights') }}
                   </h4>
                   <ul class="mt-2 space-y-1.5">
                     <li
-                      v-for="h in project.highlights"
+                      v-for="h in highlights"
                       :key="h"
                       class="flex gap-2 text-sm text-ink-soft"
                     >
@@ -161,9 +168,11 @@ onBeforeUnmount(() => {
                     </li>
                   </ul>
                   <h4 class="mt-5 font-mono text-[10px] font-bold tracking-[0.3em] text-ink-faint uppercase">
-                    Role
+                    {{ t('projects.role') }}
                   </h4>
-                  <p class="mt-1 text-sm font-semibold text-ink">{{ project.role }}</p>
+                  <p class="mt-1 text-sm font-semibold text-ink">
+                    {{ t(`projects.items.${project.key}.role`) }}
+                  </p>
                 </div>
               </div>
 
@@ -184,7 +193,7 @@ onBeforeUnmount(() => {
                   rel="noopener noreferrer"
                   class="group inline-flex -rotate-1 items-center gap-2 rounded-sm bg-emerald-base px-5 py-2.5 text-sm font-bold text-cream shadow-paper transition-all duration-300 hover:-translate-y-0.5 hover:rotate-0 hover:shadow-paper-lift"
                 >
-                  Visit Live Site
+                  {{ t('projects.visitLive') }}
                   <span class="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
                 </a>
                 <a
@@ -193,7 +202,7 @@ onBeforeUnmount(() => {
                   rel="noopener noreferrer"
                   class="text-sm font-semibold text-ink underline decoration-ink/30 underline-offset-8 transition-colors hover:text-emerald-deep hover:decoration-emerald-deep"
                 >
-                  View Code
+                  {{ t('projects.viewCode') }}
                 </a>
               </div>
             </ThePaper>
@@ -202,7 +211,7 @@ onBeforeUnmount(() => {
               class="mt-4 text-center font-hand text-lg text-cream/70"
               aria-hidden="true"
             >
-              press esc or click outside to close
+              {{ t('projects.pressEsc') }}
             </p>
           </div>
         </Transition>
