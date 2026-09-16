@@ -12,7 +12,7 @@
   "hero": {
     "greeting": "Hi, I'm",
     "name": "Keyza Zaki Arkana",
-    "intro": "I'm a junior web developer from Tasikmalaya, Indonesia, currently interning at CV Access Media — bringing good ideas to life through clean, purposeful code.",
+    "intro": "Web Developer focused on turning ideas into functional and meaningful digital experiences. I build web applications with clean interfaces, thoughtful solutions, and a focus on real-world needs.",
     "viewWork": "View My Work",
     "letsTalk": "Let's Talk",
     "startHere": "start here!",
@@ -78,11 +78,11 @@
     "eyebrow": "03 — About",
     "titleA": "Behind",
     "titleB": "the screen",
-    "lead": "I'm a junior web developer who enjoys turning ideas into real digital products.",
-    "body": "These days I'm interning as a web developer at CV Access Media, learning what real projects demand. Most of what I know comes from building things that didn't exist yet, breaking them, and building them better — from LKS Web Technology stages to an IoT win with my school's Electrical Engineering department. Right now I'm diving into cloud technologies: Linux, Docker, CI/CD, and GitHub Actions.",
+    "lead": "Web Developer focused on turning ideas into functional and meaningful digital experiences.",
+    "body": "I build web applications with clean interfaces, thoughtful solutions, and a focus on real-world needs.",
     "handNote": "actual desk energy →",
     "currentlyInto": "CURRENTLY INTO",
-    "currentlyIntoText": "Cloud tech — Linux, Docker, CI/CD, GitHub Actions, SQL Server",
+    "currentlyIntoText": "Cloud tech — Linux, Docker, CI/CD, SQL Server, AWS",
     "internship": "INTERNSHIP",
     "internshipText": "Web developer intern at CV Access Media",
     "basedIn": "BASED IN",
@@ -170,7 +170,7 @@
   },
   "seo": {
     "title": "Keyza Zaki Arkana — Portfolio",
-    "description": "Portfolio of Keyza Zaki Arkana, a junior web developer from Tasikmalaya, Indonesia — building clean, purposeful web experiences and currently interning at CV Access Media.",
-    "ogImageAlt": "Keyza Zaki Arkana — Junior Web Developer"
+    "description": "Portfolio of Keyza Zaki Arkana, a web developer from Tasikmalaya, Indonesia — building clean, purposeful web experiences and currently interning at CV Access Media.",
+    "ogImageAlt": "Keyza Zaki Arkana — Web Developer"
   }
 }
