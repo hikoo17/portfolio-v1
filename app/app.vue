@@ -1,25 +1,35 @@
 <script setup lang="ts">
-onMounted(() => {
-  const elements = document.querySelectorAll('.reveal')
-  if (!('IntersectionObserver' in window)) {
-    elements.forEach((el) => el.classList.add('is-visible'))
-    return
-  }
+const { t, locale } = useI18n()
+const { siteUrl } = useRuntimeConfig().public
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible')
-          observer.unobserve(entry.target)
-        }
-      }
-    },
-    { threshold: 0.12, rootMargin: '0px 0px -48px 0px' },
-  )
+useScrollReveal()
 
-  elements.forEach((el) => observer.observe(el))
-  onBeforeUnmount(() => observer.disconnect())
+useHead({
+  htmlAttrs: { lang: () => locale.value },
+  link: [
+    { rel: 'canonical', href: siteUrl },
+  ],
+})
+
+useSeoMeta({
+  title: () => t('seo.title'),
+  description: () => t('seo.description'),
+  ogType: 'website',
+  ogSiteName: 'Keyza Zaki Arkana',
+  ogUrl: siteUrl,
+  ogTitle: () => t('seo.title'),
+  ogDescription: () => t('seo.description'),
+  ogImage: () => `${siteUrl}/og-image.png`,
+  ogImageAlt: () => t('seo.ogImageAlt'),
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageType: 'image/png',
+  ogLocale: () => (locale.value === 'id' ? 'id_ID' : 'en_US'),
+  twitterCard: 'summary_large_image',
+  twitterTitle: () => t('seo.title'),
+  twitterDescription: () => t('seo.description'),
+  twitterImage: () => `${siteUrl}/og-image.png`,
+  twitterImageAlt: () => t('seo.ogImageAlt'),
 })
 </script>
 
@@ -33,6 +43,7 @@ onMounted(() => {
       <SectionAbout />
       <SectionSkills />
       <SectionJourney />
+      <SectionBlog />
       <SectionContact />
     </main>
     <AppFooter />
