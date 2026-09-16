@@ -11,7 +11,7 @@ const scaleX = useSpring(scrollYProgress, {
 
 <template>
   <motion.div
-    class="pointer-events-none fixed inset-x-0 top-0 z-[60] h-0.5 origin-left bg-emerald-mint"
+    class="pointer-events-none fixed inset-x-0 top-0 z-[60] h-0.5 origin-left bg-note-yellow"
     :style="{ scaleX }"
     aria-hidden="true"
   />
