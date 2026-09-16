@@ -16,11 +16,26 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/image',
     '@nuxt/fonts',
+    '@nuxt/icon',
+    '@formkit/auto-animate/nuxt',
+    'motion-v/nuxt',
     '@nuxtjs/i18n',
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
     'nuxt-schema-org',
   ],
+
+  // Icons are bundled from a local Iconify collection at build time, so no
+  // request ever leaves the browser for an icon.
+  icon: {
+    serverBundle: {
+      collections: ['ph'],
+    },
+    clientBundle: {
+      scan: true,
+      sizeLimitKb: 256,
+    },
+  },
 
   // Canonical site metadata consumed by sitemap, robots and schema.org.
   site: {
@@ -122,7 +137,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: `${SITE_NAME} — Junior Web Developer`,
+      title: `${SITE_NAME} — Portfolio`,
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
