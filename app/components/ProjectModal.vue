@@ -119,9 +119,7 @@ onBeforeUnmount(() => {
                 :aria-label="t('projects.closeAria')"
                 @click="emit('close')"
               >
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                  <path d="M2 2l10 10M12 2L2 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                </svg>
+                <Icon name="ph:x-bold" class="block size-3.5" aria-hidden="true" />
               </button>
 
               <div class="flex items-center justify-between pr-10">
@@ -157,7 +155,7 @@ onBeforeUnmount(() => {
                   <h4 class="font-mono text-[10px] font-bold tracking-[0.3em] text-ink-faint uppercase">
                     {{ t('projects.highlights') }}
                   </h4>
-                  <ul class="mt-2 space-y-1.5">
+                  <ul v-auto-animate class="mt-2 space-y-1.5">
                     <li
                       v-for="h in highlights"
                       :key="h"
@@ -176,7 +174,7 @@ onBeforeUnmount(() => {
                 </div>
               </div>
 
-              <div class="mt-6 flex flex-wrap gap-2">
+              <div v-auto-animate class="mt-6 flex flex-wrap gap-2">
                 <span
                   v-for="tag in project.tags"
                   :key="tag"

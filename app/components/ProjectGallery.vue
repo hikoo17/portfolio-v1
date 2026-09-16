@@ -77,9 +77,7 @@ function onPointerUp() {
         :aria-label="t('gallery.prev')"
         @click="prev"
       >
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-          <path d="M8 1.5L3.5 6l4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
+        <Icon name="ph:caret-left-bold" class="block size-3" aria-hidden="true" />
       </button>
       <button
         type="button"
@@ -87,9 +85,7 @@ function onPointerUp() {
         :aria-label="t('gallery.next')"
         @click="next"
       >
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-          <path d="M4 1.5L8.5 6 4 10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
+        <Icon name="ph:caret-right-bold" class="block size-3" aria-hidden="true" />
       </button>
     </div>
 
