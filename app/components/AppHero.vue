@@ -34,7 +34,7 @@ const nameWords = computed(() => t('hero.name').split(' ').filter(Boolean))
       <div class="flex flex-col justify-center">
         <h1
           class="animate-rise-in text-5xl leading-[1.04] font-extrabold tracking-tight sm:text-6xl xl:text-7xl"
-          style="animation-delay: 160ms"
+          style="animation-delay: 0ms"
         >
           <span class="block text-base font-semibold tracking-[0.2em] text-cream/60 uppercase sm:text-lg">
             {{ t('hero.greeting') }}
@@ -86,7 +86,7 @@ const nameWords = computed(() => t('hero.name').split(' ').filter(Boolean))
       <div class="relative mt-14 lg:mt-0 lg:-mr-4 lg:translate-y-4 xl:-mr-12">
         <div
           class="animate-photo-in relative mx-auto w-full max-w-[20rem] sm:max-w-[24rem] lg:ml-auto lg:max-w-[27rem]"
-          style="animation-delay: 420ms"
+          style="animation-delay: 0ms"
         >
           <p
             class="paper-drift hand-arrow absolute -top-9 -left-1 z-10 -rotate-6 sm:-left-7"
@@ -106,16 +106,23 @@ const nameWords = computed(() => t('hero.name').split(' ').filter(Boolean))
               aria-hidden="true"
             />
             <div class="relative overflow-hidden border border-ink/15">
-              <NuxtImg
+              <NuxtPicture
                 src="/images/keyza.webp"
                 alt="Portrait photograph of Keyza"
-                class="block aspect-[4/5] w-full object-cover"
+                class="block aspect-[4/5] w-full"
                 width="640"
                 height="800"
                 fit="cover"
-                preload
-                fetchpriority="high"
+                format="avif,webp"
+                legacy-format="webp"
+                sizes="xs:320px sm:384px lg:432px"
+                loading="eager"
                 decoding="async"
+                :img-attrs="{
+                  class: 'h-full w-full object-cover',
+                  fetchpriority: 'high',
+                }"
+                :preload="{ fetchPriority: 'high' }"
               />
               <div
                 class="pointer-events-none absolute inset-0 shadow-[inset_0_1px_6px_rgba(10,20,15,0.22)]"

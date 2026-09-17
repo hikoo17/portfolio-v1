@@ -12,16 +12,20 @@ defineProps<{
     role="img"
     :aria-label="`Preview of the ${label} project`"
   >
-    <NuxtImg
+    <NuxtPicture
       v-if="image"
       :src="image"
       :alt="`Screenshot of the ${label} website`"
-      class="absolute inset-0 h-full w-full bg-white object-contain"
+      class="absolute inset-0 h-full w-full"
       width="640"
       height="400"
       fit="inside"
+      format="avif,webp"
+      legacy-format="webp"
+      sizes="xs:100vw sm:100vw lg:640px"
       loading="lazy"
       decoding="async"
+      :img-attrs="{ class: 'h-full w-full bg-white object-contain' }"
     />
 
     <template v-else>

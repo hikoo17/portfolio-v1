@@ -56,18 +56,21 @@ function onPointerUp() {
         :class="dragging ? 'transition-none' : 'transition-transform duration-300'"
         :style="{ transform: `translateX(calc(${-index * 100}% + ${dragDelta}px))` }"
       >
-        <NuxtImg
+        <NuxtPicture
           v-for="(src, i) in images"
           :key="src"
           :src="src"
           :alt="`Screenshot ${i + 1} of ${images.length} of the ${label} website`"
-          class="h-full w-full shrink-0 object-contain p-2"
+          class="h-full w-full shrink-0"
           width="640"
           height="440"
           fit="inside"
+          format="avif,webp"
+          legacy-format="webp"
+          sizes="xs:100vw lg:640px"
           :loading="i === 0 ? 'eager' : 'lazy'"
           decoding="async"
-          draggable="false"
+          :img-attrs="{ class: 'h-full w-full object-contain p-2', draggable: 'false' }"
         />
       </div>
 

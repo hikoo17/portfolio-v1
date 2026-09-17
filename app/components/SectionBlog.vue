@@ -74,15 +74,19 @@ const articles = [
               </div>
 
               <div class="mt-4 overflow-hidden border border-ink/15">
-                <NuxtImg
+                <NuxtPicture
                   :src="article.image"
                   :alt="t(`blog.items.${article.key}.imageAlt`)"
                   width="480"
                   height="270"
                   fit="cover"
+                  format="avif,webp"
+                  legacy-format="webp"
+                  sizes="xs:100vw sm:100vw lg:480px"
                   loading="lazy"
                   decoding="async"
-                  class="block aspect-[16/9] w-full object-cover"
+                  class="block aspect-[16/9] w-full"
+                  :img-attrs="{ class: 'h-full w-full object-cover' }"
                 />
               </div>
               <p class="mt-1.5 text-right font-mono text-[9px] tracking-[0.18em] text-ink/40 uppercase">

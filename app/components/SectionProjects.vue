@@ -183,19 +183,22 @@ watch(activeProject, (open) => {
     </div>
 
     <div hidden aria-hidden="true">
-      <NuxtImg
+      <NuxtPicture
         v-for="src in modalImages"
         :key="src"
         :src="src"
         width="640"
         height="440"
         fit="inside"
+        format="avif,webp"
+        legacy-format="webp"
+        sizes="xs:100vw lg:640px"
         loading="lazy"
         decoding="async"
         alt=""
       />
     </div>
 
-    <ProjectModal :project="activeProject" @close="activeProject = null" />
+    <LazyProjectModal :project="activeProject" @close="activeProject = null" />
   </section>
 </template>
