@@ -9,6 +9,9 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
+  "devDependencies": {
+    "beasties": "^0.5.4"
+  },
   "dependencies": {
     "@formkit/auto-animate": "^0.10.0",
     "@iconify-json/ph": "^1.2.2",
@@ -19,7 +22,6 @@
     "@nuxtjs/robots": "^6.2.3",
     "@nuxtjs/sitemap": "^8.5.1",
     "@tailwindcss/vite": "^4.3.3",
-    "motion-v": "^2.4.4",
     "nuxt": "^4.5.2",
     "nuxt-schema-org": "^6.3.2",
     "sharp": "^0.35.4",
