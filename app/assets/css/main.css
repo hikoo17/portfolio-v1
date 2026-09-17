@@ -227,15 +227,41 @@ body {
 
 /* ---------- Portrait photograph ---------- */
 
+/* A second sheet tucked behind a paper: only a slim edge shows along the
+   bottom, which sells the paperclip above it as holding a small stack. Tune
+   the peek per instance with --backing-tilt / --backing-x / --backing-y.
+   The sheet in front should carry .paper--stacked so it casts onto the back. */
+.paper-backing {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 3px;
+  background-color: var(--backing-color, var(--color-cream));
+  background-image:
+    repeating-linear-gradient(0deg, rgba(120, 110, 85, 0.03) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at 84% 92%, rgba(120, 100, 60, 0.07), transparent 60%);
+  box-shadow: 0 14px 24px -14px rgba(3, 24, 19, 0.5);
+  transform: rotate(var(--backing-tilt, -3deg))
+    translate(var(--backing-x, 3px), var(--backing-y, 12px));
+  pointer-events: none;
+}
+
+.paper--stacked {
+  box-shadow: var(--shadow-paper-lift);
+}
+
+/* Hovering leans the sheet further into its tilt (it never straightens), and
+   the backing stays put, so the stack peeks out more. Override --tilt-hover
+   per instance when the default multiplier is not enough. */
+.paper--stacked:hover {
+  transform: rotate(var(--tilt-hover, calc(var(--tilt, 0deg) * 1.7))) translateY(-8px) scale(1.015);
+  box-shadow: var(--shadow-paper-deep);
+}
+
 .photo-sheet {
   padding: 0.85rem 0.85rem 0.35rem;
   border-radius: 3px;
   transition-duration: 0.5s;
-}
-
-.photo-sheet:hover {
-  transform: rotate(calc(var(--tilt, 0deg) * 0.3)) translateY(-10px) scale(1.02);
-  box-shadow: var(--shadow-paper-deep);
 }
 
 @keyframes photo-in {
@@ -288,6 +314,22 @@ body {
 
 .reveal.is-visible {
   opacity: 1;
+  transform: none;
+}
+
+/* Paper landing: falls from above with a slight tilt and settles with an
+   overshoot on the easing. Applied to wrappers around paper cards, never to
+   the `.paper` element itself, so the card keeps its own resting rotation.
+   Declared after `.reveal.is-visible` so it wins on equal specificity. */
+.reveal--drop {
+  transform: translateY(-34px) rotate(var(--drop-tilt, -2deg));
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 0.85, 0.3, 1),
+    transform 0.95s cubic-bezier(0.16, 1.32, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal--drop.is-visible {
   transform: none;
 }
 
