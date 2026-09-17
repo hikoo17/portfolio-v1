@@ -18,7 +18,6 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/icon',
     '@formkit/auto-animate/nuxt',
-    'motion-v/nuxt',
     '@nuxtjs/i18n',
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
@@ -53,7 +52,7 @@ export default defineNuxtConfig({
     // while developing and ship the static variants in production builds.
     provider: process.env.NODE_ENV === 'production' ? 'ipxStatic' : 'ipx',
     format: ['webp'],
-    quality: 78,
+    quality: 72,
     screens: {
       xs: 320,
       sm: 640,
@@ -170,8 +169,27 @@ export default defineNuxtConfig({
     '/_fonts/**': {
       headers: { 'cache-control': 'public, max-age=31536000, immutable' },
     },
-    '/og-image.png': {
+    '/favicon.svg': {
       headers: { 'cache-control': 'public, max-age=604800' },
+    },
+    '/favicon.ico': {
+      headers: { 'cache-control': 'public, max-age=604800' },
+    },
+    '/favicon-16x16.png': {
+      headers: { 'cache-control': 'public, max-age=604800' },
+    },
+    '/favicon-32x32.png': {
+      headers: { 'cache-control': 'public, max-age=604800' },
+    },
+    '/apple-touch-icon.png': {
+      headers: { 'cache-control': 'public, max-age=604800' },
+    },
+    '/og-image.png': {
+      headers: { 'cache-control': 'public, max-age=2592000' },
+    },
+    // Google Search Console verification file — cheap to revalidate.
+    '/googlec17b4e7fe98cd36f.html': {
+      headers: { 'cache-control': 'public, max-age=300' },
     },
     '/sitemap.xml': {
       headers: { 'cache-control': 'public, max-age=3600' },
@@ -203,5 +221,13 @@ export default defineNuxtConfig({
     plugins: [
       tailwindcss(),
     ],
+    build: {
+      // Ship modern ESM only: downlevelling here is what makes Lighthouse
+      // report "Legacy JavaScript".
+      target: 'es2022',
+      minify: 'esbuild',
+      cssCodeSplit: true,
+      reportCompressedSize: false,
+    },
   },
 });
