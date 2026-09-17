@@ -18,8 +18,9 @@ export default defineNuxtPlugin({
     nuxt.hook('app:mounted', () => {
       const i18n = nuxt.$i18n
       const locale = saved.value
+      const supported = i18n.locales.value.map((l: { code: string }) => l.code)
 
-      if (locale && locale !== i18n.locale.value && (i18n.locales.value as string[]).includes(locale)) {
+      if (locale && locale !== i18n.locale.value && supported.includes(locale)) {
         i18n.setLocale(locale)
       }
     })
