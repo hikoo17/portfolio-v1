@@ -22,7 +22,7 @@ defineProps<{
       fit="inside"
       format="avif,webp"
       legacy-format="webp"
-      sizes="xs:100vw sm:100vw lg:640px"
+      sizes="xs:324px sm:720px lg:568px"
       loading="lazy"
       decoding="async"
       :img-attrs="{ class: 'h-full w-full bg-white object-contain' }"

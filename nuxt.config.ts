@@ -70,8 +70,10 @@ export default defineNuxtConfig({
       {
         name: 'Plus Jakarta Sans',
         provider: 'google',
+        // Italic is never used in the UI, so requesting it only generated unused
+        // @font-face rules and font files.
         weights: [400, 500, 600, 700, 800],
-        styles: ['normal', 'italic'],
+        styles: ['normal'],
       },
       {
         name: 'Instrument Serif',
@@ -82,7 +84,8 @@ export default defineNuxtConfig({
       {
         name: 'Caveat',
         provider: 'google',
-        weights: [400, 500, 600],
+        // Only the regular weight is used for the handwritten annotations.
+        weights: [400],
         styles: ['normal'],
       },
     ],

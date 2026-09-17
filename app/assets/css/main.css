@@ -32,13 +32,15 @@
   --animate-drift: drift 7s ease-in-out infinite;
 }
 
+/* Entrance motion is transform-only on purpose: these elements live in the
+   initial viewport, so starting them at opacity:0 would hold the first
+   contentful paint (and the LCP image paint) until the animation ran. The
+   movement is preserved; only the invisible starting frame is removed. */
 @keyframes rise-in {
   from {
-    opacity: 0;
     transform: translateY(26px) rotate(var(--tilt, 0deg));
   }
   to {
-    opacity: 1;
     transform: translateY(0) rotate(var(--tilt, 0deg));
   }
 }
@@ -238,11 +240,9 @@ body {
 
 @keyframes photo-in {
   from {
-    opacity: 0;
     transform: translateY(56px) rotate(-6deg) scale(0.965);
   }
   to {
-    opacity: 1;
     transform: translateY(0) rotate(0deg) scale(1);
   }
 }

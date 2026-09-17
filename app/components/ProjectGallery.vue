@@ -67,7 +67,7 @@ function onPointerUp() {
           fit="inside"
           format="avif,webp"
           legacy-format="webp"
-          sizes="xs:100vw lg:640px"
+          sizes="xs:332px sm:592px"
           :loading="i === 0 ? 'eager' : 'lazy'"
           decoding="async"
           :img-attrs="{ class: 'h-full w-full object-contain p-2', draggable: 'false' }"

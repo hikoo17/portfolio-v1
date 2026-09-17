@@ -115,7 +115,8 @@ const nameWords = computed(() => t('hero.name').split(' ').filter(Boolean))
                 fit="cover"
                 format="avif,webp"
                 legacy-format="webp"
-                sizes="xs:320px sm:384px lg:432px"
+                quality="70"
+                sizes="xs:292px sm:356px lg:404px"
                 loading="eager"
                 decoding="async"
                 :img-attrs="{
