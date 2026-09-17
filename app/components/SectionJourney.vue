@@ -16,6 +16,10 @@ const milestones = [
     id="journey"
     class="grid-paper grid-paper--fine scroll-mt-24 bg-emerald-deep py-24 text-cream sm:py-32"
   >
+    <PaperPlane
+      variant="curl"
+      class="pointer-events-none absolute top-12 left-2 -z-10 w-20 rotate-6 text-cream/15 sm:left-4 sm:w-28 lg:left-8 lg:w-32"
+    />
     <div class="mx-auto max-w-5xl px-6 lg:px-8">
       <div class="reveal">
         <p class="font-mono text-[11px] font-semibold tracking-[0.3em] text-cream/40 uppercase">
@@ -30,9 +34,12 @@ const milestones = [
         <li
           v-for="(m, i) in milestones"
           :key="m.key"
-          class="reveal relative pl-10 lg:w-1/2 lg:pl-0"
+          class="reveal reveal--drop relative pl-10 lg:w-1/2 lg:pl-0"
           :class="i % 2 === 0 ? 'lg:pr-14 lg:text-right' : 'lg:ml-auto lg:pl-14'"
-          :style="{ '--reveal-delay': `${i * 110}ms` }"
+          :style="{
+            '--reveal-delay': `${i * 110}ms`,
+            '--drop-tilt': i % 2 === 0 ? '-2deg' : '2deg',
+          }"
         >
           <span
             class="absolute top-6 left-0 size-4 rounded-full border-2 border-emerald-deep bg-note-yellow shadow-sm lg:top-7"

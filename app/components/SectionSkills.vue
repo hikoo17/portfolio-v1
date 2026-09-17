@@ -29,6 +29,10 @@ const tilts = ['-2deg', '1.5deg', '-1deg', '2deg']
   <section
     class="grid-paper grid-paper--fine grid-paper--light bg-cream py-24 text-ink sm:py-32"
   >
+    <PaperPlane
+      variant="swoop"
+      class="pointer-events-none absolute right-2 bottom-6 -z-10 w-24 -scale-x-100 -rotate-6 text-ink/10 sm:right-4 sm:w-32 lg:right-8 lg:w-36"
+    />
     <div class="mx-auto max-w-6xl px-6 lg:px-8">
       <div class="reveal flex flex-wrap items-end justify-between gap-6">
         <div>

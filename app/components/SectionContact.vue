@@ -13,6 +13,10 @@ const channels = [
     id="contact"
     class="grid-paper grid-paper--fine grid-paper--light scroll-mt-24 bg-cream-warm py-24 text-ink sm:py-32"
   >
+    <PaperPlane
+      variant="arc"
+      class="pointer-events-none absolute top-8 left-2 -z-10 w-24 rotate-6 text-emerald-deep/15 sm:left-4 sm:w-32 lg:left-8 lg:w-36"
+    />
     <div class="mx-auto max-w-4xl px-6 text-center lg:px-8">
       <p class="reveal font-mono text-[11px] font-semibold tracking-[0.3em] text-ink-faint uppercase">
         {{ t('contact.eyebrow') }}
@@ -50,8 +54,8 @@ const channels = [
       </div>
 
       <ul
-        class="reveal mt-16 flex flex-wrap items-stretch justify-center gap-5 sm:gap-7"
-        :style="{ '--reveal-delay': '320ms' }"
+        class="reveal reveal--drop mt-16 flex flex-wrap items-stretch justify-center gap-5 sm:gap-7"
+        :style="{ '--reveal-delay': '320ms', '--drop-tilt': '2deg' }"
       >
         <li v-for="channel in channels" :key="channel.label">
           <a :href="channel.href" class="group block" :aria-label="`${channel.label}: ${channel.value}`">

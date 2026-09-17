@@ -14,6 +14,10 @@ const nameWords = computed(() => t('hero.name').split(' ').filter(Boolean))
       aria-hidden="true"
     />
 
+    <PaperPlane
+      class="pointer-events-none absolute top-16 left-4 hidden w-24 text-cream/30 sm:block lg:top-20 lg:left-8 lg:w-28"
+    />
+
     <span
       class="pointer-events-none absolute top-6 right-8 hidden font-mono text-[10px] tracking-[0.3em] text-cream/30 lg:block"
       aria-hidden="true"
@@ -88,23 +92,32 @@ const nameWords = computed(() => t('hero.name').split(' ').filter(Boolean))
           class="animate-photo-in relative mx-auto w-full max-w-[20rem] sm:max-w-[24rem] lg:ml-auto lg:max-w-[27rem]"
           style="animation-delay: 0ms"
         >
-          <p
-            class="paper-drift hand-arrow absolute -top-9 -left-1 z-10 -rotate-6 sm:-left-7"
-            style="--rise-delay: 900ms; --drift-duration: 8s; --tilt: -6deg; font-size: 1.9rem"
+          <div
+            class="paper-backing"
+            style="--backing-tilt: -3deg; --backing-x: 3px; --backing-y: 12px"
             aria-hidden="true"
-          >
-            {{ t('hero.thatsMe') }}
-          </p>
+          />
 
           <figure
-            class="paper photo-sheet"
-            style="--tilt: -2.5deg; --paper-color: var(--color-cream-warm)"
+            class="paper photo-sheet paper--stacked"
+            style="--tilt: -2deg; --tilt-hover: -5deg; --paper-color: var(--color-cream-warm)"
           >
             <span
               class="tape tape--top-center"
               style="--tape-tilt: -5deg; --tape-color: rgba(246, 241, 228, 0.5)"
               aria-hidden="true"
             />
+            <img
+              src="/images/scrapbook/paperclip.svg"
+              alt=""
+              width="272"
+              height="205"
+              class="pointer-events-none absolute -top-5 -left-5 z-10 w-16 -rotate-12 select-none sm:-top-6 sm:-left-6 sm:w-20"
+              draggable="false"
+              loading="lazy"
+              decoding="async"
+              aria-hidden="true"
+            >
             <div class="relative overflow-hidden border border-ink/15">
               <NuxtPicture
                 src="/images/keyza.webp"

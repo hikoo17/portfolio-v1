@@ -103,6 +103,10 @@ watch(activeProject, (open) => {
     id="work"
     class="grid-paper grid-paper--fine grid-paper--light scroll-mt-24 bg-cream-warm py-24 text-ink sm:py-32"
   >
+    <PaperPlane
+      variant="arc"
+      class="pointer-events-none absolute bottom-4 left-2 -z-10 w-24 rotate-6 text-ink/10 sm:left-4 sm:w-32 lg:left-8 lg:w-36"
+    />
     <div class="mx-auto max-w-6xl px-6 lg:px-8">
       <div class="reveal flex flex-wrap items-end justify-between gap-6">
         <div>
@@ -122,9 +126,12 @@ watch(activeProject, (open) => {
         <article
           v-for="(project, i) in projects"
           :key="project.key"
-          class="reveal group"
+          class="reveal reveal--drop group"
           :class="project.span"
-          :style="{ '--reveal-delay': `${(i % 2) * 120}ms` }"
+          :style="{
+            '--reveal-delay': `${(i % 2) * 120}ms`,
+            '--drop-tilt': i % 2 === 0 ? '-2deg' : '2deg',
+          }"
         >
           <ThePaper
             :rotation="project.rotation"

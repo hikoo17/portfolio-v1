@@ -30,7 +30,11 @@ const articles = [
     id="blog"
     class="grid-paper grid-paper--fine grid-paper--light scroll-mt-24 bg-paper-white py-24 text-ink sm:py-32"
   >
-    <div class="mx-auto max-w-5xl px-6 lg:px-8">
+    <PaperPlane
+      variant="wave"
+      class="pointer-events-none absolute right-2 bottom-8 -z-10 w-20 -scale-x-100 -rotate-6 text-ink/10 sm:right-4 sm:w-28 lg:right-8 lg:w-32"
+    />
+    <div class="relative mx-auto max-w-5xl px-6 lg:px-8">
       <div class="reveal flex flex-wrap items-end justify-between gap-6">
         <div>
           <p class="font-mono text-[11px] font-semibold tracking-[0.3em] text-ink-faint uppercase">
@@ -49,8 +53,11 @@ const articles = [
         <li
           v-for="(article, i) in articles"
           :key="article.key"
-          class="reveal"
-          :style="{ '--reveal-delay': `${i * 120}ms` }"
+          class="reveal reveal--drop"
+          :style="{
+            '--reveal-delay': `${i * 120}ms`,
+            '--drop-tilt': i % 2 === 0 ? '-2deg' : '2deg',
+          }"
         >
           <a
             :href="article.url"
