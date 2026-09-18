@@ -147,10 +147,17 @@ export default defineNuxtConfig({
         { name: 'format-detection', content: 'telephone=no' },
       ],
       link: [
-        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        // Google Search only reads raster favicons, so list the ICO and the
+        // PNGs first and keep the (unsupported) SVG purely as a browser
+        // progressive enhancement at the end.
+        { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
+        { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/favicon-192x192.png' },
+        { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon-96x96.png' },
+        { rel: 'icon', type: 'image/png', sizes: '48x48', href: '/favicon-48x48.png' },
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
         { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
       ],
     },
   },
@@ -182,6 +189,15 @@ export default defineNuxtConfig({
       headers: { 'cache-control': 'public, max-age=604800' },
     },
     '/favicon-32x32.png': {
+      headers: { 'cache-control': 'public, max-age=604800' },
+    },
+    '/favicon-48x48.png': {
+      headers: { 'cache-control': 'public, max-age=604800' },
+    },
+    '/favicon-96x96.png': {
+      headers: { 'cache-control': 'public, max-age=604800' },
+    },
+    '/favicon-192x192.png': {
       headers: { 'cache-control': 'public, max-age=604800' },
     },
     '/apple-touch-icon.png': {

@@ -68,16 +68,24 @@ const square = markSvg({ rounded: false })
 
 await mkdir(publicDir, { recursive: true })
 
-const [p16, p32, p48, p180] = await Promise.all([
+// Google Search only accepts raster favicons (BMP, GIF, ICO, PNG, JPEG, PPM,
+// TIFF) and recommends a square that is larger than 48x48px, so ship explicit
+// 48/96/192px PNGs in addition to the small browser-tab sizes.
+const [p16, p32, p48, p96, p192, p180] = await Promise.all([
   render(rounded, 16),
   render(rounded, 32),
   render(rounded, 48),
+  render(rounded, 96),
+  render(rounded, 192),
   render(square, 180),
 ])
 
 await writeFile(resolve(publicDir, 'favicon.svg'), `${rounded}\n`)
 await writeFile(resolve(publicDir, 'favicon-16x16.png'), p16)
 await writeFile(resolve(publicDir, 'favicon-32x32.png'), p32)
+await writeFile(resolve(publicDir, 'favicon-48x48.png'), p48)
+await writeFile(resolve(publicDir, 'favicon-96x96.png'), p96)
+await writeFile(resolve(publicDir, 'favicon-192x192.png'), p192)
 await writeFile(resolve(publicDir, 'apple-touch-icon.png'), p180)
 await writeFile(
   resolve(publicDir, 'favicon.ico'),
@@ -88,4 +96,6 @@ await writeFile(
   ]),
 )
 
-console.log('Generated favicon.svg, favicon.ico, favicon-16x16.png, favicon-32x32.png and apple-touch-icon.png')
+console.log(
+  'Generated favicon.svg, favicon.ico, favicon-16x16.png, favicon-32x32.png, favicon-48x48.png, favicon-96x96.png, favicon-192x192.png and apple-touch-icon.png',
+)
