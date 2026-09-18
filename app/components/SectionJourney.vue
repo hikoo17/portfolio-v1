@@ -151,6 +151,19 @@ function pklWeeksFor(key?: string) {
                 <span>{{ t('journey.books.pkl.title') }}</span>
               </span>
             </button>
+
+            <!-- A single pen left on the canvas: subtle, decorative, never clickable. -->
+            <img
+              src="/images/scrapbook/pen.svg"
+              alt=""
+              width="529"
+              height="120"
+              class="journal-prop journal-prop--pen"
+              draggable="false"
+              loading="lazy"
+              decoding="async"
+              aria-hidden="true"
+            >
           </div>
         </div>
 

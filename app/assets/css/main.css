@@ -819,11 +819,14 @@ body {
 /* ---------- Archive of journals: book selection ---------- */
 
 /* The scrapbook canvas the two books rest on. Mobile stacks them so each book
-   keeps a readable size; from tablet up they sit side by side like a shelf. */
+   keeps a readable size; from tablet up they sit side by side like a shelf.
+   The books are the primary focus, so the shelf fills the content column and
+   the pen accent is positioned against these edges. */
 .journal-shelf {
+  position: relative;
   display: grid;
   width: 100%;
-  max-width: 18rem;
+  max-width: 20rem;
   justify-items: center;
   gap: 3rem;
   margin-inline: auto;
@@ -832,8 +835,15 @@ body {
 @media (min-width: 768px) {
   .journal-shelf {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    max-width: 42rem;
+    max-width: 48rem;
     gap: 4.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .journal-shelf {
+    max-width: 54rem;
+    gap: 5.5rem;
   }
 }
 
@@ -841,7 +851,7 @@ body {
   position: relative;
   display: flex;
   width: 100%;
-  max-width: 18rem;
+  max-width: 20rem;
   flex-direction: column;
   align-items: center;
   border: 0;
@@ -849,6 +859,51 @@ body {
   padding: 0;
   color: inherit;
   cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .journal-pick {
+    max-width: 21.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .journal-pick {
+    max-width: 24rem;
+  }
+}
+
+/* One understated pen resting on the canvas below the journals. It is
+   decorative and never intercepts the book buttons. Only shown once the
+   journals sit side by side and there is room to breathe. */
+.journal-prop {
+  position: absolute;
+  z-index: 3;
+  display: none;
+  pointer-events: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .journal-prop {
+    display: block;
+  }
+}
+
+.journal-prop--pen {
+  bottom: -4rem;
+  left: 7%;
+  width: 12.5rem;
+  transform: rotate(-7deg);
+}
+
+@media (min-width: 1024px) {
+  .journal-prop--pen {
+    bottom: -4.6rem;
+    left: 4%;
+    width: 14rem;
+    transform: rotate(-6deg);
+  }
 }
 
 /* The closed journal itself: board cover, binding on the left, page edges on
