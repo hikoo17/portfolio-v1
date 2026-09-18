@@ -123,6 +123,48 @@
       "note": "The rest of this journal is still blank — and that is the exciting part.",
       "signature": "see you on the next page"
     },
+    "logbook": {
+      "eyebrow": "05.1 — Internship Logbook",
+      "titleA": "Weekly",
+      "titleB": "notes",
+      "note": "16 weeks at CV Access Media →",
+      "period": "Jun – Sep 2026",
+      "months": {
+        "june": {
+          "name": "June 2026",
+          "weeks": [
+            "Week 1|Redesigning the Access Media company profile",
+            "Week 2|MySQL master–slave;Master–slave automation;SQL Server log shipping",
+            "Weeks 3–4|Designing the Japanese course website (NihonAccess);Git & GitHub"
+          ]
+        },
+        "july": {
+          "name": "July 2026",
+          "weeks": [
+            "Week 5|Continued NihonAccess;GitHub Actions & YAML files",
+            "Week 6|Linux VPS server;Deployed to VPS;Continued NihonAccess",
+            "Week 7|Designing the car repair website (Karoto)",
+            "Week 8|Deployed Karoto"
+          ]
+        },
+        "august": {
+          "name": "August 2026",
+          "weeks": [
+            "Week 9|Learning GOWA for WhatsApp;Continued NihonAccess;Client data entry",
+            "Weeks 10–12|Continued Karoto"
+          ]
+        },
+        "september": {
+          "name": "September 2026",
+          "weeks": [
+            "Week 13|Karoto;Tried buying a VPS;Learning about domains",
+            "Week 14|Cloudflare;Deployed the Nalar website",
+            "Week 15|Docker;Linux;CI/CD",
+            "Week 16|Portfolio"
+          ]
+        }
+      }
+    },
     "milestones": {
       "first": {
         "title": "First line of code",
@@ -187,6 +229,27 @@
         "note": "the proudest 6th place there ever was",
         "sticker": "JUARA 6",
         "list": ["Represented Tasikmalaya", "West Java level", "Kept every lesson"]
+      },
+      "pklStart": {
+        "title": "Internship at CV Access Media",
+        "text": "My internship begins — from reworking the company's media presence to building real client websites.",
+        "kicker": "from podium to real projects",
+        "date": "Jun 2026",
+        "caption": "karoto, the car shop",
+        "captionSecond": "nihon access, learning japanese",
+        "note": "first week and already shipping to production",
+        "sticker": "INTERN",
+        "list": ["Reworked the company media presence", "Master–slave MySQL & log shipping", "Started NihonAccess & Karoto"]
+      },
+      "pklGrow": {
+        "title": "What grew during the internship",
+        "text": "The last three months were full of new tools: from a Linux VPS and GitHub Actions to Docker, Cloudflare, and CI/CD.",
+        "kicker": "more tools, more lessons",
+        "date": "Jul – Sep 2026",
+        "caption": "internship toolbox",
+        "note": "the first deploy was terrifying — and completely addictive",
+        "sticker": "LESSONS",
+        "list": ["NihonAccess & Karoto live", "Docker, Cloudflare, CI/CD", "VPS, domains, client data"]
       }
     }
   },

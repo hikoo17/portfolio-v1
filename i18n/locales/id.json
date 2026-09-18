@@ -124,6 +124,48 @@
       "note": "Sisa jurnal ini masih kosong — dan justru itu bagian yang seru.",
       "signature": "sampai jumpa di halaman berikutnya"
     },
+    "logbook": {
+      "eyebrow": "05.1 — Logbook PKL",
+      "titleA": "Catatan",
+      "titleB": "mingguan",
+      "note": "16 minggu di CV Access Media →",
+      "period": "Jun – Sep 2026",
+      "months": {
+        "june": {
+          "name": "Juni 2026",
+          "weeks": [
+            "Minggu 1|Redesign profile company Access Media",
+            "Minggu 2|Master–slave MySQL;Otomatisasi master–slave;Log shipping SQL Server",
+            "Minggu 3–4|Perancangan website kursus bahasa Jepang (NihonAccess);Git & GitHub"
+          ]
+        },
+        "july": {
+          "name": "Juli 2026",
+          "weeks": [
+            "Minggu 5|Lanjut NihonAccess;GitHub Actions & file YAML",
+            "Minggu 6|VPS Linux server;Deploy ke VPS;Lanjut NihonAccess",
+            "Minggu 7|Perancangan website bengkel mobil masuk (Karoto)",
+            "Minggu 8|Deploy Karoto"
+          ]
+        },
+        "august": {
+          "name": "Agustus 2026",
+          "weeks": [
+            "Minggu 9|Mempelajari GOWA untuk WhatsApp;Lanjut NihonAccess;Input data klien",
+            "Minggu 10–12|Lanjut Karoto"
+          ]
+        },
+        "september": {
+          "name": "September 2026",
+          "weeks": [
+            "Minggu 13|Karoto;Nyoba beli VPS;Mempelajari domain",
+            "Minggu 14|Cloudflare;Deploy web Nalar",
+            "Minggu 15|Docker;Linux;CI/CD",
+            "Minggu 16|Portfolio"
+          ]
+        }
+      }
+    },
     "milestones": {
       "first": {
         "title": "Baris kode pertama",
@@ -188,6 +230,27 @@
         "note": "juara 6 paling membanggakan",
         "sticker": "JUARA 6",
         "list": ["Mewakili Tasikmalaya", "Tingkat Jawa Barat", "Semua pelajaran dibawa pulang"]
+      },
+      "pklStart": {
+        "title": "PKL di CV Access Media",
+        "text": "Praktik Kerja Lapangan dimulai — dari merapikan akses media perusahaan sampai membangun website klien sungguhan.",
+        "kicker": "dari podium ke proyek nyata",
+        "date": "Jun 2026",
+        "caption": "karoto, masuk bengkel",
+        "captionSecond": "nihon access, bahasa jepang",
+        "note": "minggu pertama langsung pegang produksi",
+        "sticker": "MAGANG",
+        "list": ["Redesign akses media perusahaan", "Master–slave MySQL & log shipping", "Mulai NihonAccess & Karoto"]
+      },
+      "pklGrow": {
+        "title": "Yang tumbuh selama PKL",
+        "text": "Tiga bulan terakhir penuh alat baru: dari VPS Linux dan GitHub Actions sampai Docker, Cloudflare, dan CI/CD.",
+        "kicker": "makin banyak tool, makin banyak belajar",
+        "date": "Jul – Sep 2026",
+        "caption": "toolbox pkl",
+        "note": "deploy pertama paling menegangkan — dan paling bikin nagih",
+        "sticker": "PELAJARAN",
+        "list": ["NihonAccess & Karoto live", "Docker, Cloudflare, CI/CD", "VPS, domain, input data klien"]
       }
     }
   },

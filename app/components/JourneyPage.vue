@@ -5,9 +5,12 @@ interface MilestoneVisual {
   /** Sticky-note paper colour, reused from ThePaper's palette. */
   note: 'white' | 'cream' | 'yellow' | 'pink' | 'blue' | 'green' | 'orange'
   sticker: string
-  layout: 'spark' | 'stack' | 'stage' | 'circuit' | 'trophy' | 'map'
+  layout: 'spark' | 'stack' | 'stage' | 'circuit' | 'trophy' | 'map' | 'work' | 'tools'
   image?: string
   alt?: string
+  image2?: string
+  alt2?: string
+  tools?: string[]
 }
 
 const props = withDefaults(
@@ -54,7 +57,22 @@ const visuals: Record<string, MilestoneVisual> = {
     image: '/images/lks-pplg-2025-radartasik.webp',
     alt: 'Participants taking part in the LKS PPLG Kota Tasikmalaya competition at SMK BPN.',
   },
-  province: { note: 'blue', sticker: '#3f6b8a', layout: 'map' }
+  province: { note: 'blue', sticker: '#3f6b8a', layout: 'map' },
+  pklStart: {
+    note: 'blue',
+    sticker: '#0a6e5c',
+    layout: 'work',
+    image: '/images/karoto-accessmedia-id-front.png',
+    alt: 'The Karoto website dashboard shown on a desktop monitor.',
+    image2: '/images/nihon-accessmedia-id-front.png',
+    alt2: 'The NihonAccess homepage shown on a desktop monitor.',
+  },
+  pklGrow: {
+    note: 'yellow',
+    sticker: '#b8862b',
+    layout: 'tools',
+    tools: ['Docker', 'Linux', 'CI/CD', 'Cloudflare', 'VPS', 'GitHub Actions', 'MySQL'],
+  },
 }
 
 const visual = computed(() => (props.milestoneKey ? visuals[props.milestoneKey] : undefined))
@@ -628,6 +646,147 @@ const list = computed<string[]>(() => {
             <p class="font-hand text-[4.4cqw] leading-tight text-ink/85">{{ field('note') }}</p>
           </ThePaper>
         </div>
+      </div>
+    </div>
+
+    <!-- MILESTONE · INTERNSHIP STARTS — two screenshots up top, text below -->
+    <div v-else-if="visual?.layout === 'work'" class="journal-collage flex flex-col p-[7cqw]">
+      <div class="relative min-h-0 flex-1">
+        <figure class="absolute top-[2%] left-0 w-[70%] -rotate-[2deg]">
+          <ThePaper color="white" class="journal-polaroid shadow-paper-lift">
+            <span class="tape tape--top-left" style="--tape-tilt: -12deg" />
+            <NuxtPicture
+              :src="visual.image"
+              :alt="visual.alt"
+              class="block aspect-[4/3] w-full"
+              width="480"
+              height="360"
+              fit="cover"
+              format="avif,webp"
+              legacy-format="webp"
+              sizes="xs:200px sm:280px"
+              loading="lazy"
+              decoding="async"
+              :img-attrs="{ class: 'h-full w-full object-cover', draggable: 'false' }"
+            />
+            <figcaption class="absolute inset-x-[3.4cqw] bottom-[2.4cqw] font-hand text-[3.8cqw] text-ink/80">
+              {{ field('caption') }}
+            </figcaption>
+          </ThePaper>
+        </figure>
+
+        <figure class="absolute top-[42%] right-0 w-[50%] rotate-[3deg]">
+          <ThePaper color="white" class="journal-polaroid shadow-paper-lift">
+            <span class="tape tape--top-right" style="--tape-tilt: 12deg; --tape-color: rgba(216, 230, 239, 0.85)" />
+            <NuxtPicture
+              :src="visual.image2"
+              :alt="visual.alt2"
+              class="block aspect-[4/3] w-full"
+              width="480"
+              height="360"
+              fit="cover"
+              format="avif,webp"
+              legacy-format="webp"
+              sizes="xs:150px sm:220px"
+              loading="lazy"
+              decoding="async"
+              :img-attrs="{ class: 'h-full w-full object-cover', draggable: 'false' }"
+            />
+            <figcaption class="absolute inset-x-[3.4cqw] bottom-[2.4cqw] font-hand text-[3.4cqw] text-ink/80">
+              {{ field('captionSecond') }}
+            </figcaption>
+          </ThePaper>
+        </figure>
+
+        <div class="absolute bottom-[1%] left-0 w-[52%]">
+          <ThePaper :color="visual.note" rotation="-3deg" class="px-[4.2cqw] py-[3.8cqw]">
+            <p class="font-hand text-[4.4cqw] leading-tight text-ink/85">{{ field('note') }}</p>
+          </ThePaper>
+        </div>
+
+        <span
+          class="journal-sticker absolute right-[2%] bottom-[4%] text-[2.6cqw]"
+          :style="{ '--sticker-color': visual.sticker, '--scrap-tilt': '-7deg' }"
+        >
+          {{ field('sticker') }}
+        </span>
+      </div>
+
+      <div class="relative z-10 mt-[5cqw] shrink-0">
+        <p class="font-hand text-[5cqw] leading-none text-emerald-soft">{{ field('kicker') }}</p>
+        <p class="mt-[1.4cqw] font-mono text-[2.3cqw] tracking-[0.28em] text-ink-faint uppercase">{{ field('date') }}</p>
+        <h3 class="mt-[2.2cqw] text-[7.4cqw] leading-[1.02] font-extrabold tracking-tight text-ink">
+          {{ field('title') }}
+        </h3>
+        <p class="mt-[2.4cqw] w-[88%] text-[3.2cqw] leading-relaxed text-ink-soft">{{ field('text') }}</p>
+      </div>
+    </div>
+
+    <!-- MILESTONE · INTERNSHIP GROWTH — text left, toolbox + ticket right -->
+    <div v-else-if="visual?.layout === 'tools'" class="journal-collage flex flex-row gap-[5cqw] p-[7cqw]">
+      <div class="relative z-10 w-[42%] shrink-0">
+        <p class="font-hand text-[4.6cqw] leading-none text-emerald-soft">{{ field('kicker') }}</p>
+        <p class="mt-[1.4cqw] font-mono text-[2.3cqw] tracking-[0.28em] text-ink-faint uppercase">{{ field('date') }}</p>
+        <h3 class="mt-[2.2cqw] text-[6.4cqw] leading-[1.03] font-extrabold tracking-tight text-ink">
+          {{ field('title') }}
+        </h3>
+        <p class="mt-[2.6cqw] text-[3.1cqw] leading-relaxed text-ink-soft">{{ field('text') }}</p>
+        <div class="mt-[4cqw]">
+          <span
+            class="journal-sticker text-[2.5cqw]"
+            :style="{ '--sticker-color': visual.sticker, '--scrap-tilt': '7deg' }"
+          >
+            {{ field('sticker') }}
+          </span>
+        </div>
+      </div>
+
+      <div class="relative min-h-0 flex-1">
+        <div class="absolute top-[1%] left-[2%] w-[94%]">
+          <ThePaper :color="visual.note" rotation="-2deg" class="px-[4.4cqw] py-[4cqw] shadow-paper-lift">
+            <span class="tape tape--top-center" style="--tape-tilt: 5deg" />
+            <p class="font-mono text-[2.1cqw] tracking-[0.26em] text-ink/45 uppercase">
+              {{ field('caption') }}
+            </p>
+            <ul class="mt-[2.6cqw] flex flex-wrap gap-[1.6cqw]">
+              <li
+                v-for="tool in visual.tools"
+                :key="tool"
+                class="rounded-[3px] border border-emerald-deep/25 bg-paper-white px-[2.2cqw] py-[1.2cqw] font-mono text-[2.3cqw] font-semibold tracking-[0.06em] text-emerald-deep"
+              >
+                {{ tool }}
+              </li>
+            </ul>
+            <span class="mt-[3cqw] block h-[0.7cqw] w-[26cqw] -rotate-1 bg-note-yellow" aria-hidden="true" />
+          </ThePaper>
+        </div>
+
+        <div class="absolute bottom-[2%] left-[2%] w-[94%]">
+          <ThePaper color="white" rotation="1.5deg" class="journal-ticket px-[5cqw] py-[4cqw] pl-[7cqw]">
+            <p class="font-mono text-[2.2cqw] tracking-[0.28em] text-ink-faint uppercase">
+              {{ field('date') }} · {{ pageNumber }}
+            </p>
+            <ul class="mt-[2cqw] space-y-[1.4cqw]">
+              <li
+                v-for="item in list"
+                :key="item"
+                class="flex gap-[1.6cqw] text-[2.7cqw] leading-snug text-ink-soft"
+              >
+                <span class="text-emerald-soft">✓</span>{{ item }}
+              </li>
+            </ul>
+          </ThePaper>
+        </div>
+
+        <svg
+          class="journal-doodle absolute right-[2%] top-[44%] w-[8cqw] rotate-[8deg]"
+          viewBox="0 0 100 100"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path d="M14 78c10-40 38-56 74-48" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-dasharray="7 6" />
+          <path d="m78 18 12 12-8 12" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
       </div>
     </div>
   </article>

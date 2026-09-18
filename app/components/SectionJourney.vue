@@ -8,8 +8,30 @@ interface PageDef {
 
 const { t } = useI18n()
 
-const milestoneKeys = ['first', 'serious', 'lks2025', 'iot', 'lks2026', 'province'] as const
+const milestoneKeys = ['first', 'serious', 'lks2025', 'iot', 'lks2026', 'province', 'pklStart', 'pklGrow'] as const
 
+type MonthKey = 'june' | 'july' | 'august' | 'september'
+
+const logbookMonths: { key: MonthKey; color: 'blue' | 'green' | 'yellow' | 'pink'; rotation: string }[] = [
+  { key: 'june', color: 'blue', rotation: '-1.5deg' },
+  { key: 'july', color: 'green', rotation: '1.5deg' },
+  { key: 'august', color: 'yellow', rotation: '-1deg' },
+  { key: 'september', color: 'pink', rotation: '1.5deg' },
+]
+
+// Each week is stored as "range|item;item" so the logbook can stay a plain
+// i18n string array while still rendering a labelled bullet list.
+function weeksOf(month: MonthKey) {
+  const value = t(`journey.logbook.months.${month}.weeks`)
+  const entries = Array.isArray(value) ? (value as unknown as string[]) : []
+  return entries.map((entry) => {
+    const [range = '', rawItems = ''] = entry.split('|')
+    return {
+      range,
+      items: rawItems.split(';').map(item => item.trim()).filter(Boolean),
+    }
+  })
+}
 
 // Flat list of faces. The right page shows `pages[current]`, the left page the
 // one before it, and the leaf turning between them is what makes it a journal.
@@ -413,6 +435,60 @@ onBeforeUnmount(clearSettleTimer)
         <p class="sr-only" aria-live="polite">
           {{ t('journey.controls.pageOf', { current: current + 1, total: pageTotal }) }}
         </p>
+      </div>
+
+      <div class="reveal mt-20" :style="{ '--reveal-delay': '160ms' }">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p class="font-mono text-[11px] font-semibold tracking-[0.3em] text-cream/40 uppercase">
+              {{ t('journey.logbook.eyebrow') }}
+            </p>
+            <h3 class="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+              {{ t('journey.logbook.titleA') }}
+              <span class="font-serif font-normal italic text-note-yellow">{{ t('journey.logbook.titleB') }}</span>
+            </h3>
+          </div>
+          <p class="font-hand text-xl leading-tight text-cream/45">
+            {{ t('journey.logbook.note') }}
+          </p>
+        </div>
+
+        <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div
+            v-for="(month, i) in logbookMonths"
+            :key="month.key"
+            class="reveal reveal--drop"
+            :style="{
+              '--reveal-delay': `${120 + i * 90}ms`,
+              '--drop-tilt': i % 2 === 0 ? '-2deg' : '2deg',
+            }"
+          >
+            <ThePaper :color="month.color" :rotation="month.rotation" class="h-full px-5 py-5 sm:px-6 sm:py-6">
+              <p class="font-mono text-[10px] font-semibold tracking-[0.28em] text-ink/45 uppercase">
+                {{ String(i + 1).padStart(2, '0') }} / {{ String(logbookMonths.length).padStart(2, '0') }}
+              </p>
+              <p class="mt-1 text-lg font-extrabold tracking-tight text-ink">
+                {{ t(`journey.logbook.months.${month.key}.name`) }}
+              </p>
+              <ul class="mt-4 space-y-4">
+                <li v-for="week in weeksOf(month.key)" :key="week.range">
+                  <p class="font-mono text-[10px] font-semibold tracking-[0.2em] text-emerald-soft uppercase">
+                    {{ week.range }}
+                  </p>
+                  <ul class="mt-1.5 space-y-1">
+                    <li
+                      v-for="item in week.items"
+                      :key="item"
+                      class="flex gap-1.5 text-[11px] leading-snug text-ink-soft"
+                    >
+                      <span class="text-emerald-soft">·</span>{{ item }}
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </ThePaper>
+          </div>
+        </div>
       </div>
 
       <div class="sr-only">
