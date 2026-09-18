@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { milestonePhotos } from '~/utils/journeyVisuals'
+
 type PageKind = 'endpaper' | 'milestone' | 'continued'
 
 interface MilestoneVisual {
@@ -6,8 +8,6 @@ interface MilestoneVisual {
   note: 'white' | 'cream' | 'yellow' | 'pink' | 'blue' | 'green' | 'orange'
   sticker: string
   layout: 'spark' | 'stack' | 'stage' | 'circuit' | 'trophy' | 'map'
-  image?: string
-  alt?: string
 }
 
 const props = withDefaults(
@@ -36,28 +36,24 @@ const visuals: Record<string, MilestoneVisual> = {
     note: 'green',
     sticker: '#a9603a',
     layout: 'stack',
-    image: '/images/keyza.webp',
-    alt: 'Portrait photograph of Keyza',
   },
   lks2025: {
     note: 'yellow',
     sticker: '#b23a3a',
     layout: 'stage',
-    image: '/images/lks-pplg-2025-tasikzone.jpg',
-    alt: 'Participants working at laptops during the LKS PPLG Kota Tasikmalaya 2025 competition.',
   },
   iot: { note: 'orange', sticker: '#3f7d5a', layout: 'circuit' },
   lks2026: {
     note: 'pink',
     sticker: '#b8862b',
     layout: 'trophy',
-    image: '/images/lks-pplg-2025-radartasik.webp',
-    alt: 'Participants taking part in the LKS PPLG Kota Tasikmalaya competition at SMK BPN.',
   },
   province: { note: 'blue', sticker: '#3f6b8a', layout: 'map' },
 }
 
 const visual = computed(() => (props.milestoneKey ? visuals[props.milestoneKey] : undefined))
+
+const photo = computed(() => (props.milestoneKey ? milestonePhotos[props.milestoneKey] : undefined))
 
 const pageNumber = computed(() => String(props.number).padStart(2, '0'))
 const totalPages = computed(() => String(props.total).padStart(2, '0'))
@@ -272,19 +268,10 @@ const list = computed<string[]>(() => {
           <figure class="relative -rotate-[4deg]">
             <ThePaper color="white" class="journal-polaroid shadow-paper-lift">
               <span class="tape tape--top-center" style="--tape-tilt: 6deg" />
-              <NuxtPicture
-                :src="visual.image"
-                :alt="visual.alt"
+              <JourneyPhoto
+                v-if="photo"
+                v-bind="photo"
                 class="block aspect-[3/4] w-full"
-                width="320"
-                height="426"
-                fit="cover"
-                format="avif,webp"
-                legacy-format="webp"
-                sizes="xs:140px sm:200px"
-                loading="lazy"
-                decoding="async"
-                :img-attrs="{ class: 'h-full w-full object-cover', draggable: 'false' }"
               />
               <figcaption class="absolute inset-x-[3.4cqw] bottom-[2.4cqw] font-hand text-[4cqw] text-ink/80">
                 {{ field('caption') }}
@@ -313,19 +300,10 @@ const list = computed<string[]>(() => {
             <ThePaper color="white" class="journal-polaroid shadow-paper-lift">
               <span class="tape tape--top-left" style="--tape-tilt: -12deg; --tape-color: rgba(249, 233, 168, 0.85)" />
               <span class="tape tape--top-right" style="--tape-tilt: 12deg; --tape-color: rgba(216, 230, 239, 0.85)" />
-              <NuxtPicture
-                :src="visual.image"
-                :alt="visual.alt"
+              <JourneyPhoto
+                v-if="photo"
+                v-bind="photo"
                 class="block aspect-[4/3] w-full"
-                width="480"
-                height="360"
-                fit="cover"
-                format="avif,webp"
-                legacy-format="webp"
-                sizes="xs:220px sm:300px"
-                loading="lazy"
-                decoding="async"
-                :img-attrs="{ class: 'h-full w-full object-cover', draggable: 'false' }"
               />
               <figcaption class="absolute inset-x-[3.4cqw] bottom-[2.4cqw] font-hand text-[3.8cqw] text-ink/80">
                 {{ field('caption') }}
@@ -446,19 +424,10 @@ const list = computed<string[]>(() => {
           <figure class="relative rotate-[3deg]">
             <ThePaper color="white" class="journal-polaroid shadow-paper-lift">
               <span class="tape tape--top-left" style="--tape-tilt: -12deg; --tape-color: rgba(249, 233, 168, 0.85)" />
-              <NuxtPicture
-                :src="visual.image"
-                :alt="visual.alt"
+              <JourneyPhoto
+                v-if="photo"
+                v-bind="photo"
                 class="block aspect-[4/3] w-full"
-                width="480"
-                height="360"
-                fit="cover"
-                format="avif,webp"
-                legacy-format="webp"
-                sizes="xs:200px sm:280px"
-                loading="lazy"
-                decoding="async"
-                :img-attrs="{ class: 'h-full w-full object-cover', draggable: 'false' }"
               />
               <figcaption class="absolute inset-x-[3.4cqw] bottom-[2.4cqw] font-hand text-[3.8cqw] text-ink/80">
                 {{ field('caption') }}

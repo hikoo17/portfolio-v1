@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { journeyPhotos } from '~/utils/journeyVisuals'
+
 type PageKind = 'endpaper' | 'milestone' | 'continued'
 
 interface PageDef {
@@ -262,6 +264,21 @@ function pklWeeksFor(key?: string) {
           </JournalFlipbook>
         </div>
       </Transition>
+
+      <!-- The flipbook only mounts its pages in the browser, so the milestone
+           photographs never appear in the prerendered HTML. With the static
+           `ipxStatic` provider that means their optimized `/_ipx/` variants are
+           never generated and 404 once deployed. Render the same photos once
+           here, hidden, so Nuxt Image registers every variant the flipbook
+           later requests. Hidden images are not fetched, and even if a browser
+           did, they share the exact URLs the flipbook uses. -->
+      <div hidden aria-hidden="true">
+        <JourneyPhoto
+          v-for="photo in journeyPhotos"
+          :key="photo.src"
+          v-bind="photo"
+        />
+      </div>
 
       <div class="sr-only">
         <h3>{{ t('journey.books.titleA') }} {{ t('journey.books.titleB') }}</h3>
