@@ -15,20 +15,17 @@ const localeOptions = [
 ]
 
 const links = computed(() => [
-  { id: 'top', label: t('nav.home'), href: '#top' },
   { id: 'work', label: t('nav.work'), href: '#work' },
   { id: 'about', label: t('nav.about'), href: '#about' },
+  { id: 'tools', label: t('nav.tools'), href: '#tools' },
   { id: 'journey', label: t('nav.journey'), href: '#journey' },
   { id: 'blog', label: t('nav.blog'), href: '#blog' },
   { id: 'contact', label: t('nav.contact'), href: '#contact' },
 ])
 
-// The "top" wrapper spans the whole page, so it is never observed: Home counts
-// as active whenever no section sits in the reading band.
-const activeSection = useActiveSection(['work', 'about', 'journey', 'blog', 'contact'])
+const activeSection = useActiveSection(['work', 'about', 'tools', 'journey', 'blog', 'contact'])
 
-const isActive = (id: string) =>
-  id === 'top' ? activeSection.value === '' : activeSection.value === id
+const isActive = (id: string) => activeSection.value === id
 </script>
 
 <template>
@@ -76,11 +73,6 @@ const isActive = (id: string) =>
               : 'text-ink-soft hover:text-emerald-deep'"
             :aria-current="isActive(link.id) ? 'true' : undefined"
           >
-            <span
-              class="size-1.5 rotate-45 bg-emerald-base transition-all duration-300"
-              :class="isActive(link.id) ? 'scale-100 opacity-100' : 'scale-0 opacity-0'"
-              aria-hidden="true"
-            />
             {{ link.label }}
           </a>
         </li>

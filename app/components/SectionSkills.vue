@@ -27,7 +27,8 @@ const tilts = ['-2deg', '1.5deg', '-1deg', '2deg']
 
 <template>
   <section
-    class="grid-paper grid-paper--fine grid-paper--light bg-cream py-24 text-ink sm:py-32"
+    id="tools"
+    class="grid-paper grid-paper--fine grid-paper--light scroll-mt-24 bg-cream py-24 text-ink sm:py-32"
   >
     <PaperPlane
       variant="swoop"
