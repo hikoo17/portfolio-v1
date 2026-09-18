@@ -406,8 +406,21 @@ body {
   background-repeat: repeat-y, no-repeat, no-repeat;
 }
 
+/* The cover leaf is scrapbook paper, not a ruled notebook page. */
 .journal-sheet--cover {
-  --rule-color: rgba(96, 118, 146, 0.09);
+  --sheet-color: var(--color-cream);
+  --rule-color: rgba(96, 118, 146, 0);
+  background-image:
+    radial-gradient(ellipse at 16% 8%, rgba(255, 255, 255, 0.7), transparent 55%),
+    radial-gradient(ellipse at 88% 94%, rgba(120, 100, 60, 0.12), transparent 62%),
+    repeating-linear-gradient(0deg, rgba(120, 110, 85, 0.035) 0 1px, transparent 1px 4px);
+  background-size: auto;
+  background-repeat: no-repeat, no-repeat, repeat;
+}
+
+/* A scrapbook cover has no red notebook margin. */
+.journal-sheet--cover .journal-sheet__margin {
+  display: none;
 }
 
 .journal-sheet--endpaper {
@@ -654,6 +667,62 @@ body {
 
 /* ---------- Collage scraps ---------- */
 
+/* A hand-torn paper scrap for the scrapbook covers. Size, colour and rotation
+   come from utilities per instance; the deckled edge is shared so every piece
+   reads as torn by hand. Shadows are left out on purpose: `clip-path` would
+   crop them, so torn pieces that must cast one sit inside `.scrap-shadow`. */
+.scrap {
+  border-radius: 2px;
+  background-color: var(--scrap-color, var(--color-paper-white));
+  background-image:
+    repeating-linear-gradient(0deg, rgba(120, 110, 85, 0.03) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at 20% 8%, rgba(255, 255, 255, 0.5), transparent 55%),
+    radial-gradient(ellipse at 86% 94%, rgba(120, 100, 60, 0.07), transparent 60%);
+}
+
+.scrap--torn {
+  clip-path: polygon(
+    0% 7%, 5% 2%, 11% 6%, 18% 1%, 26% 5%, 34% 0%, 42% 4%, 50% 1%, 58% 5%,
+    66% 0%, 74% 4%, 82% 1%, 89% 5%, 95% 1%, 100% 6%,
+    96% 15%, 100% 24%, 95% 34%, 99% 44%, 95% 54%, 100% 64%, 96% 74%,
+    100% 84%, 96% 93%, 91% 97%, 84% 93%, 76% 99%, 68% 94%, 60% 99%,
+    52% 95%, 44% 100%, 36% 95%, 28% 99%, 20% 95%, 13% 100%, 7% 95%, 2% 98%, 0% 92%
+  );
+}
+
+/* Wraps a torn scrap so the shadow follows the torn silhouette. */
+.scrap-shadow {
+  filter:
+    drop-shadow(0 2px 2px rgba(10, 20, 15, 0.16))
+    drop-shadow(0 14px 18px rgba(10, 20, 15, 0.22));
+}
+
+/* Running stitch, as if the paper were sewn down. Host must be positioned. */
+.scrap-stitch::after {
+  content: "";
+  position: absolute;
+  inset: 4.5%;
+  border: 2px dashed rgba(34, 39, 31, 0.28);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+/* Triangular photo-corner mounts, sized against the photo they hold. */
+.photo-corner {
+  position: absolute;
+  z-index: 2;
+  width: 14%;
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, #f0e6cd, #d6c49b);
+  box-shadow: 0 1px 2px rgba(10, 20, 15, 0.28);
+  pointer-events: none;
+}
+
+.photo-corner--tl { top: -5%; left: -5%; clip-path: polygon(0 0, 100% 0, 0 100%); }
+.photo-corner--tr { top: -5%; right: -5%; clip-path: polygon(0 0, 100% 0, 100% 100%); }
+.photo-corner--bl { bottom: -5%; left: -5%; clip-path: polygon(0 0, 0 100%, 100% 100%); }
+.photo-corner--br { right: -5%; bottom: -5%; clip-path: polygon(100% 0, 100% 100%, 0 100%); }
+
 .journal-polaroid {
   background: #fff;
   padding: 3.6cqw 3.4cqw 9.5cqw;
@@ -747,6 +816,243 @@ body {
   opacity: 0.75;
 }
 
+/* ---------- Archive of journals: book selection ---------- */
+
+/* The scrapbook canvas the two books rest on. Mobile stacks them so each book
+   keeps a readable size; from tablet up they sit side by side like a shelf. */
+.journal-shelf {
+  display: grid;
+  width: 100%;
+  max-width: 18rem;
+  justify-items: center;
+  gap: 3rem;
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .journal-shelf {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 42rem;
+    gap: 4.5rem;
+  }
+}
+
+.journal-pick {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 18rem;
+  flex-direction: column;
+  align-items: center;
+  border: 0;
+  background: none;
+  padding: 0;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* The closed journal itself: board cover, binding on the left, page edges on
+   the right. `container-type` keeps the cover collage proportional. */
+.journal-pick__cover {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  container-type: size;
+  border-radius: 3px 7px 7px 3px;
+  box-shadow:
+    0 2px 3px rgba(2, 20, 16, 0.4),
+    0 22px 34px -18px rgba(2, 20, 16, 0.65);
+  transform: rotate(var(--pick-tilt, 0deg));
+  transform-origin: bottom center;
+  transition:
+    transform 0.5s cubic-bezier(0.22, 0.85, 0.3, 1),
+    box-shadow 0.5s cubic-bezier(0.22, 0.85, 0.3, 1);
+  will-change: transform;
+}
+
+/* Cloth/paper grain layered over the board but under the glued-on scraps. */
+.journal-pick__cover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.045) 0 1px, transparent 1px 4px),
+    radial-gradient(ellipse at 20% 8%, rgba(255, 255, 255, 0.16), transparent 58%),
+    radial-gradient(ellipse at 84% 96%, rgba(0, 0, 0, 0.24), transparent 60%);
+}
+
+/* The cut page edges peeking out of the closed book. */
+.journal-pick__cover::after {
+  content: "";
+  position: absolute;
+  top: 1.5%;
+  right: 0;
+  bottom: 1.5%;
+  z-index: 1;
+  width: 3.5%;
+  border-radius: 0 7px 7px 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 253, 246, 0.95) 0 2px,
+    rgba(206, 199, 181, 0.95) 2px 3px
+  );
+  box-shadow: 2px 0 6px rgba(2, 20, 16, 0.3);
+  pointer-events: none;
+}
+
+.journal-pick__spine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  width: 7%;
+  border-radius: 3px 0 0 3px;
+  background: linear-gradient(
+    to right,
+    rgba(2, 20, 16, 0.55) 0%,
+    rgba(2, 20, 16, 0.18) 42%,
+    rgba(255, 255, 255, 0.14) 78%,
+    rgba(2, 20, 16, 0.12) 100%
+  );
+  pointer-events: none;
+}
+
+/* Both journals are handmade scrapbooks: warm paper boards with torn scraps,
+   washi tape, stitched edges and photo corners, so MY JOURNEY and PKL JOURNAL
+   read as siblings pulled from one scrapbook box. PKL keeps a greener binding
+   tint to stay distinct. */
+.journal-pick__cover--journey,
+.journal-pick__cover--pkl {
+  background-color: var(--color-cream-warm);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(120, 110, 85, 0.05) 0 1px, transparent 1px 4px),
+    radial-gradient(ellipse at 22% 8%, rgba(255, 255, 255, 0.65), transparent 58%),
+    radial-gradient(ellipse at 84% 96%, rgba(120, 100, 60, 0.18), transparent 62%);
+}
+
+.journal-pick__cover--journey {
+  --pick-tilt: -1.2deg;
+}
+
+.journal-pick__cover--pkl {
+  --pick-tilt: 1.1deg;
+}
+
+/* On paper the binding reads as a folded, sewn edge instead of a leather spine. */
+.journal-pick__cover--journey .journal-pick__spine,
+.journal-pick__cover--pkl .journal-pick__spine {
+  width: 5%;
+  background: linear-gradient(
+    to right,
+    rgba(120, 100, 60, 0.3) 0%,
+    rgba(120, 100, 60, 0.1) 45%,
+    rgba(255, 255, 255, 0.45) 80%,
+    rgba(120, 100, 60, 0.12) 100%
+  );
+}
+
+.journal-pick__cover--pkl .journal-pick__spine {
+  background: linear-gradient(
+    to right,
+    rgba(7, 94, 79, 0.28) 0%,
+    rgba(7, 94, 79, 0.1) 45%,
+    rgba(255, 255, 255, 0.45) 80%,
+    rgba(7, 94, 79, 0.12) 100%
+  );
+}
+
+/* Pick-up-the-notebook hover: a small lift, a lean into the tilt, a deeper
+   shadow. The caption drifts too because it lives inside the same button. */
+.journal-pick:hover .journal-pick__cover,
+.journal-pick:focus-visible .journal-pick__cover {
+  transform: rotate(calc(var(--pick-tilt, 0deg) * 0.4)) translateY(-14px) scale(1.015);
+  box-shadow:
+    0 3px 5px rgba(2, 20, 16, 0.35),
+    0 34px 46px -20px rgba(2, 20, 16, 0.7);
+}
+
+.journal-pick:focus-visible {
+  border-radius: 3px;
+  outline: 2px dashed var(--color-note-yellow);
+  outline-offset: 6px;
+}
+
+.journal-pick__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-top: 1.15rem;
+  color: rgba(246, 241, 228, 0.7);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  transition: color 0.35s ease;
+}
+
+.journal-pick:hover .journal-pick__label,
+.journal-pick:focus-visible .journal-pick__label {
+  color: var(--color-note-yellow);
+}
+
+/* Return to the shelf. */
+.journal-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  background: rgba(246, 241, 228, 0.95);
+  padding: 0.5rem 0.95rem;
+  color: var(--color-emerald-deep);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-paper-lift);
+  cursor: pointer;
+  transition:
+    transform 0.3s cubic-bezier(0.22, 0.85, 0.3, 1),
+    background-color 0.3s ease;
+}
+
+.journal-back:hover {
+  background: var(--color-note-yellow);
+  transform: translateX(-3px);
+}
+
+/* Scrapbook transition between the shelf and the opened book. */
+.stage-enter-active,
+.stage-leave-active {
+  transition:
+    opacity 0.4s ease,
+    transform 0.45s cubic-bezier(0.22, 0.85, 0.3, 1);
+}
+
+.stage-enter-from {
+  opacity: 0;
+  transform: translateY(16px) scale(0.985);
+}
+
+.stage-leave-to {
+  opacity: 0;
+  transform: translateY(-10px) scale(1.015);
+}
+
+/* PKL pages read as warm kraft field paper rather than bright scrapbook. */
+.journal-sheet--pkl {
+  --sheet-color: var(--color-cream);
+  --rule-color: rgba(96, 118, 146, 0.1);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -754,6 +1060,18 @@ body {
   .journal-flip,
   .journal-fold {
     transition: none !important;
+  }
+  .journal-pick__cover,
+  .journal-pick__label,
+  .journal-back,
+  .stage-enter-active,
+  .stage-leave-active {
+    transition: none !important;
+  }
+  .stage-enter-from,
+  .stage-leave-to {
+    opacity: 1;
+    transform: none;
   }
   .reveal,
   .reveal.is-visible {
