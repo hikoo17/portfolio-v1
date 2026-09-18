@@ -45,31 +45,31 @@
     "pressEsc": "press esc or click outside to close",
     "items": {
       "nihon": {
-        "short": "A production site from my internship at CV Access Media, with a Japanese-inspired identity.",
-        "description": "A production site from my internship at CV Access Media — clean structure, careful details, and a Japanese-inspired identity.",
-        "tagline": "details, done right",
-        "highlights": ["Production deployment", "Japanese-inspired design", "SEO-friendly structure"],
+        "short": "An online Japanese learning platform with structured course packages and a student dashboard.",
+        "description": "A Japanese learning platform for beginners and beyond. Learners pick a course package, filter classes by level, work through video and PDF lessons, and track their progress, quizzes, and certificates from a personal dashboard.",
+        "tagline": "Japanese, step by step",
+        "highlights": ["Course packages and level filters", "Student dashboard with progress tracking", "Lessons, quizzes, and certificates"],
         "role": "Web Developer Intern"
       },
       "karoto": {
-        "short": "An internship project at CV Access Media — designed and shipped for a real client.",
-        "description": "A website built during my internship at CV Access Media — designed and shipped for a real client, from first wireframe to deployment.",
-        "tagline": "client work, shipped",
-        "highlights": ["Built for a real client", "Responsive across devices", "Deployed to production"],
+        "short": "A data management system with a secured sign-in and a separate admin channel.",
+        "description": "A web-based management system for handling operational data. It pairs a secured sign-in for regular users with a dedicated admin login, behind a responsive dashboard built on Laravel, Vue, and SQL Server.",
+        "tagline": "manage data, minus the clutter",
+        "highlights": ["Secured user sign-in", "Separate admin access", "Responsive management dashboard"],
         "role": "Web Developer Intern"
       },
       "pointku": {
-        "short": "A points and rewards platform — tracking and redeeming made simple, fast, and clear.",
-        "description": "A points platform that makes tracking and redeeming rewards simple — built to be fast, clear, and enjoyable to use.",
-        "tagline": "every point in its place",
-        "highlights": ["Point tracking dashboard", "Reward redemption flow", "Responsive everywhere"],
+        "short": "A student care system for schools — tracking violations and appreciation in one clear dashboard.",
+        "description": "A student care platform that records violations and appreciation separately, keeps a running point balance for every student, and gives teachers and admins one place to log incidents, attach photo evidence, and follow up.",
+        "tagline": "discipline and appreciation, in balance",
+        "highlights": ["Violation and appreciation tracking", "Point balance per student", "Incident logging with photo evidence"],
         "role": "Frontend Developer"
       },
       "sipiket": {
-        "short": "A digital piket board for schools — duty rosters, attendance, and classroom accountability in one place.",
-        "description": "A digital piket board for schools — schedule duty rosters, record daily attendance, and keep every classroom accountable from a single dashboard.",
-        "tagline": "piket, minus the paper",
-        "highlights": ["Duty roster scheduling", "Daily attendance tracking", "Clean, single dashboard"],
+        "short": "A digital duty board for schools — location-verified attendance, photo evidence, and class dashboards.",
+        "description": "A digital duty and attendance system for schools. Students check in through a location-verified, camera-backed flow, while every class gets a dashboard for schedules, submission status, and verification.",
+        "tagline": "duty presence, verified",
+        "highlights": ["Location and radius verified presence", "Camera evidence for each check-in", "Class dashboard and verification"],
         "role": "Full-stack Developer"
       }
     }

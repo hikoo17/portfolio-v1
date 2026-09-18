@@ -46,46 +46,46 @@
     "pressEsc": "tekan esc atau klik di luar untuk menutup",
     "items": {
       "nihon": {
-        "short": "Situs produksi dari magangku di CV Access Media, dengan identitas bergaya Jepang.",
-        "description": "Situs produksi yang kubangun selama magang di CV Access Media — dengan struktur yang rapi, detail yang diperhatikan, dan identitas bergaya Jepang.",
-        "tagline": "detail, ditangani dengan tepat",
+        "short": "Platform belajar bahasa Jepang online dengan paket kursus terstruktur dan dashboard siswa.",
+        "description": "Platform pembelajaran bahasa Jepang untuk pemula hingga lanjutan. Siswa memilih paket kursus, menyaring kelas berdasarkan level, mengikuti materi video dan PDF, lalu memantau progres, latihan, dan sertifikat dari dashboard pribadinya.",
+        "tagline": "bahasa Jepang, selangkah demi selangkah",
         "highlights": [
-          "Deploy ke produksi",
-          "Desain bergaya Jepang",
-          "Struktur ramah SEO"
+          "Paket kursus dan filter level",
+          "Dashboard siswa dengan progres",
+          "Materi, latihan, dan sertifikat"
         ],
         "role": "Magang Web Developer"
       },
       "karoto": {
-        "short": "Proyek magang di CV Access Media — dirancang dan diluncurkan untuk klien sungguhan.",
-        "description": "Website yang kubangun selama magang di CV Access Media — dirancang dan diluncurkan untuk klien sungguhan, dari wireframe pertama hingga deploy.",
-        "tagline": "karya klien, sudah rilis",
+        "short": "Sistem manajemen data dengan login aman dan akses admin terpisah.",
+        "description": "Sistem manajemen berbasis web untuk mengelola data. Ada login aman untuk pengguna umum dan login admin terpisah, semuanya di balik dashboard responsif yang dibangun dengan Laravel, Vue, dan SQL Server.",
+        "tagline": "kelola data tanpa ribet",
         "highlights": [
-          "Dibuat untuk klien sungguhan",
-          "Responsif di semua perangkat",
-          "Sudah live di produksi"
+          "Login pengguna yang aman",
+          "Akses admin terpisah",
+          "Dashboard manajemen yang responsif"
         ],
         "role": "Magang Web Developer"
       },
       "pointku": {
-        "short": "Platform poin dan hadiah — membuat pelacakan dan penukaran jadi sederhana, cepat, dan jelas.",
-        "description": "Platform poin yang membuat pelacakan dan penukaran hadiah jadi lebih sederhana — dibangun agar cepat, jelas, dan nyaman digunakan.",
-        "tagline": "setiap poin di tempatnya",
+        "short": "Sistem student care untuk sekolah — memantau pelanggaran dan apresiasi dalam satu dashboard.",
+        "description": "Platform student care yang mencatat pelanggaran dan apresiasi secara terpisah, menyimpan saldo poin tiap siswa, dan memberi guru serta admin satu tempat untuk mencatat kejadian, melampirkan bukti foto, dan menindaklanjutinya.",
+        "tagline": "disiplin dan apresiasi, seimbang",
         "highlights": [
-          "Dashboard pelacakan poin",
-          "Alur penukaran hadiah",
-          "Responsif di mana saja"
+          "Pelacakan pelanggaran dan apresiasi",
+          "Saldo poin tiap siswa",
+          "Catatan kejadian dengan bukti foto"
         ],
         "role": "Frontend Developer"
       },
       "sipiket": {
-        "short": "Papan piket digital untuk sekolah — jadwal piket, absensi, dan tanggung jawab kelas dalam satu tempat.",
-        "description": "Papan piket digital untuk sekolah — mengatur jadwal piket, mencatat absensi harian, dan memantau tanggung jawab tiap kelas dari satu dashboard.",
-        "tagline": "piket, tanpa kertas",
+        "short": "Papan piket digital untuk sekolah — presensi terverifikasi lokasi, bukti foto, dan dashboard kelas.",
+        "description": "Sistem piket dan presensi digital untuk sekolah. Siswa melakukan presensi lewat alur yang terverifikasi lokasi dan kamera, sementara tiap kelas punya dashboard untuk jadwal, status pengiriman, dan verifikasi.",
+        "tagline": "presensi piket, terverifikasi",
         "highlights": [
-          "Penjadwalan piket",
-          "Pencatatan absensi harian",
-          "Satu dashboard yang rapi"
+          "Presensi dengan lokasi dan radius",
+          "Bukti foto tiap presensi",
+          "Dashboard kelas dan verifikasi"
         ],
         "role": "Full-stack Developer"
       }
