@@ -103,34 +103,90 @@
     "titleA": "The journey",
     "titleB": "so far",
     "handNote": "one idea at a time →",
+    "cover": {
+      "title": "MY JOURNEY",
+      "subtitle": "a scrapbook of small steps & lucky breaks",
+      "note": "pull a corner to flip →",
+      "label": "journal no. 05",
+      "started": "est. 2023",
+      "owner": "this journal belongs to"
+    },
+    "controls": {
+      "prev": "Previous page",
+      "next": "Next page",
+      "pageOf": "Page {current} of {total}",
+      "drag": "drag a corner to turn",
+      "keyboard": "or use ← →"
+    },
+    "continued": {
+      "title": "To be continued...",
+      "note": "The rest of this journal is still blank — and that is the exciting part.",
+      "signature": "see you on the next page"
+    },
     "milestones": {
       "first": {
         "title": "First line of code",
-        "text": "A curious “hello world” that quietly rewired my plans."
+        "text": "A curious “hello world” that quietly rewired my plans.",
+        "kicker": "where it all started",
+        "date": "2023",
+        "caption": "hello, world.",
+        "note": "one curious line of code and nothing looked the same",
+        "sticker": "DAY 01",
+        "list": ["Wrote my very first tag", "Broke it, fixed it", "Got completely hooked"]
       },
       "serious": {
         "title": "Started building seriously",
-        "text": "Learned by finishing small projects instead of starting big ones."
+        "text": "Learned by finishing small projects instead of starting big ones.",
+        "kicker": "small projects, real lessons",
+        "date": "2024",
+        "caption": "build beats planning",
+        "note": "finish small things — that is the whole trick",
+        "sticker": "KEEP GOING",
+        "list": ["HTML, CSS, JavaScript", "First real projects", "Learning by shipping"]
       },
       "lks2025": {
         "title": "LKS Web Technology",
         "text": "City level in Tasikmalaya. My first competition podium in web technology.",
-        "badge": "2nd Place — City"
-      },
-      "lks2026": {
-        "title": "LKS Web Technology",
-        "text": "City level in Tasikmalaya — champions, and a ticket to the provincial round.",
-        "badge": "1st Place — City"
-      },
-      "province": {
-        "title": "LKS West Java Provincial",
-        "text": "Representing Tasikmalaya against the best web developers across West Java.",
-        "badge": "6th Place — Province"
+        "badge": "2nd Place — City",
+        "kicker": "first time on stage",
+        "date": "Apr 2025",
+        "caption": "LKS 2025 · city level",
+        "note": "nervous hands, steady focus",
+        "sticker": "JUARA 2",
+        "list": ["City level, Tasikmalaya", "First podium", "Web Technology"]
       },
       "iot": {
         "title": "IoT Competition",
         "text": "1st place in my school's Electrical Engineering department — hardware and code working together.",
-        "badge": "1st Place — IoT"
+        "badge": "1st Place — IoT",
+        "kicker": "hardware meets code",
+        "date": "2025",
+        "caption": "sensor + sketch",
+        "note": "wires everywhere — and it actually worked",
+        "sticker": "JUARA 1",
+        "list": ["Electrical Engineering", "Arduino + sensors", "First place"]
+      },
+      "lks2026": {
+        "title": "LKS Web Technology",
+        "text": "City level in Tasikmalaya — champions, and a ticket to the provincial round.",
+        "badge": "1st Place — City",
+        "kicker": "back, and this time it clicked",
+        "date": "2026",
+        "caption": "champions · city level",
+        "note": "all that practice finally lined up",
+        "sticker": "JUARA 1",
+        "list": ["City level, Tasikmalaya", "Champion", "Ticket to provincials"]
+      },
+      "province": {
+        "title": "LKS West Java Provincial",
+        "text": "Representing Tasikmalaya against the best web developers across West Java.",
+        "badge": "6th Place — Province",
+        "kicker": "against the best in West Java",
+        "date": "2026",
+        "caption": "provincial round",
+        "note": "the proudest 6th place there ever was",
+        "sticker": "JUARA 6",
+        "list": ["Represented Tasikmalaya", "West Java level", "Kept every lesson"]
       }
     }
   },

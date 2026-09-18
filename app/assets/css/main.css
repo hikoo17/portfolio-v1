@@ -333,9 +333,429 @@ body {
   transform: none;
 }
 
+/* ---------- Scrapbook flipbook ---------- */
+
+/* 3D stage. Perspective lives here; everything between the stage and the
+   flipping leaf must keep `transform-style: preserve-3d` and must never use a
+   grouping property (filter/opacity/clip/mask) or the 3D page turn collapses
+   back into a flat plane. */
+.journal-desk {
+  position: relative;
+  perspective: 2400px;
+  perspective-origin: 50% 40%;
+}
+
+.journal-book {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  transform: rotateX(5deg) rotateZ(-0.35deg);
+  transform-style: preserve-3d;
+}
+
+@media (min-width: 640px) {
+  .journal-book {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* A single page slot. Box-shadow is fine here, clipping is not: the turning
+   leaf swings out of this box and would be cut off by `overflow: hidden`. */
+.journal-half {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: 2px;
+  background-color: var(--color-paper-white);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 18px 30px -18px rgba(2, 20, 16, 0.55),
+    0 3px 6px -3px rgba(2, 20, 16, 0.3);
+}
+
+.journal-half--left {
+  display: none;
+  border-radius: 3px 1px 1px 3px;
+  box-shadow:
+    -2px 0 10px -6px rgba(2, 20, 16, 0.5) inset,
+    0 18px 30px -18px rgba(2, 20, 16, 0.55);
+}
+
+@media (min-width: 640px) {
+  .journal-half--left {
+    display: block;
+  }
+}
+
+.journal-half--right {
+  border-radius: 1px 3px 3px 1px;
+}
+
+/* The paper itself. Establishes the container so the collage can be sized in
+   `cqw`, which keeps every scrap proportional from phone to desktop. */
+.journal-sheet {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  container-type: size;
+  container-name: journal-page;
+  background-color: var(--sheet-color, var(--color-paper-white));
+  background-image:
+    linear-gradient(to bottom, transparent calc(100% - 1px), var(--rule-color, rgba(96, 118, 146, 0.15)) calc(100% - 1px)),
+    radial-gradient(ellipse at 18% 6%, rgba(255, 255, 255, 0.65), transparent 55%),
+    radial-gradient(ellipse at 86% 97%, rgba(120, 100, 60, 0.06), transparent 62%);
+  background-size: 100% 7.4%, 100% 100%, 100% 100%;
+  background-repeat: repeat-y, no-repeat, no-repeat;
+}
+
+.journal-sheet--cover {
+  --rule-color: rgba(96, 118, 146, 0.09);
+}
+
+.journal-sheet--endpaper {
+  --sheet-color: var(--color-emerald-deep);
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0 2px, transparent 2px 6px),
+    radial-gradient(ellipse at 30% 15%, rgba(122, 201, 175, 0.18), transparent 60%),
+    radial-gradient(ellipse at 80% 92%, rgba(2, 20, 16, 0.5), transparent 60%);
+  background-size: auto, auto, auto;
+  background-repeat: repeat, no-repeat, no-repeat;
+}
+
+/* Paper fiber grain, drawn above the ruled lines but below the content. */
+.journal-sheet::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(120, 110, 85, 0.03) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(120, 110, 85, 0.022) 0 1px, transparent 1px 4px);
+  mix-blend-mode: multiply;
+}
+
+.journal-sheet__margin {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 11%;
+  z-index: 1;
+  width: 1px;
+  background: rgba(203, 112, 101, 0.32);
+}
+
+/* On a left-hand page the binding is on the right, so the margin flips. */
+.journal-sheet--left .journal-sheet__margin {
+  left: auto;
+  right: 11%;
+}
+
+.journal-collage {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+/* Photos should never start a native image drag while the page is being
+   turned with the pointer. */
+.journal-sheet img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* Decorative page edges peeking out of the stack, so the book reads as a
+   thick journal rather than two loose sheets. */
+.journal-stack-edge {
+  position: absolute;
+  top: 1.4%;
+  bottom: 1.4%;
+  z-index: 0;
+  width: 5px;
+  border-radius: 2px;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 253, 246, 0.95) 0 2px,
+    rgba(206, 199, 181, 0.95) 2px 3px
+  );
+  box-shadow: 0 0 6px rgba(2, 20, 16, 0.25);
+}
+
+.journal-stack-edge--outer {
+  right: -4px;
+}
+
+.journal-stack-edge--spine {
+  left: -4px;
+}
+
+@media (min-width: 640px) {
+  .journal-stack-edge--spine {
+    left: calc(50% - 4px);
+  }
+}
+
+/* ---------- Spiral binding ---------- */
+
+.journal-spine {
+  position: absolute;
+  top: 2.5%;
+  bottom: 2.5%;
+  left: 0;
+  z-index: 40;
+  display: flex;
+  width: 2.6rem;
+  transform: translateX(-50%);
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  pointer-events: none;
+}
+
+@media (min-width: 640px) {
+  .journal-spine {
+    left: 50%;
+  }
+}
+
+.journal-coil {
+  width: 2rem;
+  height: 0.52rem;
+  border-radius: 9999px;
+  background: linear-gradient(
+    180deg,
+    #fbf9f3 0%,
+    #c6c0b0 42%,
+    #726c5e 58%,
+    #e2ddd0 100%
+  );
+  box-shadow:
+    0 1px 2px rgba(2, 20, 16, 0.5),
+    0 0 0 1px rgba(2, 20, 16, 0.18);
+  opacity: 0.95;
+}
+
+/* ---------- Turning leaf ---------- */
+
+/* Overlays the right page on desktop, the whole page on mobile. Rotating
+   around its left edge is what makes the leaf swing over the spine. */
+.journal-flip {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 30;
+  width: 100%;
+  transform: rotateY(var(--flip, 0deg));
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.34, 0.68, 0.22, 1);
+  will-change: transform;
+  pointer-events: none;
+}
+
+@media (min-width: 640px) {
+  .journal-flip {
+    left: 50%;
+    width: 50%;
+  }
+}
+
+.journal-flip.is-dragging {
+  transition: none;
+}
+
+.journal-flip__face {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.journal-flip__back {
+  transform: rotateY(180deg);
+  background-color: var(--color-cream-warm);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(120, 110, 85, 0.03) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at 80% 50%, rgba(120, 100, 60, 0.07), transparent 62%);
+}
+
+/* Moving crease shadow, pinned to the binding edge of each face. */
+.journal-flip__face::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.journal-flip__front::after {
+  background: linear-gradient(
+    to right,
+    rgba(3, 24, 19, calc(var(--flip-shade, 0.22) * 0.9)) 0%,
+    rgba(3, 24, 19, 0) 32%
+  );
+}
+
+.journal-flip__back::after {
+  background: linear-gradient(
+    to left,
+    rgba(3, 24, 19, 0.55) 0%,
+    rgba(3, 24, 19, 0) 30%
+  );
+}
+
+/* Shadow the lifted leaf casts onto whatever is revealed underneath. */
+.journal-cast {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  border-radius: inherit;
+  background: rgba(3, 24, 19, 0.5);
+  opacity: var(--cast-shade, 0);
+  pointer-events: none;
+}
+
+/* Folded corner that hints the page is grabbable. */
+.journal-fold {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 36;
+  width: 3.4rem;
+  max-width: 22%;
+  aspect-ratio: 1;
+  border-bottom-right-radius: 3px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0) 47%, var(--color-cream-warm) 49%);
+  box-shadow: -2px -2px 7px rgba(2, 20, 16, 0.22);
+  transform-origin: bottom right;
+  transition: transform 0.35s cubic-bezier(0.22, 0.85, 0.3, 1);
+  pointer-events: none;
+}
+
+.journal-desk:hover .journal-fold,
+.journal-desk:focus-within .journal-fold {
+  transform: scale(1.14) translate(-2px, -2px);
+}
+
+.journal-fold--left {
+  right: auto;
+  left: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 3px;
+  background: linear-gradient(225deg, rgba(0, 0, 0, 0) 47%, var(--color-cream-warm) 49%);
+  box-shadow: 2px -2px 7px rgba(2, 20, 16, 0.22);
+  transform-origin: bottom left;
+}
+
+.journal-desk:hover .journal-fold--left,
+.journal-desk:focus-within .journal-fold--left {
+  transform: scale(1.14) translate(2px, -2px);
+}
+
+/* ---------- Collage scraps ---------- */
+
+.journal-polaroid {
+  background: #fff;
+  padding: 3.6cqw 3.4cqw 9.5cqw;
+}
+
+.journal-sticker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4em 0.72em;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  background: var(--sticker-color, var(--color-emerald-base));
+  box-shadow: 0 3px 9px -3px rgba(2, 20, 16, 0.55);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  transform: rotate(var(--scrap-tilt, -4deg));
+}
+
+.journal-sticker--round {
+  border-radius: 9999px;
+}
+
+.journal-stamp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45em 0.7em;
+  border: 2px dashed var(--stamp-color, var(--color-emerald-base));
+  border-radius: 3px;
+  color: var(--stamp-color, var(--color-emerald-base));
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  opacity: 0.82;
+  transform: rotate(var(--scrap-tilt, 6deg));
+}
+
+.journal-highlight {
+  background-image: linear-gradient(transparent 52%, rgba(249, 233, 168, 0.95) 52%);
+  padding: 0 0.06em;
+}
+
+.journal-underline {
+  background-image: linear-gradient(
+    to right,
+    rgba(10, 110, 92, 0.55) 0%,
+    rgba(10, 110, 92, 0.55) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 0.12em;
+  background-position: 0 96%;
+}
+
+/* Receipt / index card with a perforated left edge. */
+.journal-ticket {
+  background-color: var(--color-paper-white);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0 calc(2.6cqw - 1px),
+    rgba(96, 118, 146, 0.22) calc(2.6cqw - 1px) 2.6cqw
+  );
+  box-shadow: var(--shadow-paper);
+}
+
+.journal-ticket::before {
+  content: "";
+  position: absolute;
+  top: 0.6cqw;
+  bottom: 0.6cqw;
+  left: -2.1cqw;
+  width: 4.2cqw;
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    var(--sheet-color, var(--color-paper-white)) 0 1.5cqw,
+    rgba(2, 20, 16, 0.14) 1.5cqw 1.75cqw,
+    transparent 1.8cqw
+  );
+  background-size: 4.2cqw 4.2cqw;
+  background-repeat: repeat-y;
+}
+
+.journal-doodle {
+  color: var(--doodle-color, var(--color-emerald-deep));
+  opacity: 0.75;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .journal-flip,
+  .journal-fold {
+    transition: none !important;
   }
   .reveal,
   .reveal.is-visible {

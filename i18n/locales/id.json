@@ -104,34 +104,90 @@
     "titleA": "Perjalanan",
     "titleB": "sejauh ini",
     "handNote": "satu ide per langkah →",
+    "cover": {
+      "title": "MY JOURNEY",
+      "subtitle": "buku tempel langkah kecil & keberuntungan",
+      "note": "tarik sudutnya untuk membalik →",
+      "label": "jurnal no. 05",
+      "started": "sejak 2023",
+      "owner": "jurnal ini milik"
+    },
+    "controls": {
+      "prev": "Halaman sebelumnya",
+      "next": "Halaman berikutnya",
+      "pageOf": "Halaman {current} dari {total}",
+      "drag": "tarik sudut halaman untuk membalik",
+      "keyboard": "atau pakai tombol ← →"
+    },
+    "continued": {
+      "title": "To be continued...",
+      "note": "Sisa jurnal ini masih kosong — dan justru itu bagian yang seru.",
+      "signature": "sampai jumpa di halaman berikutnya"
+    },
     "milestones": {
       "first": {
         "title": "Baris kode pertama",
-        "text": "“Hello world” penasaran yang diam-diam mengubah rencanaku."
+        "text": "“Hello world” penasaran yang diam-diam mengubah rencanaku.",
+        "kicker": "semua mulai dari sini",
+        "date": "2023",
+        "caption": "halo, dunia.",
+        "note": "satu baris kode iseng, dan semuanya terasa berbeda",
+        "sticker": "HARI 01",
+        "list": ["Menulis tag pertama", "Rusak, lalu diperbaiki", "Langsung ketagihan"]
       },
       "serious": {
         "title": "Mulai serius membangun",
-        "text": "Belajar dengan menyelesaikan proyek kecil, bukan sekadar memulai proyek besar."
+        "text": "Belajar dengan menyelesaikan proyek kecil, bukan sekadar memulai proyek besar.",
+        "kicker": "proyek kecil, pelajaran nyata",
+        "date": "2024",
+        "caption": "bikin dulu, rencana nanti",
+        "note": "selesaikan hal kecil — itu seluruh triknya",
+        "sticker": "LANJUT TERUS",
+        "list": ["HTML, CSS, JavaScript", "Proyek nyata pertama", "Belajar dengan merilis"]
       },
       "lks2025": {
         "title": "LKS Web Technology",
         "text": "Tingkat kota di Tasikmalaya. Podium kompetisi pertamaku di bidang web technology.",
-        "badge": "Juara 2 — Kota"
-      },
-      "lks2026": {
-        "title": "LKS Web Technology",
-        "text": "Tingkat kota di Tasikmalaya — juara, dan tiket ke babak provinsi.",
-        "badge": "Juara 1 — Kota"
-      },
-      "province": {
-        "title": "LKS Jawa Barat",
-        "text": "Mewakili Tasikmalaya melawan web developer terbaik se-Jawa Barat.",
-        "badge": "Juara 6 — Provinsi"
+        "badge": "Juara 2 — Kota",
+        "kicker": "pertama kali naik panggung",
+        "date": "Apr 2025",
+        "caption": "LKS 2025 · tingkat kota",
+        "note": "tangan gugup, fokus tetap",
+        "sticker": "JUARA 2",
+        "list": ["Tingkat kota, Tasikmalaya", "Podium pertama", "Web Technology"]
       },
       "iot": {
         "title": "Kompetisi IoT",
         "text": "Juara 1 di jurusan Teknik Listrik sekolahku — hardware dan kode bekerja sama.",
-        "badge": "Juara 1 — IoT"
+        "badge": "Juara 1 — IoT",
+        "kicker": "perangkat keras bertemu kode",
+        "date": "2025",
+        "caption": "sensor + sketsa",
+        "note": "kabel di mana-mana — dan ternyata berhasil",
+        "sticker": "JUARA 1",
+        "list": ["Teknik Listrik", "Arduino + sensor", "Juara pertama"]
+      },
+      "lks2026": {
+        "title": "LKS Web Technology",
+        "text": "Tingkat kota di Tasikmalaya — juara, dan tiket ke babak provinsi.",
+        "badge": "Juara 1 — Kota",
+        "kicker": "kembali, dan kali ini klik",
+        "date": "2026",
+        "caption": "juara · tingkat kota",
+        "note": "semua latihan akhirnya sejalan",
+        "sticker": "JUARA 1",
+        "list": ["Tingkat kota, Tasikmalaya", "Juara", "Tiket ke provinsi"]
+      },
+      "province": {
+        "title": "LKS Jawa Barat",
+        "text": "Mewakili Tasikmalaya melawan web developer terbaik se-Jawa Barat.",
+        "badge": "Juara 6 — Provinsi",
+        "kicker": "melawan yang terbaik di Jawa Barat",
+        "date": "2026",
+        "caption": "babak provinsi",
+        "note": "juara 6 paling membanggakan",
+        "sticker": "JUARA 6",
+        "list": ["Mewakili Tasikmalaya", "Tingkat Jawa Barat", "Semua pelajaran dibawa pulang"]
       }
     }
   },
