@@ -573,13 +573,22 @@
     "eyebrow": "07 — Sapa Aku",
     "title": "Punya ide?",
     "subtitle": "Mari buat sesuatu yang berkesan.",
-    "startConversation": "Mulai Obrolan",
-    "note": "tanpa form, cukup email — aku balas cepat"
-  },
-  "footer": {
-    "credit": "Didesain & dibangun oleh {name} — © 2026",
-    "thanks": "Terima kasih sudah mampir.",
-    "endOfPage": "akhir halaman — 07/07"
+    "form": {
+      "name": "Nama",
+      "namePlaceholder": "Nama kamu",
+      "email": "Email",
+      "emailPlaceholder": "kamu{'@'}contoh.com",
+      "message": "Pesan",
+      "messagePlaceholder": "Ceritakan ide kamu…",
+      "send": "Kirim Pesan",
+      "sending": "Mengirim…",
+      "success": "Terima kasih — pesanmu sedang dikirim. Aku segera balas.",
+      "error": "Ada yang salah. Coba lagi, atau email aku langsung.",
+      "errName": "Mohon isi nama kamu.",
+      "errEmail": "Mohon isi email kamu.",
+      "errEmailFormat": "Mohon masukkan alamat email yang valid.",
+      "errMessage": "Mohon tulis pesan singkat."
+    }
   },
   "seo": {
     "title": "Keyza Zaki Arkana — Portfolio",

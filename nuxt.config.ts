@@ -126,7 +126,7 @@ export default defineNuxtConfig({
       name: SITE_NAME,
       description: SITE_DESCRIPTION,
       jobTitle: 'Web Developer',
-      email: 'mailto:thespikekeyza@gmail.com',
+      email: 'mailto:keyzazaki054@gmail.com',
       image: `${SITE_URL}/og-image.png`,
       sameAs: [
         'https://github.com/hikoo17',
@@ -136,6 +136,16 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
+    // Contact form delivery. Kept private (never exposed to the client) and
+    // supplied at runtime through NUXT_SMTP_* / NUXT_CONTACT_* env vars.
+    smtp: {
+      host: process.env.NUXT_SMTP_HOST || '',
+      port: process.env.NUXT_SMTP_PORT || '',
+      user: process.env.NUXT_SMTP_USER || '',
+      pass: process.env.NUXT_SMTP_PASS || '',
+      from: process.env.NUXT_CONTACT_FROM || '',
+      to: process.env.NUXT_CONTACT_TO || 'keyzazaki054@gmail.com',
+    },
     public: {
       siteUrl: SITE_URL,
     },

@@ -1,11 +1,55 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
-const channels = [
-  { label: 'Email', value: 'thespikekeyza@gmail.com', href: 'mailto:thespikekeyza@gmail.com', color: 'white' as const, rotation: '-2deg' },
-  { label: 'GitHub', value: '@hikoo17', href: 'https://github.com/hikoo17', color: 'blue' as const, rotation: '1.5deg' },
-  { label: 'LinkedIn', value: 'in/keyza-zaki', href: 'https://www.linkedin.com/in/keyza-zaki-18324741b', color: 'green' as const, rotation: '-1.2deg' },
-]
+const form = reactive({ name: '', email: '', message: '' })
+const errors = reactive({ name: '', email: '', message: '' })
+const status = ref<'idle' | 'sending' | 'success' | 'error'>('idle')
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+const fieldBase
+  = 'mt-2 w-full border-0 border-b bg-transparent px-0.5 py-2 text-base text-ink outline-none transition-colors placeholder:text-ink/35'
+
+function validate() {
+  errors.name = form.name.trim() ? '' : t('contact.form.errName')
+  errors.email = !form.email.trim()
+    ? t('contact.form.errEmail')
+    : EMAIL_RE.test(form.email.trim()) ? '' : t('contact.form.errEmailFormat')
+  errors.message = form.message.trim() ? '' : t('contact.form.errMessage')
+  return !errors.name && !errors.email && !errors.message
+}
+
+async function submit() {
+  if (status.value === 'sending') {
+    return
+  }
+  status.value = 'idle'
+  if (!validate()) {
+    return
+  }
+
+  status.value = 'sending'
+  try {
+    await $fetch('/api/contact', {
+      method: 'POST',
+      body: {
+        name: form.name.trim(),
+        email: form.email.trim(),
+        message: form.message.trim(),
+      },
+    })
+    status.value = 'success'
+    form.name = ''
+    form.email = ''
+    form.message = ''
+    errors.name = ''
+    errors.email = ''
+    errors.message = ''
+  }
+  catch {
+    status.value = 'error'
+  }
+}
 </script>
 
 <template>
@@ -35,49 +79,116 @@ const channels = [
         {{ t('contact.subtitle') }}
       </p>
 
-      <div class="reveal mt-10" :style="{ '--reveal-delay': '240ms' }">
-        <a
-          href="mailto:thespikekeyza@gmail.com"
-          class="group inline-flex -rotate-1 items-center gap-2 rounded-sm bg-emerald-base px-8 py-4 text-base font-bold text-cream shadow-paper transition-all duration-300 hover:translate-y-[-3px] hover:rotate-0 hover:shadow-paper-lift"
-        >
-          {{ t('contact.startConversation') }}
-          <span
-            class="transition-transform duration-300 group-hover:translate-x-1"
-            aria-hidden="true"
-          >
-            →
-          </span>
-        </a>
-        <p class="mt-4 font-hand text-xl text-ink-faint" aria-hidden="true">
-          {{ t('contact.note') }}
-        </p>
-      </div>
-
-      <ul
-        class="reveal reveal--drop mt-16 flex flex-wrap items-stretch justify-center gap-5 sm:gap-7"
-        :style="{ '--reveal-delay': '320ms', '--drop-tilt': '2deg' }"
+      <ThePaper
+        color="cream"
+        rotation="-0.6deg"
+        tape="top-center"
+        tape-tilt="2deg"
+        class="reveal mx-auto mt-12 max-w-xl px-6 py-7 text-left sm:px-8 sm:py-9"
+        :style="{ '--reveal-delay': '240ms', '--tilt-hover': '-1.8deg' }"
       >
-        <li v-for="channel in channels" :key="channel.label">
-          <a :href="channel.href" class="group block" :aria-label="`${channel.label}: ${channel.value}`">
-            <ThePaper :color="channel.color" :rotation="channel.rotation" hover class="px-5 py-3 text-left">
-              <p class="font-mono text-[10px] font-semibold tracking-[0.25em] text-ink/50 uppercase">
-                {{ channel.label }}
-              </p>
-              <p
-                class="mt-0.5 flex items-center gap-1 text-sm font-bold text-ink transition-colors group-hover:text-emerald-deep"
+        <form class="space-y-5" novalidate @submit.prevent="submit">
+          <div>
+            <label
+              for="contact-name"
+              class="font-mono text-[10px] font-semibold tracking-[0.25em] text-ink/50 uppercase"
+            >
+              {{ t('contact.form.name') }}
+            </label>
+            <input
+              id="contact-name"
+              v-model="form.name"
+              type="text"
+              name="name"
+              autocomplete="name"
+              :placeholder="t('contact.form.namePlaceholder')"
+              :class="[fieldBase, errors.name ? 'border-red-700/60 focus:border-red-700' : 'border-ink/25 focus:border-emerald-deep']"
+              :aria-invalid="errors.name ? 'true' : undefined"
+              :aria-describedby="errors.name ? 'contact-name-error' : undefined"
+            >
+            <p v-if="errors.name" id="contact-name-error" class="mt-1.5 text-xs font-medium text-red-700/90">
+              {{ errors.name }}
+            </p>
+          </div>
+
+          <div>
+            <label
+              for="contact-email"
+              class="font-mono text-[10px] font-semibold tracking-[0.25em] text-ink/50 uppercase"
+            >
+              {{ t('contact.form.email') }}
+            </label>
+            <input
+              id="contact-email"
+              v-model="form.email"
+              type="email"
+              name="email"
+              autocomplete="email"
+              inputmode="email"
+              :placeholder="t('contact.form.emailPlaceholder')"
+              :class="[fieldBase, errors.email ? 'border-red-700/60 focus:border-red-700' : 'border-ink/25 focus:border-emerald-deep']"
+              :aria-invalid="errors.email ? 'true' : undefined"
+              :aria-describedby="errors.email ? 'contact-email-error' : undefined"
+            >
+            <p v-if="errors.email" id="contact-email-error" class="mt-1.5 text-xs font-medium text-red-700/90">
+              {{ errors.email }}
+            </p>
+          </div>
+
+          <div>
+            <label
+              for="contact-message"
+              class="font-mono text-[10px] font-semibold tracking-[0.25em] text-ink/50 uppercase"
+            >
+              {{ t('contact.form.message') }}
+            </label>
+            <textarea
+              id="contact-message"
+              v-model="form.message"
+              name="message"
+              rows="4"
+              :placeholder="t('contact.form.messagePlaceholder')"
+              :class="[fieldBase, 'min-h-28 resize-y', errors.message ? 'border-red-700/60 focus:border-red-700' : 'border-ink/25 focus:border-emerald-deep']"
+              :aria-invalid="errors.message ? 'true' : undefined"
+              :aria-describedby="errors.message ? 'contact-message-error' : undefined"
+            />
+            <p v-if="errors.message" id="contact-message-error" class="mt-1.5 text-xs font-medium text-red-700/90">
+              {{ errors.message }}
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 pt-1">
+            <button
+              type="submit"
+              class="group inline-flex -rotate-1 items-center gap-2 rounded-sm bg-emerald-base px-6 py-3 text-sm font-bold text-cream shadow-paper transition-all duration-300 hover:translate-y-[-3px] hover:rotate-0 hover:shadow-paper-lift disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:rotate-[-1deg]"
+              :disabled="status === 'sending'"
+            >
+              {{ status === 'sending' ? t('contact.form.sending') : t('contact.form.send') }}
+              <span
+                class="transition-transform duration-300 group-hover:translate-x-1"
+                aria-hidden="true"
               >
-                {{ channel.value }}
-                <span
-                  class="opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:opacity-100"
-                  aria-hidden="true"
-                >
-                  →
-                </span>
-              </p>
-            </ThePaper>
-          </a>
-        </li>
-      </ul>
+                →
+              </span>
+            </button>
+          </div>
+
+          <p
+            v-if="status === 'success'"
+            role="status"
+            class="font-hand text-lg text-emerald-deep"
+          >
+            {{ t('contact.form.success') }}
+          </p>
+          <p
+            v-else-if="status === 'error'"
+            role="alert"
+            class="font-hand text-lg text-red-700/90"
+          >
+            {{ t('contact.form.error') }}
+          </p>
+        </form>
+      </ThePaper>
     </div>
   </section>
 </template>

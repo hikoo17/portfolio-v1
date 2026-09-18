@@ -523,13 +523,22 @@
     "eyebrow": "07 — Say Hello",
     "title": "Have an idea?",
     "subtitle": "Let's make something worth remembering.",
-    "startConversation": "Start a Conversation",
-    "note": "no forms, just email — I reply fast"
-  },
-  "footer": {
-    "credit": "Designed & built by {name} — © 2026",
-    "thanks": "Thanks for stopping by.",
-    "endOfPage": "end of page — 07/07"
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "you{'@'}example.com",
+      "message": "Message",
+      "messagePlaceholder": "Tell me what you have in mind…",
+      "send": "Send Message",
+      "sending": "Sending…",
+      "success": "Thanks — your message is on its way. I'll reply soon.",
+      "error": "Something went wrong. Please try again, or email me directly.",
+      "errName": "Please enter your name.",
+      "errEmail": "Please enter your email.",
+      "errEmailFormat": "Please enter a valid email address.",
+      "errMessage": "Please write a short message."
+    }
   },
   "seo": {
     "title": "Keyza Zaki Arkana — Portfolio",
