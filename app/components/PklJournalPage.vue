@@ -1,5 +1,5 @@
 <script setup lang="ts">
-type PklPageKind = 'cover' | 'endpaper' | 'intro' | 'week' | 'outro'
+type PklPageKind = 'endpaper' | 'intro' | 'week' | 'outro'
 
 interface PklWeek {
   label: string
@@ -112,7 +112,6 @@ const pageNumber = computed(() => String(props.number).padStart(2, '0'))
 const totalPages = computed(() => String(props.total).padStart(2, '0'))
 
 const sheetClass = computed(() => ({
-  'journal-sheet--cover': props.kind === 'cover',
   'journal-sheet--endpaper': props.kind === 'endpaper',
   'journal-sheet--pkl': props.kind !== 'endpaper',
   'journal-sheet--left': props.side === 'left',
@@ -125,13 +124,8 @@ const weekNotes = ['white', 'cream', 'yellow', 'pink'] as const
   <article class="journal-sheet" :class="sheetClass">
     <span v-if="kind !== 'endpaper'" class="journal-sheet__margin" aria-hidden="true" />
 
-    <!-- COVER -->
-    <div v-if="kind === 'cover'" class="journal-collage">
-      <PklCoverCollage />
-    </div>
-
     <!-- INSIDE COVER -->
-    <div v-else-if="kind === 'endpaper'" class="journal-collage text-cream">
+    <div v-if="kind === 'endpaper'" class="journal-collage text-cream">
       <svg
         class="absolute inset-0 h-full w-full text-cream/15"
         viewBox="0 0 100 133"

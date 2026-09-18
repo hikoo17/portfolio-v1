@@ -1,12 +1,12 @@
 <script setup lang="ts">
-type PageKind = 'cover' | 'endpaper' | 'milestone' | 'continued'
+type PageKind = 'endpaper' | 'milestone' | 'continued'
 
 interface PageDef {
   kind: PageKind
   key?: string
 }
 
-type PklPageKind = 'cover' | 'endpaper' | 'intro' | 'week' | 'outro'
+type PklPageKind = 'endpaper' | 'intro' | 'week' | 'outro'
 
 interface PklPageDef {
   kind: PklPageKind
@@ -34,14 +34,11 @@ const pklChapters = computed(() => {
 })
 
 const journeyPages: PageDef[] = [
-  { kind: 'cover' },
   ...milestoneKeys.map(key => ({ kind: 'milestone' as const, key })),
   { kind: 'continued' },
 ]
 
 const pklPages = computed<PklPageDef[]>(() => [
-  { kind: 'cover' },
-  { kind: 'endpaper' },
   { kind: 'intro' },
   ...pklChapters.value.map((_, i) => ({ kind: 'week' as const, key: String(i) })),
   { kind: 'outro' },
@@ -215,14 +212,11 @@ function pklWeeksFor(key?: string) {
           key="journey"
           class="stage-panel relative mx-auto mt-10 max-w-[21rem] sm:max-w-3xl"
         >
-          <div class="mb-5 flex flex-wrap items-center justify-between gap-3">
+          <div class="mb-5 flex flex-wrap items-center gap-3">
             <button ref="backRef" type="button" class="journal-back" @click="closeBook">
               <Icon name="ph:arrow-left" class="size-4" aria-hidden="true" />
               {{ t('journey.books.back') }}
             </button>
-            <p class="font-mono text-[10px] font-semibold tracking-[0.3em] text-cream/45 uppercase">
-              {{ t('journey.books.myJourney.index') }} — {{ t('journey.books.myJourney.title') }}
-            </p>
           </div>
 
           <JournalFlipbook :pages="journeyPages" :label="t('journey.books.myJourney.title')">
@@ -244,14 +238,11 @@ function pklWeeksFor(key?: string) {
           key="pkl"
           class="stage-panel relative mx-auto mt-10 max-w-[21rem] sm:max-w-3xl"
         >
-          <div class="mb-5 flex flex-wrap items-center justify-between gap-3">
+          <div class="mb-5 flex flex-wrap items-center gap-3">
             <button type="button" class="journal-back" @click="closeBook">
               <Icon name="ph:arrow-left" class="size-4" aria-hidden="true" />
               {{ t('journey.books.back') }}
             </button>
-            <p class="font-mono text-[10px] font-semibold tracking-[0.3em] text-cream/45 uppercase">
-              {{ t('journey.books.pkl.index') }} — {{ t('journey.pkl.cover.title') }}
-            </p>
           </div>
 
           <JournalFlipbook

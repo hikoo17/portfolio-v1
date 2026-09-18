@@ -122,37 +122,45 @@ const isActive = (id: string) =>
       </div>
 
       <div
-        v-auto-animate
         class="absolute top-full right-0 mt-3 w-44 md:hidden"
       >
-        <ul
-          v-if="open"
-          id="mobile-menu"
-          class="rotate-1 rounded-md bg-cream p-2 shadow-paper-lift"
+        <Transition
+          enter-active-class="transition duration-200 ease-out motion-reduce:transition-none"
+          enter-from-class="opacity-0 -translate-y-2 scale-95"
+          enter-to-class="opacity-100 translate-y-0 scale-100"
+          leave-active-class="transition duration-150 ease-in motion-reduce:transition-none"
+          leave-from-class="opacity-100 translate-y-0 scale-100"
+          leave-to-class="opacity-0 -translate-y-2 scale-95"
         >
-          <li v-for="link in links" :key="link.id">
-            <a
-              :href="link.href"
-              class="block rounded-sm px-3 py-2 text-sm font-medium transition-colors duration-300 ease-out"
-              :class="isActive(link.id)
-                ? 'bg-emerald-base/10 font-semibold text-emerald-deep'
-                : 'text-ink hover:bg-emerald-base/10'"
-              :aria-current="isActive(link.id) ? 'true' : undefined"
-              @click="open = false"
-            >
-              {{ link.label }}
-            </a>
-          </li>
-          <li class="mt-1 border-t border-ink/10 pt-1">
-            <a
-              href="#contact"
-              class="block rounded-sm px-3 py-2 text-sm font-semibold text-emerald-deep"
-              @click="open = false"
-            >
-              {{ t('nav.letsTalk') }} →
-            </a>
-          </li>
-        </ul>
+          <ul
+            v-if="open"
+            id="mobile-menu"
+            class="rotate-1 rounded-md bg-cream p-2 shadow-paper-lift"
+          >
+            <li v-for="link in links" :key="link.id">
+              <a
+                :href="link.href"
+                class="block rounded-sm px-3 py-2 text-sm font-medium transition-colors duration-300 ease-out"
+                :class="isActive(link.id)
+                  ? 'bg-emerald-base/10 font-semibold text-emerald-deep'
+                  : 'text-ink hover:bg-emerald-base/10'"
+                :aria-current="isActive(link.id) ? 'true' : undefined"
+                @click="open = false"
+              >
+                {{ link.label }}
+              </a>
+            </li>
+            <li class="mt-1 border-t border-ink/10 pt-1">
+              <a
+                href="#contact"
+                class="block rounded-sm px-3 py-2 text-sm font-semibold text-emerald-deep"
+                @click="open = false"
+              >
+                {{ t('nav.letsTalk') }} →
+              </a>
+            </li>
+          </ul>
+        </Transition>
       </div>
     </nav>
   </header>

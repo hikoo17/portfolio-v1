@@ -2,7 +2,10 @@ export function useScrollReveal(selector = '.reveal') {
   let observer: IntersectionObserver | null = null
 
   function reveal(el: HTMLElement) {
-    el.classList.add('is-visible')
+    // A data attribute (not a class) marks the element as revealed: sections
+    // are lazily hydrated, and Vue rewrites `class` when it hydrates an
+    // element, which would otherwise wipe a class added here before hydration.
+    el.setAttribute('data-reveal', 'shown')
 
     // Release the compositor layer once the reveal animation is done so the
     // browser does not keep a layer alive for every revealed element.
@@ -20,7 +23,7 @@ export function useScrollReveal(selector = '.reveal') {
     }
 
     if (typeof IntersectionObserver === 'undefined') {
-      elements.forEach((el) => el.classList.add('is-visible'))
+      elements.forEach((el) => el.setAttribute('data-reveal', 'shown'))
       return
     }
 

@@ -42,12 +42,15 @@ useSeoMeta({
     <AppNavbar />
     <main>
       <AppHero />
-      <SectionProjects />
-      <SectionAbout />
-      <SectionSkills />
-      <SectionJourney />
-      <SectionBlog />
-      <SectionContact />
+      <!-- Below-the-fold sections keep their prerendered HTML (so SEO and the
+           first paint are untouched) but defer hydration until they scroll
+           into view, which keeps the main thread free during initial load. -->
+      <LazySectionProjects hydrate-on-visible />
+      <LazySectionAbout hydrate-on-visible />
+      <LazySectionSkills hydrate-on-visible />
+      <LazySectionJourney hydrate-on-visible />
+      <LazySectionBlog hydrate-on-visible />
+      <LazySectionContact hydrate-on-visible />
     </main>
     <AppFooter />
   </div>

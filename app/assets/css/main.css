@@ -310,7 +310,7 @@ body {
   transition-delay: var(--reveal-delay, 0ms);
 }
 
-.reveal.is-visible {
+.reveal[data-reveal] {
   opacity: 1;
   transform: none;
 }
@@ -318,7 +318,7 @@ body {
 /* Paper landing: falls from above with a slight tilt and settles with an
    overshoot on the easing. Applied to wrappers around paper cards, never to
    the `.paper` element itself, so the card keeps its own resting rotation.
-   Declared after `.reveal.is-visible` so it wins on equal specificity. */
+   Declared after `.reveal[data-reveal]` so it wins on equal specificity. */
 .reveal--drop {
   transform: translateY(-34px) rotate(var(--drop-tilt, -2deg));
   transition:
@@ -327,7 +327,7 @@ body {
   transition-delay: var(--reveal-delay, 0ms);
 }
 
-.reveal--drop.is-visible {
+.reveal--drop[data-reveal] {
   transform: none;
 }
 
@@ -1197,7 +1197,7 @@ body {
     transform: none;
   }
   .reveal,
-  .reveal.is-visible {
+  .reveal[data-reveal] {
     opacity: 1;
     transform: none;
     transition: none;

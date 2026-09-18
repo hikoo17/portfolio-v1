@@ -17,7 +17,6 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/fonts',
     '@nuxt/icon',
-    '@formkit/auto-animate/nuxt',
     '@nuxtjs/i18n',
     '@nuxtjs/robots',
     '@nuxtjs/sitemap',
@@ -74,12 +73,16 @@ export default defineNuxtConfig({
         // @font-face rules and font files.
         weights: [400, 500, 600, 700, 800],
         styles: ['normal'],
+        // The site is English/Indonesian only, so the cyrillic, greek,
+        // vietnamese and latin-ext subsets were pure dead weight.
+        subsets: ['latin'],
       },
       {
         name: 'Instrument Serif',
         provider: 'google',
         weights: [400],
         styles: ['normal', 'italic'],
+        subsets: ['latin'],
       },
       {
         name: 'Caveat',
@@ -87,6 +90,7 @@ export default defineNuxtConfig({
         // Only the regular weight is used for the handwritten annotations.
         weights: [400],
         styles: ['normal'],
+        subsets: ['latin'],
       },
     ],
   },
