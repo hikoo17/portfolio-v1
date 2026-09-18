@@ -80,7 +80,7 @@ const isActive = (id: string) => activeSection.value === id
 
       <div class="col-start-3 flex items-center gap-2 justify-self-end">
         <div
-          class="flex items-center rounded-full border border-ink/15 p-0.5"
+          class="flex h-8 items-center rounded-full border border-ink/15 p-0.5"
           role="group"
           :aria-label="t('nav.language')"
         >
@@ -88,7 +88,7 @@ const isActive = (id: string) => activeSection.value === id
             v-for="l in localeOptions"
             :key="l.code"
             type="button"
-            class="cursor-pointer rounded-full px-2 py-0.5 text-[11px] font-bold tracking-wide transition-colors"
+            class="flex h-full cursor-pointer items-center rounded-full px-2 text-[11px] font-bold tracking-wide transition-colors"
             :class="locale === l.code ? 'bg-emerald-base text-cream' : 'text-ink-soft hover:text-emerald-deep'"
             :aria-pressed="locale === l.code"
             @click="switchLocale(l.code)"
@@ -99,7 +99,7 @@ const isActive = (id: string) => activeSection.value === id
 
         <button
           type="button"
-          class="rounded-full p-2 text-ink transition-colors hover:bg-ink/5 md:hidden"
+          class="flex size-8 items-center justify-center rounded-full text-ink transition-colors hover:bg-ink/5 md:hidden"
           :aria-expanded="open"
           aria-controls="mobile-menu"
           aria-label="Toggle navigation menu"

@@ -76,17 +76,19 @@ function onPointerUp() {
 
       <button
         type="button"
-        class="absolute top-1/2 left-2.5 -translate-y-1/2 rounded-full bg-cream/90 p-1.5 text-ink shadow-paper transition-colors hover:bg-cream"
+        class="absolute top-1/2 left-2.5 z-10 -translate-y-1/2 rounded-full bg-cream/90 p-1.5 text-ink shadow-paper transition-colors hover:bg-cream"
         :aria-label="t('gallery.prev')"
-        @click="prev"
+        @pointerdown.stop
+        @click.stop="prev"
       >
         <Icon name="ph:caret-left-bold" class="block size-3" aria-hidden="true" />
       </button>
       <button
         type="button"
-        class="absolute top-1/2 right-2.5 -translate-y-1/2 rounded-full bg-cream/90 p-1.5 text-ink shadow-paper transition-colors hover:bg-cream"
+        class="absolute top-1/2 right-2.5 z-10 -translate-y-1/2 rounded-full bg-cream/90 p-1.5 text-ink shadow-paper transition-colors hover:bg-cream"
         :aria-label="t('gallery.next')"
-        @click="next"
+        @pointerdown.stop
+        @click.stop="next"
       >
         <Icon name="ph:caret-right-bold" class="block size-3" aria-hidden="true" />
       </button>

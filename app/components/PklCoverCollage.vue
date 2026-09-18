@@ -75,7 +75,7 @@ const { t } = useI18n()
         <span class="paper journal-polaroid shadow-paper-lift block">
           <span class="tape tape--top-center" style="--tape-tilt: -4deg" aria-hidden="true" />
           <NuxtPicture
-            src="/images/karoto-accessmedia-id-front.png"
+            src="/images/logo-accessmedia.png"
             :alt="t('journey.pkl.coverAlt')"
             class="block aspect-[4/3] w-full"
             width="480"
