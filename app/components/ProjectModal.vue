@@ -7,7 +7,7 @@ export interface ProjectDetail {
   title: string
   year: string
   tags: string[]
-  images?: { front: string; left: string; right: string }
+  images?: string[]
   liveUrl: string
   codeUrl: string
 }
@@ -139,7 +139,7 @@ onBeforeUnmount(() => {
 
               <LazyProjectGallery
                 v-if="project.images"
-                :images="[project.images.front, project.images.left, project.images.right]"
+                :images="project.images"
                 :label="project.title"
                 class="mt-6"
               />

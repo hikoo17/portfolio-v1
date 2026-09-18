@@ -17,11 +17,11 @@ const projects: ProjectCard[] = [
     rotation: '-1.4deg',
     span: 'lg:col-span-7',
     tags: ['Vue JS', 'Laravel', 'TailwindCSS', 'MySQL', 'Payment Gateway', 'Email Gateway', 'REST API'],
-    images: {
-      front: '/images/nihon-accessmedia-id-front.png',
-      left: '/images/nihon-accessmedia-id-left.png',
-      right: '/images/nihon-accessmedia-id-right.png',
-    },
+    images: [
+      '/images/nihonaccess-1.jpg',
+      '/images/nihonaccess-2.jpg',
+      '/images/nihonaccess-3.jpg',
+    ],
     liveUrl: 'https://nihon.accessmedia.id',
     codeUrl: 'https://github.com/hikoo17',
   },
@@ -33,11 +33,7 @@ const projects: ProjectCard[] = [
     rotation: '1.8deg',
     span: 'lg:col-span-5 lg:mt-16',
     tags: ['Laravel', 'Vue JS', 'Inertia', 'TailwindCSS', 'SQL Server'],
-    images: {
-      front: '/images/karoto-accessmedia-id-front.png',
-      left: '/images/karoto-accessmedia-id-left.png',
-      right: '/images/karoto-accessmedia-id-right.png',
-    },
+    images: ['/images/karoto-1.jpg'],
     liveUrl: 'https://karoto.accessmedia.id',
     codeUrl: 'https://github.com/hikoo17',
   },
@@ -49,11 +45,11 @@ const projects: ProjectCard[] = [
     rotation: '1.2deg',
     span: 'lg:col-span-5',
     tags: ['Laravel Blade', 'TailwindCSS', 'MySQL'],
-    images: {
-      front: '/images/pointku-kezadev-my-id-front.png',
-      left: '/images/pointku-kezadev-my-id-left.png',
-      right: '/images/pointku-kezadev-my-id-right.png',
-    },
+    images: [
+      '/images/pointku-1.jpg',
+      '/images/pointku-2.jpg',
+      '/images/pointku-3.jpg',
+    ],
     liveUrl: 'https://pointku.kezadev.my.id',
     codeUrl: 'https://github.com/hikoo17',
   },
@@ -65,11 +61,11 @@ const projects: ProjectCard[] = [
     rotation: '-1.6deg',
     span: 'lg:col-span-7 lg:mt-16',
     tags: ['Laravel Blade', 'TailwindCSS', 'MySQL'],
-    images: {
-      front: '/images/si-piket-kezadev-my-id-front.png',
-      left: '/images/si-piket-kezadev-my-id-left.png',
-      right: '/images/si-piket-kezadev-my-id-right.png',
-    },
+    images: [
+      '/images/sipiket-1.jpg',
+      '/images/sipiket-2.jpg',
+      '/images/sipiket-3.jpg',
+    ],
     liveUrl: 'https://si-piket.kezadev.my.id',
     codeUrl: 'https://github.com/hikoo17',
   },
@@ -82,11 +78,7 @@ const lastTrigger = ref<HTMLElement | null>(null)
 // initial render. Rendering them here (hidden + lazy) lets the static image
 // provider emit every optimized variant at build time, while costing the
 // browser no layout, paint or network work.
-const modalImages = projects.flatMap((project) => [
-  project.images.front,
-  project.images.left,
-  project.images.right,
-])
+const modalImages = projects.flatMap(project => project.images ?? [])
 
 function openProject(p: ProjectDetail, e: Event) {
   lastTrigger.value = e.currentTarget as HTMLElement
@@ -151,7 +143,7 @@ watch(activeProject, (open) => {
               </p>
             </div>
 
-            <ProjectVisual :label="project.title" :image="project.images.front" class="mt-4" />
+            <ProjectVisual :label="project.title" :image="project.images?.[0]" class="mt-4" />
 
             <h3 class="mt-5 text-2xl font-bold tracking-tight">
               {{ project.title }}
