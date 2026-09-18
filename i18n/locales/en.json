@@ -74,18 +74,20 @@
     }
   },
   "about": {
-    "eyebrow": "03 — About",
-    "titleA": "Behind",
-    "titleB": "the screen",
-    "lead": "I'm a web developer who enjoys building web applications and learning new things.",
-    "body": "I'm currently working as a Web Developer Intern at CV Access Media, gaining experience through real-world projects.\n\nI started learning through personal projects and competitions, including LKS Web Technology and an IoT project at school. I'm always looking for new things to learn and ways to improve my skills. Currently, I'm also interested in learning more about cloud technologies.",
-    "handNote": "actual desk energy →",
+    "eyebrow": "03 — A bit about me",
+    "titleA": "About",
+    "titleB": "Me",
+    "note1": "learning by building,",
+    "note2": "one project at a time",
+    "intro": "I'm a student interested in web development and cloud computing. I enjoy building web applications and exploring how they work beyond the code, from development to deployment. I learn by building projects, experimenting with new technologies, and solving problems along the way, and I'm currently exploring cloud and DevOps as I continue to grow as a developer.",
+    "cards": {
+      "currently": { "label": "Currently", "value": "Student" },
+      "focus": { "label": "Focus", "value": "Web Development" },
+      "exploring": { "label": "Exploring", "value": "Cloud & DevOps" },
+      "basedIn": { "label": "Based in", "value": "Tasikmalaya, Indonesia" }
+    },
     "currentlyInto": "CURRENTLY INTO",
-    "currentlyIntoText": "Cloud tech — Linux, Docker, AWS, CI/CD, SQL Server",
-    "internship": "INTERNSHIP",
-    "internshipText": "Web developer intern at CV Access Media",
-    "basedIn": "BASED IN",
-    "basedInText": "Tasikmalaya, Indonesia"
+    "currentlyIntoText": "Cloud tech — Linux, Docker, AWS, CI/CD, SQL Server"
   },
   "skills": {
     "eyebrow": "04 — Toolbox",

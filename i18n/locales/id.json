@@ -91,18 +91,18 @@
     }
   },
   "about": {
-    "eyebrow": "03 — Tentang",
-    "titleA": "Di balik",
-    "titleB": "layar",
-    "lead": "Aku web developer yang senang membangun aplikasi web dan terus mempelajari hal-hal baru.",
-    "body": "Saat ini aku bekerja sebagai Web Developer Intern di CV Access Media dan menambah pengalaman lewat proyek-proyek nyata.\n\nAku mulai belajar lewat proyek pribadi dan kompetisi, termasuk LKS Web Technology dan proyek IoT di sekolah. Aku selalu mencari hal baru untuk dipelajari dan cara untuk terus mengasah kemampuanku. Sekarang, aku juga tertarik mendalami teknologi cloud.",
-    "handNote": "energi meja kerja asli →",
-    "currentlyInto": "SEDANG DIPELAJARI",
-    "currentlyIntoText": "Teknologi cloud — Linux, Docker, AWS, CI/CD, SQL Server",
-    "internship": "MAGANG",
-    "internshipText": "Magang web developer di CV Access Media",
-    "basedIn": "BERDOMISILI DI",
-    "basedInText": "Tasikmalaya, Indonesia"
+    "eyebrow": "03 — Sedikit tentang saya",
+    "titleA": "Tentang",
+    "titleB": "Saya",
+    "note1": "belajar sambil membangun,",
+    "note2": "satu proyek demi satu",
+    "intro": "Aku seorang pelajar yang tertarik pada web development dan cloud computing. Aku senang membangun aplikasi web dan menelusuri cara kerjanya di luar kode, dari pengembangan sampai deployment. Aku belajar lewat proyek, bereksperimen dengan teknologi baru, dan menyelesaikan masalah sepanjang jalan, dan saat ini aku sedang mendalami cloud dan DevOps seiring aku terus berkembang sebagai developer.",
+    "cards": {
+      "currently": { "label": "Saat ini", "value": "Pelajar" },
+      "focus": { "label": "Fokus", "value": "Web Development" },
+      "exploring": { "label": "Menjelajah", "value": "Cloud & DevOps" },
+      "basedIn": { "label": "Berdomisili di", "value": "Tasikmalaya, Indonesia" }
+    }
   },
   "skills": {
     "eyebrow": "04 — Toolbox",
