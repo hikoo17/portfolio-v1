@@ -194,8 +194,7 @@ body {
   height: 26px;
   background: var(--tape-color, rgba(246, 241, 228, 0.55));
   box-shadow: 0 1px 3px rgba(10, 20, 15, 0.14);
-  opacity: 0.85;
-  backdrop-filter: blur(1px);
+  opacity: 0.9;
   pointer-events: none;
   z-index: 2;
   /* torn ends + slight fiber sheen */
@@ -309,7 +308,6 @@ body {
     opacity 0.65s cubic-bezier(0.22, 0.85, 0.3, 1),
     transform 0.65s cubic-bezier(0.22, 0.85, 0.3, 1);
   transition-delay: var(--reveal-delay, 0ms);
-  will-change: opacity, transform;
 }
 
 .reveal.is-visible {
