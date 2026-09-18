@@ -937,37 +937,18 @@ body {
   }
 }
 
-/* One understated pen resting on the canvas below the journals. It is
-   decorative and never intercepts the book buttons. Only shown once the
-   journals sit side by side and there is room to breathe. */
-.journal-prop {
+/* One understated pen tucked into the bottom-right corner of the MY JOURNEY
+   cover, so it reads as attached to the journal itself. Decorative only. */
+.journal-cover-pen {
   position: absolute;
   z-index: 3;
-  display: none;
+  right: -5%;
+  bottom: -4%;
+  width: 40%;
+  transform: rotate(-6deg);
+  transform-origin: center;
   pointer-events: none;
   user-select: none;
-}
-
-@media (min-width: 768px) {
-  .journal-prop {
-    display: block;
-  }
-}
-
-.journal-prop--pen {
-  bottom: -4rem;
-  left: 7%;
-  width: 12.5rem;
-  transform: rotate(-7deg);
-}
-
-@media (min-width: 1024px) {
-  .journal-prop--pen {
-    bottom: -4.6rem;
-    left: 4%;
-    width: 14rem;
-    transform: rotate(-6deg);
-  }
 }
 
 /* The closed journal itself: board cover, binding on the left, page edges on
@@ -1127,25 +1108,19 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  border-radius: 9999px;
-  background: rgba(246, 241, 228, 0.95);
   padding: 0.5rem 0.95rem;
-  color: var(--color-emerald-deep);
+  color: var(--color-cream);
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  box-shadow: var(--shadow-paper-lift);
   cursor: pointer;
-  transition:
-    transform 0.3s cubic-bezier(0.22, 0.85, 0.3, 1),
-    background-color 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .journal-back:hover {
-  background: var(--color-note-yellow);
-  transform: translateX(-3px);
+  color: var(--color-note-yellow);
 }
 
 /* Scrapbook transition between the shelf and the opened book. */

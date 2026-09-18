@@ -363,7 +363,7 @@ onBeforeUnmount(clearSettleTimer)
         v-for="(_, i) in pages"
         :key="i"
         type="button"
-        class="size-2.5 rotate-45 cursor-pointer rounded-[1px] border border-cream/40 transition-all duration-300 hover:bg-note-yellow"
+        class="size-2.5 cursor-pointer rounded-full border border-cream/40 transition-all duration-300 hover:bg-note-yellow"
         :class="i === current ? 'scale-125 border-note-yellow bg-note-yellow' : 'bg-transparent'"
         :aria-label="t('journey.controls.pageOf', { current: i + 1, total: pageTotal })"
         :aria-current="i === current ? 'true' : undefined"

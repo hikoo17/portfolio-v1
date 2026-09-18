@@ -119,15 +119,14 @@ function pklWeeksFor(key?: string) {
             {{ t('journey.books.titleA') }} <span class="font-serif font-normal italic text-note-yellow">{{ t('journey.books.titleB') }}</span>
           </h2>
         </div>
+        <p class="max-w-xs font-hand text-xl leading-tight text-cream/50">
+          {{ t('journey.books.hint') }}
+        </p>
       </div>
 
       <Transition name="stage" mode="out-in">
         <!-- BOOK SELECTION -->
         <div v-if="view === 'select'" key="select" class="stage-panel">
-          <p class="mt-12 text-center font-hand text-xl leading-tight text-cream/50">
-            {{ t('journey.books.hint') }}
-          </p>
-
           <div class="journal-shelf mt-10">
             <!-- 01 · MY JOURNEY -->
             <button
@@ -141,6 +140,17 @@ function pklWeeksFor(key?: string) {
               <span class="journal-pick__cover journal-pick__cover--journey">
                 <span class="journal-pick__spine" aria-hidden="true" />
                 <JourneyCoverCollage />
+                <img
+                  src="/images/scrapbook/pen.svg"
+                  alt=""
+                  width="529"
+                  height="120"
+                  class="journal-cover-pen"
+                  draggable="false"
+                  loading="lazy"
+                  decoding="async"
+                  aria-hidden="true"
+                >
               </span>
 
               <span class="journal-pick__label">
@@ -170,19 +180,6 @@ function pklWeeksFor(key?: string) {
                 <span>{{ t('journey.books.pkl.title') }}</span>
               </span>
             </button>
-
-            <!-- A single pen left on the canvas: subtle, decorative, never clickable. -->
-            <img
-              src="/images/scrapbook/pen.svg"
-              alt=""
-              width="529"
-              height="120"
-              class="journal-prop journal-prop--pen"
-              draggable="false"
-              loading="lazy"
-              decoding="async"
-              aria-hidden="true"
-            >
 
             <!-- Mobile only: turn between the covers instead of swiping. -->
             <button
