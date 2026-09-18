@@ -16,7 +16,7 @@ const projects: ProjectCard[] = [
     year: '2026',
     rotation: '-1.4deg',
     span: 'lg:col-span-7',
-    tags: ['JavaScript', 'CSS3', 'PHP'],
+    tags: ['Vue JS', 'Laravel', 'TailwindCSS', 'MySQL', 'Payment Gateway', 'Email Gateway', 'REST API'],
     images: {
       front: '/images/nihon-accessmedia-id-front.png',
       left: '/images/nihon-accessmedia-id-left.png',
@@ -32,7 +32,7 @@ const projects: ProjectCard[] = [
     year: '2026',
     rotation: '1.8deg',
     span: 'lg:col-span-5 lg:mt-16',
-    tags: ['JavaScript', 'CSS3', 'PHP'],
+    tags: ['Laravel', 'Vue JS', 'Inertia', 'TailwindCSS', 'SQL Server'],
     images: {
       front: '/images/karoto-accessmedia-id-front.png',
       left: '/images/karoto-accessmedia-id-left.png',
@@ -48,7 +48,7 @@ const projects: ProjectCard[] = [
     year: '2026',
     rotation: '1.2deg',
     span: 'lg:col-span-5',
-    tags: ['Vue.js', 'TypeScript', 'Tailwind CSS'],
+    tags: ['Laravel Blade', 'TailwindCSS', 'MySQL'],
     images: {
       front: '/images/pointku-kezadev-my-id-front.png',
       left: '/images/pointku-kezadev-my-id-left.png',
@@ -64,7 +64,7 @@ const projects: ProjectCard[] = [
     year: '2026',
     rotation: '-1.6deg',
     span: 'lg:col-span-7 lg:mt-16',
-    tags: ['Laravel', 'MySQL', 'Tailwind CSS'],
+    tags: ['Laravel Blade', 'TailwindCSS', 'MySQL'],
     images: {
       front: '/images/si-piket-kezadev-my-id-front.png',
       left: '/images/si-piket-kezadev-my-id-left.png',
