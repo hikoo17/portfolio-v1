@@ -103,12 +103,30 @@
     "titleA": "The journey",
     "titleB": "so far",
     "handNote": "one idea at a time →",
+    "books": {
+      "titleA": "Archive",
+      "titleB": "of journals",
+      "hint": "two journals, two chapters — choose one to start reading",
+      "back": "Back to journals",
+      "open": "Open {title}",
+      "myJourney": {
+        "index": "01",
+        "title": "MY JOURNEY",
+        "subtitle": "a scrapbook of small steps & lucky breaks"
+      },
+      "pkl": {
+        "index": "02",
+        "title": "PKL JOURNAL",
+        "subtitle": "notes from my internship days"
+      }
+    },
     "cover": {
       "title": "MY JOURNEY",
       "subtitle": "a scrapbook of small steps & lucky breaks",
       "note": "pull a corner to flip →",
       "label": "journal no. 05",
       "started": "est. 2023",
+      "scrapbook": "scrapbook",
       "owner": "this journal belongs to"
     },
     "controls": {
@@ -123,45 +141,270 @@
       "note": "The rest of this journal is still blank — and that is the exciting part.",
       "signature": "see you on the next page"
     },
-    "logbook": {
-      "eyebrow": "05.1 — Internship Logbook",
-      "titleA": "Weekly",
-      "titleB": "notes",
-      "note": "16 weeks at CV Access Media →",
-      "period": "Jun – Sep 2026",
-      "months": {
-        "june": {
-          "name": "June 2026",
-          "weeks": [
-            "Week 1|Redesigning the Access Media company profile",
-            "Week 2|MySQL master–slave;Master–slave automation;SQL Server log shipping",
-            "Weeks 3–4|Designing the Japanese course website (NihonAccess);Git & GitHub"
-          ]
+    "pkl": {
+      "eyebrow": "02 — PKL Journal",
+      "weekHead": "PKL field journal",
+      "periodLabel": "period",
+      "learned": "learned ·",
+      "challenge": "challenge ·",
+      "win": "won ·",
+      "coverAlt": "A screenshot of the Karoto website built during the internship.",
+      "cover": {
+        "label": "field journal no. 02",
+        "title": "PKL JOURNAL",
+        "subtitle": "notes from my internship days",
+        "field": "INTERNSHIP",
+        "est": "EST. 2026",
+        "notes": "FIELD NOTES",
+        "motto": "WORK • LEARN • GROW",
+        "period": "Jun — Sep 2026",
+        "owner": "field journal of",
+        "company": "CV Access Media",
+        "note": "16 weeks, one company, and a lot of first times",
+        "started": "est. 2026"
+      },
+      "endpaper": {
+        "owner": "this field journal belongs to",
+        "quote": "Sixteen weeks of building, breaking, deploying, and writing it all down.",
+        "motto": "work · learn · grow",
+        "sticker": "CV ACCESS MEDIA"
+      },
+      "intro": {
+        "eyebrow": "00 — how it started",
+        "title": "The internship",
+        "text": "Sixteen weeks as a web developer intern at CV Access Media — building client websites, learning servers and pipelines, and keeping a note of every lesson on the way.",
+        "caption": "the basics",
+        "note": "I kept this journal so the lessons would not fade.",
+        "sticker": "PKL 2026",
+        "list": [
+          "Web developer intern",
+          "CV Access Media, Tasikmalaya",
+          "Jun — Sep 2026 · 16 weeks",
+          "Frontend, deployment & infrastructure"
+        ]
+      },
+      "outro": {
+        "eyebrow": "16 / 16 — closing notes",
+        "title": "End of PKL, start of more",
+        "text": "The internship ended, but the notebook stayed open. These are the lessons I am carrying into the next project.",
+        "caption": "what I keep",
+        "note": "thank you to everyone who let me learn on real work.",
+        "signature": "see you in the next project",
+        "sticker": "THANK YOU",
+        "list": [
+          "Build first, learn from what breaks",
+          "Deploy early, even when it is scary",
+          "Write it down — future you will thank you"
+        ]
+      },
+      "weeks": {
+        "w01": {
+          "label": "WEEK 01",
+          "date": "Jun 2026",
+          "title": "First day, first desk",
+          "bullets": [
+            "Met the team and learned how the studio runs",
+            "Got familiar with the workplace and its tools",
+            "First task: reviewing the Access Media website",
+            "Wrote down my first observations"
+          ],
+          "learned": "how a small studio plans and splits real client work",
+          "challenge": "everything was new — names, tools, and habits",
+          "win": "survived week one and shipped a first small fix",
+          "note": "nervous on Monday, comfortable by Friday",
+          "sticker": "HARI 01"
         },
-        "july": {
-          "name": "July 2026",
-          "weeks": [
-            "Week 5|Continued NihonAccess;GitHub Actions & YAML files",
-            "Week 6|Linux VPS server;Deployed to VPS;Continued NihonAccess",
-            "Week 7|Designing the car repair website (Karoto)",
-            "Week 8|Deployed Karoto"
-          ]
+        "w02": {
+          "label": "WEEK 02",
+          "date": "Jun 2026",
+          "title": "Databases, replicated",
+          "bullets": [
+            "Learned MySQL master–slave replication",
+            "Automated the replication setup",
+            "Explored SQL Server log shipping",
+            "Kept notes on every command that mattered"
+          ],
+          "learned": "why production data is copied, and how",
+          "challenge": "one wrong config and the replica stopped silently",
+          "win": "replication running end to end",
+          "note": "config files are just picky recipes",
+          "sticker": "SQL"
         },
-        "august": {
-          "name": "August 2026",
-          "weeks": [
-            "Week 9|Learning GOWA for WhatsApp;Continued NihonAccess;Client data entry",
-            "Weeks 10–12|Continued Karoto"
-          ]
+        "w03": {
+          "label": "WEEKS 03–04",
+          "date": "Jun 2026",
+          "title": "NihonAccess & first commits",
+          "bullets": [
+            "Started designing the NihonAccess Japanese course site",
+            "Learned Git and GitHub properly",
+            "Made my first real commits and pull requests",
+            "Kept the layout tidy and reusable"
+          ],
+          "learned": "version control is a habit, not a tool",
+          "challenge": "merging a branch without losing work",
+          "win": "a first page I was genuinely proud of",
+          "note": "commit early, commit often",
+          "sticker": "GIT"
         },
-        "september": {
-          "name": "September 2026",
-          "weeks": [
-            "Week 13|Karoto;Tried buying a VPS;Learning about domains",
-            "Week 14|Cloudflare;Deployed the Nalar website",
-            "Week 15|Docker;Linux;CI/CD",
-            "Week 16|Portfolio"
-          ]
+        "w04": {
+          "label": "WEEK 05",
+          "date": "Jul 2026",
+          "title": "Automation with GitHub Actions",
+          "bullets": [
+            "Learned GitHub Actions",
+            "Learned how YAML describes a workflow",
+            "Automated a small build step",
+            "Kept building NihonAccess"
+          ],
+          "learned": "how a single push can trigger a whole pipeline",
+          "challenge": "YAML indentation is unforgiving",
+          "win": "my first workflow ran green",
+          "note": "green check marks are addictive",
+          "sticker": "CI"
+        },
+        "w05": {
+          "label": "WEEK 06",
+          "date": "Jul 2026",
+          "title": "Linux, VPS & first deploy",
+          "bullets": [
+            "Learned about Linux VPS servers",
+            "Practiced deploying a website to a VPS",
+            "Set up SSH, domains, and folders",
+            "Continued NihonAccess"
+          ],
+          "learned": "the command line does not forgive typos",
+          "challenge": "the first deploy broke twice before it worked",
+          "win": "a website live on my own server",
+          "note": "the first deploy was terrifying — and addictive",
+          "sticker": "DEPLOY"
+        },
+        "w06": {
+          "label": "WEEK 07",
+          "date": "Jul 2026",
+          "title": "Karoto takes shape",
+          "bullets": [
+            "Started designing the Karoto car workshop site",
+            "Planned the structure and page flow",
+            "Built the first UI sections",
+            "Reviewed the design with the team"
+          ],
+          "learned": "design in the browser, not only in your head",
+          "challenge": "making a workshop site feel trustworthy",
+          "win": "the layout finally clicked",
+          "note": "structure first, decoration later",
+          "sticker": "UI"
+        },
+        "w07": {
+          "label": "WEEK 08",
+          "date": "Jul 2026",
+          "title": "Karoto goes live",
+          "bullets": [
+            "Finished and deployed the Karoto website",
+            "Learned the full deployment process",
+            "Checked the site on real devices",
+            "Handled small fixes after launch"
+          ],
+          "learned": "shipping is a process, not a moment",
+          "challenge": "catching the bugs only real browsers show",
+          "win": "Karoto live and used by the client",
+          "note": "from mockup to a real URL",
+          "sticker": "LIVE"
+        },
+        "w08": {
+          "label": "WEEK 09",
+          "date": "Aug 2026",
+          "title": "WhatsApp & client data",
+          "bullets": [
+            "Learned GOWA for WhatsApp integration",
+            "Connected a message flow to the project",
+            "Continued NihonAccess",
+            "Helped with client data input"
+          ],
+          "learned": "integrations are mostly patience",
+          "challenge": "matching the API to what the client needed",
+          "win": "first automated message sent successfully",
+          "note": "APIs are just very strict conversations",
+          "sticker": "GOWA"
+        },
+        "w09": {
+          "label": "WEEKS 10–12",
+          "date": "Aug 2026",
+          "title": "Building and polishing Karoto",
+          "bullets": [
+            "Continued developing Karoto",
+            "Improved performance and responsiveness",
+            "Fixed details reported by the client",
+            "Documented the changes"
+          ],
+          "learned": "iteration is where quality lives",
+          "challenge": "keeping several projects moving at once",
+          "win": "a stable, calmer release",
+          "note": "small fixes, every single day",
+          "sticker": "ITERATE"
+        },
+        "w10": {
+          "label": "WEEK 13",
+          "date": "Sep 2026",
+          "title": "Domains & my own VPS",
+          "bullets": [
+            "Continued working on Karoto",
+            "Explored VPS options and bought one",
+            "Learned about domains and DNS",
+            "Configured the server myself"
+          ],
+          "learned": "how a domain actually finds a server",
+          "challenge": "DNS records took longer to click than expected",
+          "win": "my own VPS, fully configured",
+          "note": "my own little machine on the internet",
+          "sticker": "VPS"
+        },
+        "w11": {
+          "label": "WEEK 14",
+          "date": "Sep 2026",
+          "title": "Cloudflare & Nalar",
+          "bullets": [
+            "Learned about Cloudflare",
+            "Set up DNS, caching, and protection",
+            "Deployed the Nalar website",
+            "Checked speed and availability"
+          ],
+          "learned": "what sits between a visitor and the server",
+          "challenge": "caching rules that cached a little too well",
+          "win": "Nalar online, faster and safer",
+          "note": "the invisible layer that saves the day",
+          "sticker": "CDN"
+        },
+        "w12": {
+          "label": "WEEK 15",
+          "date": "Sep 2026",
+          "title": "Docker & CI/CD",
+          "bullets": [
+            "Learned Docker and container basics",
+            "Continued learning Linux",
+            "Started learning CI/CD concepts",
+            "Automated a build-and-deploy flow"
+          ],
+          "learned": "containers make \u201cworks on my machine\u201d honest",
+          "challenge": "understanding images, layers, and volumes",
+          "win": "a repeatable deploy pipeline",
+          "note": "build once, run anywhere",
+          "sticker": "DOCKER"
+        },
+        "w13": {
+          "label": "WEEK 16",
+          "date": "Sep 2026",
+          "title": "Portfolio & looking back",
+          "bullets": [
+            "Continued developing my personal portfolio",
+            "Documented the PKL process on this Journey page",
+            "Reviewed everything learned over 16 weeks",
+            "Planned what comes next"
+          ],
+          "learned": "documenting work doubles its value",
+          "challenge": "turning three months into something readable",
+          "win": "a portfolio and a journal to show for it",
+          "note": "the end of PKL, the start of the next thing",
+          "sticker": "FIN"
         }
       }
     },

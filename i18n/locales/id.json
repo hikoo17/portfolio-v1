@@ -13,7 +13,7 @@
     "greeting": "Hai, aku",
     "name": "Keyza Zaki Arkana",
     "headingHighlight": "pengalaman digital",
-    "intro": "Aku membangun website dan pengalaman digital dengan fokus pada antarmuka yang bersih, interaksi yang bermakna, dan kode yang membuat ide bisa bekerja.",
+    "intro": "Aku membangun website dan pengalaman digital dengan fokus pada antarmuka yang bersih, interaksi yang bermakna, dan kode yang membuat ide benar-benar bekerja.",
     "viewWork": "Lihat Karyaku",
     "letsTalk": "Ngobrol Yuk",
     "startHere": "mulai di sini!",
@@ -46,30 +46,46 @@
     "items": {
       "nihon": {
         "short": "Situs produksi dari magangku di CV Access Media, dengan identitas bergaya Jepang.",
-        "description": "Situs produksi dari magangku di CV Access Media — struktur rapi, detail cermat, dan identitas bergaya Jepang.",
+        "description": "Situs produksi yang kubangun selama magang di CV Access Media — dengan struktur yang rapi, detail yang diperhatikan, dan identitas bergaya Jepang.",
         "tagline": "detail, ditangani dengan tepat",
-        "highlights": ["Deploy ke produksi", "Desain bergaya Jepang", "Struktur ramah SEO"],
+        "highlights": [
+          "Deploy ke produksi",
+          "Desain bergaya Jepang",
+          "Struktur ramah SEO"
+        ],
         "role": "Magang Web Developer"
       },
       "karoto": {
-        "short": "Proyek magang di CV Access Media — didesain dan dikirim untuk klien sungguhan.",
-        "description": "Website yang kubangun selama magang di CV Access Media — didesain dan diluncurkan untuk klien sungguhan, dari wireframe pertama hingga deploy.",
+        "short": "Proyek magang di CV Access Media — dirancang dan diluncurkan untuk klien sungguhan.",
+        "description": "Website yang kubangun selama magang di CV Access Media — dirancang dan diluncurkan untuk klien sungguhan, dari wireframe pertama hingga deploy.",
         "tagline": "karya klien, sudah rilis",
-        "highlights": ["Dibuat untuk klien sungguhan", "Responsif di semua perangkat", "Sudah live di produksi"],
+        "highlights": [
+          "Dibuat untuk klien sungguhan",
+          "Responsif di semua perangkat",
+          "Sudah live di produksi"
+        ],
         "role": "Magang Web Developer"
       },
       "pointku": {
-        "short": "Platform poin dan hadiah — pelacakan dan penukaran yang sederhana, cepat, dan jelas.",
-        "description": "Platform poin yang membuat pelacakan dan penukaran hadiah jadi sederhana — dibangun agar cepat, jelas, dan menyenangkan digunakan.",
+        "short": "Platform poin dan hadiah — membuat pelacakan dan penukaran jadi sederhana, cepat, dan jelas.",
+        "description": "Platform poin yang membuat pelacakan dan penukaran hadiah jadi lebih sederhana — dibangun agar cepat, jelas, dan nyaman digunakan.",
         "tagline": "setiap poin di tempatnya",
-        "highlights": ["Dashboard pelacakan poin", "Alur penukaran hadiah", "Responsif di mana saja"],
+        "highlights": [
+          "Dashboard pelacakan poin",
+          "Alur penukaran hadiah",
+          "Responsif di mana saja"
+        ],
         "role": "Frontend Developer"
       },
       "sipiket": {
         "short": "Papan piket digital untuk sekolah — jadwal piket, absensi, dan tanggung jawab kelas dalam satu tempat.",
-        "description": "Papan piket digital untuk sekolah — atur jadwal piket, catat absensi harian, dan pantau tanggung jawab tiap kelas dari satu dashboard.",
+        "description": "Papan piket digital untuk sekolah — mengatur jadwal piket, mencatat absensi harian, dan memantau tanggung jawab tiap kelas dari satu dashboard.",
         "tagline": "piket, tanpa kertas",
-        "highlights": ["Penjadwalan jadwal piket", "Pencatatan absensi harian", "Satu dashboard yang rapi"],
+        "highlights": [
+          "Penjadwalan piket",
+          "Pencatatan absensi harian",
+          "Satu dashboard yang rapi"
+        ],
         "role": "Full-stack Developer"
       }
     }
@@ -78,8 +94,8 @@
     "eyebrow": "03 — Tentang",
     "titleA": "Di balik",
     "titleB": "layar",
-    "lead": "Aku web developer yang senang membangun aplikasi web dan mempelajari hal baru.",
-    "body": "Saat ini aku bekerja sebagai Web Developer Intern di CV Access Media, menimba pengalaman lewat proyek-proyek nyata.\n\nAku mulai belajar lewat proyek pribadi dan kompetisi, termasuk LKS Web Technology dan proyek IoT di sekolah. Aku selalu mencari hal baru untuk dipelajari dan cara untuk mengasah kemampuanku. Sekarang aku juga tertarik mendalami teknologi cloud.",
+    "lead": "Aku web developer yang senang membangun aplikasi web dan terus mempelajari hal-hal baru.",
+    "body": "Saat ini aku bekerja sebagai Web Developer Intern di CV Access Media dan menambah pengalaman lewat proyek-proyek nyata.\n\nAku mulai belajar lewat proyek pribadi dan kompetisi, termasuk LKS Web Technology dan proyek IoT di sekolah. Aku selalu mencari hal baru untuk dipelajari dan cara untuk terus mengasah kemampuanku. Sekarang, aku juga tertarik mendalami teknologi cloud.",
     "handNote": "energi meja kerja asli →",
     "currentlyInto": "SEDANG DIPELAJARI",
     "currentlyIntoText": "Teknologi cloud — Linux, Docker, AWS, CI/CD, SQL Server",
@@ -104,12 +120,31 @@
     "titleA": "Perjalanan",
     "titleB": "sejauh ini",
     "handNote": "satu ide per langkah →",
+    "books": {
+      "titleA": "Arsip",
+      "titleB": "jurnal",
+      "handNote": "pilih jurnal untuk dibuka →",
+      "hint": "dua jurnal, dua cerita — pilih satu untuk mulai membaca",
+      "back": "Kembali ke jurnal",
+      "open": "Buka {title}",
+      "myJourney": {
+        "index": "01",
+        "title": "MY JOURNEY",
+        "subtitle": "buku tempel langkah kecil & keberuntungan"
+      },
+      "pkl": {
+        "index": "02",
+        "title": "PKL JOURNAL",
+        "subtitle": "catatan hari-hari magang"
+      }
+    },
     "cover": {
       "title": "MY JOURNEY",
       "subtitle": "buku tempel langkah kecil & keberuntungan",
       "note": "tarik sudutnya untuk membalik →",
       "label": "jurnal no. 05",
       "started": "sejak 2023",
+      "scrapbook": "buku tempel",
       "owner": "jurnal ini milik"
     },
     "controls": {
@@ -124,58 +159,287 @@
       "note": "Sisa jurnal ini masih kosong — dan justru itu bagian yang seru.",
       "signature": "sampai jumpa di halaman berikutnya"
     },
-    "logbook": {
-      "eyebrow": "05.1 — Logbook PKL",
-      "titleA": "Catatan",
-      "titleB": "mingguan",
-      "note": "16 minggu di CV Access Media →",
-      "period": "Jun – Sep 2026",
-      "months": {
-        "june": {
-          "name": "Juni 2026",
-          "weeks": [
-            "Minggu 1|Redesign profile company Access Media",
-            "Minggu 2|Master–slave MySQL;Otomatisasi master–slave;Log shipping SQL Server",
-            "Minggu 3–4|Perancangan website kursus bahasa Jepang (NihonAccess);Git & GitHub"
-          ]
+    "pkl": {
+      "eyebrow": "02 — Jurnal PKL",
+      "weekHead": "Jurnal lapangan PKL",
+      "periodLabel": "periode",
+      "learned": "pelajaran ·",
+      "challenge": "tantangan ·",
+      "win": "hasil ·",
+      "coverAlt": "Tangkapan layar website Karoto yang dibangun selama PKL.",
+      "cover": {
+        "label": "jurnal lapangan no. 02",
+        "title": "PKL JOURNAL",
+        "subtitle": "catatan hari-hari magang",
+        "field": "INTERNSHIP",
+        "est": "EST. 2026",
+        "notes": "FIELD NOTES",
+        "motto": "WORK • LEARN • GROW",
+        "period": "Jun — Sep 2026",
+        "owner": "jurnal lapangan milik",
+        "company": "CV Access Media",
+        "note": "16 minggu, satu perusahaan, banyak pengalaman pertama",
+        "started": "sejak 2026"
+      },
+      "endpaper": {
+        "owner": "jurnal lapangan ini milik",
+        "quote": "Enam belas minggu membangun, memperbaiki, mendeploy, dan mencatat semuanya.",
+        "motto": "bekerja · belajar · tumbuh",
+        "sticker": "CV ACCESS MEDIA"
+      },
+      "intro": {
+        "eyebrow": "00 — dari awal",
+        "title": "Masa magang",
+        "text": "Enam belas minggu sebagai web developer magang di CV Access Media — membangun website klien, belajar soal server dan pipeline, lalu mencatat setiap pelajarannya.",
+        "caption": "dasarnya",
+        "note": "Aku menulis jurnal ini supaya setiap pelajarannya tidak hilang begitu saja.",
+        "sticker": "PKL 2026",
+        "list": [
+          "Web developer magang",
+          "CV Access Media, Tasikmalaya",
+          "Jun — Sep 2026 · 16 minggu",
+          "Frontend, deploy & infrastruktur"
+        ]
+      },
+      "outro": {
+        "eyebrow": "16 / 16 — catatan penutup",
+        "title": "PKL selesai, bab baru dimulai",
+        "text": "Magangnya berakhir, tapi buku catatannya tetap terbuka. Ini pelajaran yang kubawa ke proyek berikutnya.",
+        "caption": "yang kubawa",
+        "note": "Terima kasih untuk semua yang memberiku kesempatan untuk belajar lewat pekerjaan nyata.",
+        "signature": "sampai jumpa di proyek berikutnya",
+        "sticker": "TERIMA KASIH",
+        "list": [
+          "Bangun dulu, belajar dari yang rusak",
+          "Deploy lebih awal, walau menegangkan",
+          "Tulis semuanya — dirimu di masa depan akan berterima kasih"
+        ]
+      },
+      "weeks": {
+        "w01": {
+          "label": "MINGGU 01",
+          "date": "Jun 2026",
+          "title": "Hari pertama, meja pertama",
+          "bullets": [
+            "Berkenalan dengan tim dan cara studio bekerja",
+            "Mengenal lingkungan kerja dan berbagai tool yang digunakan",
+            "Tugas pertama: meninjau website Access Media",
+            "Mencatat observasi pertama"
+          ],
+          "learned": "cara studio kecil merencanakan dan membagi pekerjaan klien",
+          "challenge": "semuanya serba baru — nama, tool, dan kebiasaan",
+          "win": "berhasil melewati minggu pertama sambil memperbaiki hal-hal kecil",
+          "note": "gugup hari Senin, nyaman hari Jumat",
+          "sticker": "HARI 01"
         },
-        "july": {
-          "name": "Juli 2026",
-          "weeks": [
-            "Minggu 5|Lanjut NihonAccess;GitHub Actions & file YAML",
-            "Minggu 6|VPS Linux server;Deploy ke VPS;Lanjut NihonAccess",
-            "Minggu 7|Perancangan website bengkel mobil masuk (Karoto)",
-            "Minggu 8|Deploy Karoto"
-          ]
+        "w02": {
+          "label": "MINGGU 02",
+          "date": "Jun 2026",
+          "title": "Database, direplikasi",
+          "bullets": [
+            "Belajar MySQL master–slave replication",
+            "Mengotomatisasi proses replikasi",
+            "Belajar SQL Server log shipping",
+            "Mencatat setiap perintah penting"
+          ],
+          "learned": "kenapa data produksi perlu direplikasi, dan bagaimana prosesnya",
+          "challenge": "satu config yang salah bisa membuat replika diam-diam berhenti",
+          "win": "replikasi berhasil berjalan dari awal sampai akhir",
+          "note": "file config itu resep yang rewel",
+          "sticker": "SQL"
         },
-        "august": {
-          "name": "Agustus 2026",
-          "weeks": [
-            "Minggu 9|Mempelajari GOWA untuk WhatsApp;Lanjut NihonAccess;Input data klien",
-            "Minggu 10–12|Lanjut Karoto"
-          ]
+        "w03": {
+          "label": "MINGGU 03–04",
+          "date": "Jun 2026",
+          "title": "NihonAccess & commit pertama",
+          "bullets": [
+            "Mulai merancang website kursus Jepang NihonAccess",
+            "Belajar Git dan GitHub dengan benar",
+            "Membuat commit dan pull request pertama",
+            "Menjaga layout tetap rapi dan reusable"
+          ],
+          "learned": "version control itu kebiasaan, bukan sekadar tool",
+          "challenge": "melakukan merge branch pertama tanpa kehilangan pekerjaan",
+          "win": "halaman pertama yang benar-benar kubanggakan",
+          "note": "commit awal, commit sering",
+          "sticker": "GIT"
         },
-        "september": {
-          "name": "September 2026",
-          "weeks": [
-            "Minggu 13|Karoto;Nyoba beli VPS;Mempelajari domain",
-            "Minggu 14|Cloudflare;Deploy web Nalar",
-            "Minggu 15|Docker;Linux;CI/CD",
-            "Minggu 16|Portfolio"
-          ]
+        "w04": {
+          "label": "MINGGU 05",
+          "date": "Jul 2026",
+          "title": "Otomatisasi dengan GitHub Actions",
+          "bullets": [
+            "Belajar GitHub Actions",
+            "Belajar bagaimana YAML menjelaskan sebuah workflow",
+            "Mengotomatisasi langkah build kecil",
+            "Lanjut mengerjakan NihonAccess"
+          ],
+          "learned": "satu push bisa memicu seluruh pipeline",
+          "challenge": "indentasi YAML tidak bisa ditawar",
+          "win": "workflow pertamaku berhasil berjalan",
+          "note": "centang hijau itu bikin nagih",
+          "sticker": "CI"
+        },
+        "w05": {
+          "label": "MINGGU 06",
+          "date": "Jul 2026",
+          "title": "Linux, VPS & deploy pertama",
+          "bullets": [
+            "Belajar tentang server VPS Linux",
+            "Mempraktikkan deploy website ke VPS",
+            "Menyiapkan SSH, domain, dan folder",
+            "Lanjut mengerjakan NihonAccess"
+          ],
+          "learned": "command line tidak memaafkan salah ketik",
+          "challenge": "deploy pertama gagal dua kali sebelum akhirnya berhasil",
+          "win": "website live di serverku sendiri",
+          "note": "deploy pertama menegangkan — dan bikin nagih",
+          "sticker": "DEPLOY"
+        },
+        "w06": {
+          "label": "MINGGU 07",
+          "date": "Jul 2026",
+          "title": "Karoto mulai terbentuk",
+          "bullets": [
+            "Mulai merancang website bengkel mobil Karoto",
+            "Merencanakan struktur dan alur halaman",
+            "Membangun bagian UI pertama",
+            "Meninjau desain bersama tim"
+          ],
+          "learned": "desain langsung di browser, bukan hanya di kepala",
+          "challenge": "membuat website bengkel terasa terpercaya",
+          "win": "layout-nya akhirnya terasa pas",
+          "note": "struktur dulu, dekorasi kemudian",
+          "sticker": "UI"
+        },
+        "w07": {
+          "label": "MINGGU 08",
+          "date": "Jul 2026",
+          "title": "Karoto live",
+          "bullets": [
+            "Menyelesaikan dan mendeploy website Karoto",
+            "Belajar proses deploy secara menyeluruh",
+            "Mengecek website di perangkat nyata",
+            "Menangani perbaikan kecil setelah rilis"
+          ],
+          "learned": "rilis itu proses, bukan sekadar momen",
+          "challenge": "menangkap bug yang hanya muncul di browser nyata",
+          "win": "Karoto live dan sudah digunakan klien",
+          "note": "dari mockup jadi URL nyata",
+          "sticker": "LIVE"
+        },
+        "w08": {
+          "label": "MINGGU 09",
+          "date": "Aug 2026",
+          "title": "WhatsApp & data klien",
+          "bullets": [
+            "Belajar GOWA untuk integrasi WhatsApp",
+            "Menghubungkan alur pesan ke proyek",
+            "Lanjut mengerjakan NihonAccess",
+            "Membantu input data klien"
+          ],
+          "learned": "integrasi itu sebagian besar soal kesabaran",
+          "challenge": "menyesuaikan API dengan kebutuhan klien",
+          "win": "pesan otomatis pertama berhasil terkirim",
+          "note": "API itu percakapan dengan aturan yang sangat ketat",
+          "sticker": "GOWA"
+        },
+        "w09": {
+          "label": "MINGGU 10–12",
+          "date": "Aug 2026",
+          "title": "Membangun dan menyempurnakan Karoto",
+          "bullets": [
+            "Lanjut mengembangkan Karoto",
+            "Meningkatkan performa dan responsivitas",
+            "Memperbaiki detail yang dilaporkan klien",
+            "Mendokumentasikan perubahan"
+          ],
+          "learned": "kualitas tumbuh dari proses iterasi",
+          "challenge": "menjaga beberapa proyek tetap berjalan",
+          "win": "rilis yang lebih stabil dan tenang",
+          "note": "perbaikan kecil, setiap hari",
+          "sticker": "ITERASI"
+        },
+        "w10": {
+          "label": "MINGGU 13",
+          "date": "Sep 2026",
+          "title": "Domain & VPS sendiri",
+          "bullets": [
+            "Lanjut mengerjakan Karoto",
+            "Mencari dan membeli VPS",
+            "Belajar tentang domain dan DNS",
+            "Mengonfigurasi server sendiri"
+          ],
+          "learned": "bagaimana domain benar-benar menemukan server",
+          "challenge": "record DNS ternyata butuh waktu untuk benar-benar dipahami",
+          "win": "VPS sendiri, terkonfigurasi penuh",
+          "note": "mesin kecilku sendiri di internet",
+          "sticker": "VPS"
+        },
+        "w11": {
+          "label": "MINGGU 14",
+          "date": "Sep 2026",
+          "title": "Cloudflare & Nalar",
+          "bullets": [
+            "Belajar tentang Cloudflare",
+            "Menyiapkan DNS, caching, dan proteksi",
+            "Mendeploy website Nalar",
+            "Mengecek kecepatan dan ketersediaan"
+          ],
+          "learned": "apa yang berada di antara pengunjung dan server",
+          "challenge": "aturan caching yang terlalu rajin menyimpan",
+          "win": "Nalar online, lebih cepat dan aman",
+          "note": "lapisan tak terlihat yang menyelamatkan",
+          "sticker": "CDN"
+        },
+        "w12": {
+          "label": "MINGGU 15",
+          "date": "Sep 2026",
+          "title": "Docker & CI/CD",
+          "bullets": [
+            "Belajar Docker dan dasar container",
+            "Lanjut belajar Linux",
+            "Mulai belajar konsep CI/CD",
+            "Mengotomatisasi alur build-and-deploy"
+          ],
+          "learned": "container membuat “di komputermu berhasil” jadi lebih mudah dibuktikan",
+          "challenge": "memahami image, layer, dan volume",
+          "win": "pipeline deploy yang bisa diulang",
+          "note": "build sekali, jalan di mana saja",
+          "sticker": "DOCKER"
+        },
+        "w13": {
+          "label": "MINGGU 16",
+          "date": "Sep 2026",
+          "title": "Portfolio & menengok ke belakang",
+          "bullets": [
+            "Lanjut mengembangkan portfolio pribadi",
+            "Mendokumentasikan proses PKL di halaman Journey ini",
+            "Meninjau semua pelajaran selama 16 minggu",
+            "Merencanakan langkah berikutnya"
+          ],
+          "learned": "mendokumentasikan pekerjaan ternyata sama pentingnya dengan mengerjakannya",
+          "challenge": "mengubah tiga bulan pengalaman jadi sesuatu yang enak dibaca",
+          "win": "portfolio dan jurnal sebagai hasil akhirnya",
+          "note": "akhir PKL, awal hal berikutnya",
+          "sticker": "FIN"
         }
       }
     },
     "milestones": {
       "first": {
         "title": "Baris kode pertama",
-        "text": "“Hello world” penasaran yang diam-diam mengubah rencanaku.",
+        "text": "“Hello world” yang awalnya cuma rasa penasaran, tapi diam-diam mengubah rencanaku.",
         "kicker": "semua mulai dari sini",
         "date": "2023",
         "caption": "halo, dunia.",
         "note": "satu baris kode iseng, dan semuanya terasa berbeda",
         "sticker": "HARI 01",
-        "list": ["Menulis tag pertama", "Rusak, lalu diperbaiki", "Langsung ketagihan"]
+        "list": [
+          "Menulis tag pertama",
+          "Rusak, lalu diperbaiki",
+          "Langsung ketagihan"
+        ]
       },
       "serious": {
         "title": "Mulai serius membangun",
@@ -185,7 +449,11 @@
         "caption": "bikin dulu, rencana nanti",
         "note": "selesaikan hal kecil — itu seluruh triknya",
         "sticker": "LANJUT TERUS",
-        "list": ["HTML, CSS, JavaScript", "Proyek nyata pertama", "Belajar dengan merilis"]
+        "list": [
+          "HTML, CSS, JavaScript",
+          "Proyek nyata pertama",
+          "Belajar dengan merilis"
+        ]
       },
       "lks2025": {
         "title": "LKS Web Technology",
@@ -196,7 +464,11 @@
         "caption": "LKS 2025 · tingkat kota",
         "note": "tangan gugup, fokus tetap",
         "sticker": "JUARA 2",
-        "list": ["Tingkat kota, Tasikmalaya", "Podium pertama", "Web Technology"]
+        "list": [
+          "Tingkat kota, Tasikmalaya",
+          "Podium pertama",
+          "Web Technology"
+        ]
       },
       "iot": {
         "title": "Kompetisi IoT",
@@ -207,7 +479,11 @@
         "caption": "sensor + sketsa",
         "note": "kabel di mana-mana — dan ternyata berhasil",
         "sticker": "JUARA 1",
-        "list": ["Teknik Listrik", "Arduino + sensor", "Juara pertama"]
+        "list": [
+          "Teknik Listrik",
+          "Arduino + sensor",
+          "Juara pertama"
+        ]
       },
       "lks2026": {
         "title": "LKS Web Technology",
@@ -218,7 +494,11 @@
         "caption": "juara · tingkat kota",
         "note": "semua latihan akhirnya sejalan",
         "sticker": "JUARA 1",
-        "list": ["Tingkat kota, Tasikmalaya", "Juara", "Tiket ke provinsi"]
+        "list": [
+          "Tingkat kota, Tasikmalaya",
+          "Juara",
+          "Tiket ke provinsi"
+        ]
       },
       "province": {
         "title": "LKS Jawa Barat",
@@ -229,7 +509,11 @@
         "caption": "babak provinsi",
         "note": "juara 6 paling membanggakan",
         "sticker": "JUARA 6",
-        "list": ["Mewakili Tasikmalaya", "Tingkat Jawa Barat", "Semua pelajaran dibawa pulang"]
+        "list": [
+          "Mewakili Tasikmalaya",
+          "Tingkat Jawa Barat",
+          "Semua pelajaran dibawa pulang"
+        ]
       },
       "pklStart": {
         "title": "PKL di CV Access Media",
@@ -240,7 +524,11 @@
         "captionSecond": "nihon access, bahasa jepang",
         "note": "minggu pertama langsung pegang produksi",
         "sticker": "MAGANG",
-        "list": ["Redesign akses media perusahaan", "Master–slave MySQL & log shipping", "Mulai NihonAccess & Karoto"]
+        "list": [
+          "Redesign akses media perusahaan",
+          "Master–slave MySQL & log shipping",
+          "Mulai NihonAccess & Karoto"
+        ]
       },
       "pklGrow": {
         "title": "Yang tumbuh selama PKL",
@@ -250,7 +538,11 @@
         "caption": "toolbox pkl",
         "note": "deploy pertama paling menegangkan — dan paling bikin nagih",
         "sticker": "PELAJARAN",
-        "list": ["NihonAccess & Karoto live", "Docker, Cloudflare, CI/CD", "VPS, domain, input data klien"]
+        "list": [
+          "NihonAccess & Karoto live",
+          "Docker, Cloudflare, CI/CD",
+          "VPS, domain, input data klien"
+        ]
       }
     }
   },
