@@ -109,6 +109,8 @@
       "hint": "two journals, two chapters — choose one to start reading",
       "back": "Back to journals",
       "open": "Open {title}",
+      "prev": "Previous journal",
+      "next": "Next journal",
       "myJourney": {
         "index": "01",
         "title": "MY JOURNEY",

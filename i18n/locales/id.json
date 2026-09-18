@@ -127,6 +127,8 @@
       "hint": "dua jurnal, dua cerita — pilih satu untuk mulai membaca",
       "back": "Kembali ke jurnal",
       "open": "Buka {title}",
+      "prev": "Jurnal sebelumnya",
+      "next": "Jurnal berikutnya",
       "myJourney": {
         "index": "01",
         "title": "MY JOURNEY",

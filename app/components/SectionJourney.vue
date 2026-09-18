@@ -52,12 +52,30 @@ const pklPages = computed<PklPageDef[]>(() => [
 const view = ref<'select' | BookId>('select')
 const lastBook = ref<BookId>('journey')
 
+const bookOrder: BookId[] = ['journey', 'pkl']
+const activeBook = ref(0)
+
+const activeIndex = computed(() => String(activeBook.value + 1).padStart(2, '0'))
+const totalBooks = String(bookOrder.length).padStart(2, '0')
+
+const activeBookId = computed(() => bookOrder[activeBook.value] ?? 'journey')
+const activeBookTitle = computed(() =>
+  activeBookId.value === 'pkl'
+    ? t('journey.books.pkl.title')
+    : t('journey.books.myJourney.title'),
+)
+
 const backRef = ref<HTMLButtonElement | null>(null)
 const journeyBookRef = ref<HTMLButtonElement | null>(null)
 const pklBookRef = ref<HTMLButtonElement | null>(null)
 
+function selectBook(index: number) {
+  activeBook.value = (index + bookOrder.length) % bookOrder.length
+}
+
 function openBook(book: BookId) {
   lastBook.value = book
+  activeBook.value = bookOrder.indexOf(book)
   view.value = book
   nextTick(() => backRef.value?.focus())
 }
@@ -117,6 +135,7 @@ function pklWeeksFor(key?: string) {
               ref="journeyBookRef"
               type="button"
               class="journal-pick"
+              :class="{ 'is-active': activeBook === 0 }"
               :aria-label="t('journey.books.open', { title: t('journey.books.myJourney.title') })"
               @click="openBook('journey')"
             >
@@ -137,6 +156,7 @@ function pklWeeksFor(key?: string) {
               ref="pklBookRef"
               type="button"
               class="journal-pick"
+              :class="{ 'is-active': activeBook === 1 }"
               :aria-label="t('journey.books.open', { title: t('journey.books.pkl.title') })"
               @click="openBook('pkl')"
             >
@@ -164,7 +184,29 @@ function pklWeeksFor(key?: string) {
               decoding="async"
               aria-hidden="true"
             >
+
+            <!-- Mobile only: turn between the covers instead of swiping. -->
+            <button
+              type="button"
+              class="journal-pick-nav journal-pick-nav--prev"
+              :aria-label="t('journey.books.prev')"
+              @click="selectBook(activeBook - 1)"
+            >
+              <Icon name="ph:caret-left" class="size-5" aria-hidden="true" />
+            </button>
+            <button
+              type="button"
+              class="journal-pick-nav journal-pick-nav--next"
+              :aria-label="t('journey.books.next')"
+              @click="selectBook(activeBook + 1)"
+            >
+              <Icon name="ph:caret-right" class="size-5" aria-hidden="true" />
+            </button>
           </div>
+
+          <p class="sr-only" aria-live="polite">
+            {{ activeIndex }} / {{ totalBooks }} — {{ activeBookTitle }}
+          </p>
         </div>
 
         <!-- 01 · MY JOURNEY BOOK -->
