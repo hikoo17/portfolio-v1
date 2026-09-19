@@ -58,14 +58,7 @@
         "highlights": ["Secured user sign-in", "Separate admin access", "Responsive management dashboard"],
         "role": "Web Developer Intern"
       },
-      "pointku": {
-        "short": "A student care system for schools — tracking violations and appreciation in one clear dashboard.",
-        "description": "A student care platform that records violations and appreciation separately, keeps a running point balance for every student, and gives teachers and admins one place to log incidents, attach photo evidence, and follow up.",
-        "tagline": "discipline and appreciation, in balance",
-        "highlights": ["Violation and appreciation tracking", "Point balance per student", "Incident logging with photo evidence"],
-        "role": "Frontend Developer"
-      },
-      "sipiket": {
+      "sijadwal": {
         "short": "A digital duty board for schools — location-verified attendance, photo evidence, and class dashboards.",
         "description": "A digital duty and attendance system for schools. Students check in through a location-verified, camera-backed flow, while every class gets a dashboard for schedules, submission status, and verification.",
         "tagline": "duty presence, verified",

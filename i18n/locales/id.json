@@ -67,7 +67,7 @@
         ],
         "role": "Magang Web Developer"
       },
-      "pointku": {
+      "sicatat": {
         "short": "Sistem student care untuk sekolah — memantau pelanggaran dan apresiasi dalam satu dashboard.",
         "description": "Platform student care yang mencatat pelanggaran dan apresiasi secara terpisah, menyimpan saldo poin tiap siswa, dan memberi guru serta admin satu tempat untuk mencatat kejadian, melampirkan bukti foto, dan menindaklanjutinya.",
         "tagline": "disiplin dan apresiasi, seimbang",
@@ -78,7 +78,7 @@
         ],
         "role": "Frontend Developer"
       },
-      "sipiket": {
+      "sijadwal": {
         "short": "Papan piket digital untuk sekolah — presensi terverifikasi lokasi, bukti foto, dan dashboard kelas.",
         "description": "Sistem piket dan presensi digital untuk sekolah. Siswa melakukan presensi lewat alur yang terverifikasi lokasi dan kamera, sementara tiap kelas punya dashboard untuk jadwal, status pengiriman, dan verifikasi.",
         "tagline": "presensi piket, terverifikasi",

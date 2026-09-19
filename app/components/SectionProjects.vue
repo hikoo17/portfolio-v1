@@ -37,38 +37,6 @@ const projects: ProjectCard[] = [
     liveUrl: 'https://karoto.accessmedia.id',
     codeUrl: 'https://github.com/hikoo17',
   },
-  {
-    key: 'pointku',
-    number: '03',
-    title: 'Pointku',
-    year: '2026',
-    rotation: '1.2deg',
-    span: 'lg:col-span-5',
-    tags: ['Laravel Blade', 'TailwindCSS', 'MySQL'],
-    images: [
-      '/images/pointku-1.jpg',
-      '/images/pointku-2.jpg',
-      '/images/pointku-3.jpg',
-    ],
-    liveUrl: 'https://pointku.kezadev.my.id',
-    codeUrl: 'https://github.com/hikoo17',
-  },
-  {
-    key: 'sipiket',
-    number: '04',
-    title: 'SI-Piket',
-    year: '2026',
-    rotation: '-1.6deg',
-    span: 'lg:col-span-7 lg:mt-16',
-    tags: ['Laravel Blade', 'TailwindCSS', 'MySQL'],
-    images: [
-      '/images/sipiket-1.jpg',
-      '/images/sipiket-2.jpg',
-      '/images/sipiket-3.jpg',
-    ],
-    liveUrl: 'https://si-piket.kezadev.my.id',
-    codeUrl: 'https://github.com/hikoo17',
-  },
 ]
 
 const activeProject = ref<ProjectDetail | null>(null)

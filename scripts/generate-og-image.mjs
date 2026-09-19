@@ -37,7 +37,7 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${
   <rect x="80" y="440" width="140" height="7" fill="#f9e9a8" />
 
   <text x="80" y="520" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="30" fill="#e9f4ee" fill-opacity="0.6">Clean, purposeful web experiences.</text>
-  <text x="80" y="566" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="26" fill="#e9f4ee" fill-opacity="0.45">kezadev.my.id</text>
+  <text x="80" y="566" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="26" fill="#e9f4ee" fill-opacity="0.45">keyzar.my.id</text>
 </svg>`
 
 await sharp(Buffer.from(svg)).png({ quality: 90, compressionLevel: 9 }).toFile(output)

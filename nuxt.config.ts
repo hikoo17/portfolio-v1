@@ -1,6 +1,6 @@
 import tailwindcss from "@tailwindcss/vite";
 
-const SITE_URL = process.env.NUXT_PUBLIC_SITE_URL || "https://kezadev.my.id";
+const SITE_URL = process.env.NUXT_PUBLIC_SITE_URL || "https://keyzar.my.id";
 const SITE_NAME = "Keyza Zaki Arkana";
 const SITE_DESCRIPTION =
   "Portfolio of Keyza Zaki Arkana — a web developer from Tasikmalaya, Indonesia, currently interning at CV Access Media.";
