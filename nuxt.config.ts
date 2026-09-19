@@ -44,11 +44,6 @@ export default defineNuxtConfig({
   },
 
   image: {
-    // Pre-generate optimized variants at build time so production can be
-    // served entirely from a CDN/static host with zero image CPU cost.
-    // `ipxStatic` has no route handler in dev, which makes every `NuxtImg`
-    // request fall through to SSR as HTML, so use the runtime `ipx` provider
-    // while developing and ship the static variants in production builds.
     provider: process.env.NODE_ENV === 'production' ? 'ipxStatic' : 'ipx',
     format: ['webp'],
     quality: 72,
@@ -63,18 +58,12 @@ export default defineNuxtConfig({
   },
 
   fonts: {
-    // Self-host, subset and preload the webfonts instead of blocking the
-    // first paint on a third-party Google Fonts request.
     families: [
       {
         name: 'Plus Jakarta Sans',
         provider: 'google',
-        // Italic is never used in the UI, so requesting it only generated unused
-        // @font-face rules and font files.
         weights: [400, 500, 600, 700, 800],
         styles: ['normal'],
-        // The site is English/Indonesian only, so the cyrillic, greek,
-        // vietnamese and latin-ext subsets were pure dead weight.
         subsets: ['latin'],
       },
       {
@@ -87,7 +76,6 @@ export default defineNuxtConfig({
       {
         name: 'Caveat',
         provider: 'google',
-        // Only the regular weight is used for the handwritten annotations.
         weights: [400],
         styles: ['normal'],
         subsets: ['latin'],
@@ -103,16 +91,11 @@ export default defineNuxtConfig({
     ],
     defaultLocale: 'en',
     strategy: 'no_prefix',
-    // Always boot in English. Browser-language detection runs on the client
-    // only, so a phone with `id-ID` re-rendered the prerendered English page
-    // into Indonesian after hydration and desynced the language toggle.
-    // An explicit choice is persisted in the `locale` cookie instead.
     detectBrowserLanguage: false,
   },
 
   sitemap: {
     autoLastmod: true,
-    // The site is a single prerendered page, so emit a fully static sitemap.
     zeroRuntime: true,
   },
 
@@ -136,8 +119,16 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    // Contact form delivery. Kept private (never exposed to the client) and
-    // supplied at runtime through NUXT_SMTP_* / NUXT_CONTACT_* env vars.
+    // Dipeta langsung agar otomatis membaca variabel lingkungan dari Cloudflare
+    // (Misal: NUXT_SMTP_HOST -> smtpHost)
+    smtpHost: process.env.NUXT_SMTP_HOST || '',
+    smtpPort: process.env.NUXT_SMTP_PORT || '',
+    smtpUser: process.env.NUXT_SMTP_USER || '',
+    smtpPass: process.env.NUXT_SMTP_PASS || '',
+    contactFrom: process.env.NUXT_CONTACT_FROM || '',
+    contactTo: process.env.NUXT_CONTACT_TO || 'keyzazaki054@gmail.com',
+
+    // Tetap sediakan struktur objek 'smtp' jika backend server/api/contact.ts memanggilnya seperti `config.smtp.host`
     smtp: {
       host: process.env.NUXT_SMTP_HOST || '',
       port: process.env.NUXT_SMTP_PORT || '',
@@ -146,6 +137,7 @@ export default defineNuxtConfig({
       from: process.env.NUXT_CONTACT_FROM || '',
       to: process.env.NUXT_CONTACT_TO || 'keyzazaki054@gmail.com',
     },
+
     public: {
       siteUrl: SITE_URL,
     },
@@ -161,9 +153,6 @@ export default defineNuxtConfig({
         { name: 'format-detection', content: 'telephone=no' },
       ],
       link: [
-        // Google Search only reads raster favicons, so list the ICO and the
-        // PNGs first and keep the (unsupported) SVG purely as a browser
-        // progressive enhancement at the end.
         { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
         { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/favicon-192x192.png' },
         { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon-96x96.png' },
@@ -177,16 +166,13 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    // Prerender the single page so it can be served statically behind a CDN.
     '/': { prerender: true },
-    // Content-hashed build output and media never change in place.
     '/_nuxt/**': {
       headers: { 'cache-control': 'public, max-age=31536000, immutable' },
     },
     '/images/**': {
       headers: { 'cache-control': 'public, max-age=31536000, immutable' },
     },
-    // Optimized image URLs encode every transform, so they are immutable.
     '/_ipx/**': {
       headers: { 'cache-control': 'public, max-age=31536000, immutable' },
     },
@@ -220,7 +206,6 @@ export default defineNuxtConfig({
     '/og-image.png': {
       headers: { 'cache-control': 'public, max-age=2592000' },
     },
-    // Google Search Console verification file — cheap to revalidate.
     '/googlec17b4e7fe98cd36f.html': {
       headers: { 'cache-control': 'public, max-age=300' },
     },
@@ -236,7 +221,8 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    // Serve pre-compressed public assets (Brotli + gzip) without runtime CPU.
+    // Diberi preset cloudflare-pages agar Cloudflare Workers dapat membaca runtime env
+    preset: 'cloudflare-pages',
     compressPublicAssets: { gzip: true, brotli: true },
     prerender: {
       crawlLinks: true,
@@ -245,7 +231,6 @@ export default defineNuxtConfig({
   },
 
   experimental: {
-    // Ship the prerendered payload as JSON to shrink the hydration payload.
     payloadExtraction: true,
     renderJsonPayloads: true,
   },
@@ -255,8 +240,6 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
     build: {
-      // Ship modern ESM only: downlevelling here is what makes Lighthouse
-      // report "Legacy JavaScript".
       target: 'es2022',
       minify: 'esbuild',
       cssCodeSplit: true,
