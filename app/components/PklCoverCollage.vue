@@ -77,16 +77,16 @@ const { t } = useI18n()
           <NuxtPicture
             src="/images/logo-accessmedia.png"
             :alt="t('journey.pkl.coverAlt')"
-            class="block aspect-[4/3] w-full"
-            width="480"
-            height="360"
-            fit="cover"
+            class="block aspect-[94/51] w-full"
+            width="376"
+            height="204"
+            fit="contain"
             format="avif,webp"
             legacy-format="webp"
             sizes="xs:150px sm:220px"
             loading="lazy"
             decoding="async"
-            :img-attrs="{ class: 'h-full w-full object-cover', draggable: 'false' }"
+            :img-attrs="{ class: 'h-full w-full object-contain', draggable: 'false' }"
           />
           <span class="absolute inset-x-[3.4cqw] bottom-[2.4cqw] block font-hand text-[3.6cqw] text-ink/80">
             {{ t('journey.pkl.cover.company') }}

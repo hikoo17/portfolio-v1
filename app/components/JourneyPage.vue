@@ -26,7 +26,7 @@ const props = withDefaults(
   },
 )
 
-const { t } = useI18n()
+const { t, te } = useI18n()
 
 // Each milestone gets its own collage layout plus its own props, so the pages
 // feel gathered one at a time rather than assembled from one template.
@@ -66,6 +66,16 @@ const sheetClass = computed(() => ({
 function field(name: string) {
   return props.milestoneKey ? t(`journey.milestones.${props.milestoneKey}.${name}`) : ''
 }
+
+// The prize badge ("Juara 1 — Kota") is the one line visitors care about most,
+// so it is rendered as a stamp on every milestone that has one.
+const badge = computed(() => {
+  if (!props.milestoneKey) {
+    return ''
+  }
+  const key = `journey.milestones.${props.milestoneKey}.badge`
+  return te(key) ? t(key) : ''
+})
 
 const list = computed<string[]>(() => {
   if (!props.milestoneKey) {
@@ -175,6 +185,13 @@ const list = computed<string[]>(() => {
       <div class="relative z-10 shrink-0">
         <p class="font-hand text-[5cqw] leading-none text-emerald-soft">{{ field('kicker') }}</p>
         <p class="mt-[1.4cqw] font-mono text-[2.4cqw] tracking-[0.28em] text-ink-faint uppercase">{{ field('date') }}</p>
+        <span
+          v-if="badge"
+          class="journal-stamp mt-[2cqw] text-[2.5cqw]"
+          style="--stamp-color: #b23a3a; --scrap-tilt: -4deg"
+        >
+          {{ badge }}
+        </span>
         <h3 class="mt-[2.2cqw] text-[7.8cqw] leading-[1.02] font-extrabold tracking-tight text-ink">
           {{ field('title') }}
         </h3>
@@ -249,6 +266,13 @@ const list = computed<string[]>(() => {
       <div class="relative z-10 w-[42%] shrink-0">
         <p class="font-hand text-[4.6cqw] leading-none text-emerald-soft">{{ field('kicker') }}</p>
         <p class="mt-[1.4cqw] font-mono text-[2.3cqw] tracking-[0.28em] text-ink-faint uppercase">{{ field('date') }}</p>
+        <span
+          v-if="badge"
+          class="journal-stamp mt-[2cqw] text-[2.5cqw]"
+          style="--stamp-color: #b23a3a; --scrap-tilt: -4deg"
+        >
+          {{ badge }}
+        </span>
         <h3 class="mt-[2.2cqw] text-[6.4cqw] leading-[1.03] font-extrabold tracking-tight text-ink">
           {{ field('title') }}
         </h3>
@@ -340,6 +364,13 @@ const list = computed<string[]>(() => {
       <div class="relative z-10 mt-[5cqw] shrink-0">
         <p class="font-hand text-[5cqw] leading-none text-emerald-soft">{{ field('kicker') }}</p>
         <p class="mt-[1.4cqw] font-mono text-[2.3cqw] tracking-[0.28em] text-ink-faint uppercase">{{ field('date') }}</p>
+        <span
+          v-if="badge"
+          class="journal-stamp mt-[2cqw] text-[2.5cqw]"
+          style="--stamp-color: #b23a3a; --scrap-tilt: -4deg"
+        >
+          {{ badge }}
+        </span>
         <h3 class="mt-[2.2cqw] text-[7.4cqw] leading-[1.02] font-extrabold tracking-tight text-ink">
           {{ field('title') }}
         </h3>
@@ -352,6 +383,13 @@ const list = computed<string[]>(() => {
       <div class="relative z-10 w-[42%] shrink-0 text-right">
         <p class="font-hand text-[4.6cqw] leading-none text-emerald-soft">{{ field('kicker') }}</p>
         <p class="mt-[1.4cqw] font-mono text-[2.3cqw] tracking-[0.28em] text-ink-faint uppercase">{{ field('date') }}</p>
+        <span
+          v-if="badge"
+          class="journal-stamp mt-[2cqw] text-[2.5cqw]"
+          style="--stamp-color: #b23a3a; --scrap-tilt: -4deg"
+        >
+          {{ badge }}
+        </span>
         <h3 class="mt-[2.2cqw] text-[6.4cqw] leading-[1.03] font-extrabold tracking-tight text-ink">
           {{ field('title') }}
         </h3>
@@ -413,6 +451,13 @@ const list = computed<string[]>(() => {
       <div class="relative z-10 shrink-0">
         <p class="font-hand text-[5cqw] leading-none text-emerald-soft">{{ field('kicker') }}</p>
         <p class="mt-[1.4cqw] font-mono text-[2.3cqw] tracking-[0.28em] text-ink-faint uppercase">{{ field('date') }}</p>
+        <span
+          v-if="badge"
+          class="journal-stamp mt-[2cqw] text-[2.5cqw]"
+          style="--stamp-color: #b23a3a; --scrap-tilt: -4deg"
+        >
+          {{ badge }}
+        </span>
         <h3 class="mt-[2.2cqw] text-[7.8cqw] leading-[1.02] font-extrabold tracking-tight text-ink">
           {{ field('title') }}
         </h3>
@@ -460,6 +505,13 @@ const list = computed<string[]>(() => {
       <div class="relative z-10 w-[42%] shrink-0 text-right">
         <p class="font-hand text-[4.6cqw] leading-none text-emerald-soft">{{ field('kicker') }}</p>
         <p class="mt-[1.4cqw] font-mono text-[2.3cqw] tracking-[0.28em] text-ink-faint uppercase">{{ field('date') }}</p>
+        <span
+          v-if="badge"
+          class="journal-stamp mt-[2cqw] text-[2.5cqw]"
+          style="--stamp-color: #b23a3a; --scrap-tilt: -4deg"
+        >
+          {{ badge }}
+        </span>
         <h3 class="mt-[2.2cqw] text-[6.4cqw] leading-[1.03] font-extrabold tracking-tight text-ink">
           {{ field('title') }}
         </h3>
