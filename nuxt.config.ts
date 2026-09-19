@@ -3,7 +3,7 @@ import tailwindcss from "@tailwindcss/vite";
 const SITE_URL = process.env.NUXT_PUBLIC_SITE_URL || "https://keyzar.my.id";
 const SITE_NAME = "Keyza Zaki Arkana";
 const SITE_DESCRIPTION =
-  "Portfolio of Keyza Zaki Arkana — a web developer from Tasikmalaya, Indonesia, currently interning at CV Access Media.";
+  "Portfolio of Keyza Zaki Arkana — a web developer based in Tasikmalaya, Indonesia, specializing in modern and high-performance web applications.";
 
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
