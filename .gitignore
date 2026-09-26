@@ -9,6 +9,9 @@ dist
 # Wrangler (Cloudflare) generated deploy config
 .wrangler
 
+# Local scratch files
+.tmp-check
+
 # Node dependencies
 node_modules
 
