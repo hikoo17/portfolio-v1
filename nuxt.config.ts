@@ -124,7 +124,7 @@ export default defineNuxtConfig({
     // Email dikirim lewat HTTP API Resend karena Cloudflare Workers tidak bisa
     // membuka koneksi TCP/TLS yang dibutuhkan SMTP.
     resendApiKey: process.env.NUXT_RESEND_API_KEY || '',
-    contactFrom: process.env.NUXT_CONTACT_FROM || 'onboarding@resend.dev',
+    contactFrom: process.env.NUXT_CONTACT_FROM || 'Portfolio <contact@keyzar.my.id>',
     contactTo: process.env.NUXT_CONTACT_TO || 'keyzazakiarkana08@gmail.com',
 
     public: {

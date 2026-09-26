@@ -42,9 +42,8 @@ export default defineEventHandler(async (event) => {
 
   const config = useRuntimeConfig(event)
   const apiKey = config.resendApiKey
-  // Resend only allows sending from `onboarding@resend.dev` until a domain is
-  // verified; once it is, set NUXT_CONTACT_FROM to an address on that domain.
-  const from = config.contactFrom || 'onboarding@resend.dev'
+  // `keyzar.my.id` is verified in Resend, so mail is sent from an address on it.
+  const from = config.contactFrom || 'Portfolio <contact@keyzar.my.id>'
   const to = config.contactTo || 'keyzazakiarkana08@gmail.com'
 
   if (!apiKey) {
