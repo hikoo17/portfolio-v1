@@ -109,7 +109,7 @@ export default defineNuxtConfig({
       name: SITE_NAME,
       description: SITE_DESCRIPTION,
       jobTitle: 'Web Developer',
-      email: 'mailto:keyzazaki054@gmail.com',
+      email: 'mailto:keyzazakiarkana08@gmail.com',
       image: `${SITE_URL}/og-image.png`,
       sameAs: [
         'https://github.com/hikoo17',
@@ -125,7 +125,7 @@ export default defineNuxtConfig({
     // membuka koneksi TCP/TLS yang dibutuhkan SMTP.
     resendApiKey: process.env.NUXT_RESEND_API_KEY || '',
     contactFrom: process.env.NUXT_CONTACT_FROM || 'onboarding@resend.dev',
-    contactTo: process.env.NUXT_CONTACT_TO || 'keyzazaki054@gmail.com',
+    contactTo: process.env.NUXT_CONTACT_TO || 'keyzazakiarkana08@gmail.com',
 
     public: {
       siteUrl: SITE_URL,

@@ -45,7 +45,7 @@ export default defineEventHandler(async (event) => {
   // Resend only allows sending from `onboarding@resend.dev` until a domain is
   // verified; once it is, set NUXT_CONTACT_FROM to an address on that domain.
   const from = config.contactFrom || 'onboarding@resend.dev'
-  const to = config.contactTo || 'keyzazaki054@gmail.com'
+  const to = config.contactTo || 'keyzazakiarkana08@gmail.com'
 
   if (!apiKey) {
     throw createError({ statusCode: 503, statusMessage: 'Email delivery is not configured yet.' })
