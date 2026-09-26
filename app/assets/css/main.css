@@ -224,6 +224,12 @@ body {
   transform: rotate(42deg);
 }
 
+.tape--bottom-left {
+  bottom: -12px;
+  left: -24px;
+  transform: rotate(42deg);
+}
+
 /* ---------- Portrait photograph ---------- */
 
 /* A second sheet tucked behind a paper: only a slim edge shows along the
