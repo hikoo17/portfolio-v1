@@ -1,0 +1,21 @@
+# Keyza Zaki Arkana — Portfolio
+
+> Keyza Zaki Arkana is a web developer based in Tasikmalaya, Indonesia, building modern, high-performance web applications with Vue/Nuxt, Laravel, and Tailwind CSS.
+
+This site is the personal portfolio and contact point for Keyza Zaki Arkana. It presents selected project case studies, a short biography, the tools and technologies he works with, a professional journey, and a contact form.
+
+## Main
+
+- [Portfolio home](https://keyzar.my.id/): Overview of Keyza Zaki Arkana and his work.
+- [Selected work](https://keyzar.my.id/#work): Case studies of shipped projects, including scope, stack, and outcomes.
+- [About](https://keyzar.my.id/#about): Background, focus areas, and how he works.
+- [Tools](https://keyzar.my.id/#tools): Languages, frameworks, and platforms he uses day to day.
+- [Journey](https://keyzar.my.id/#journey): Education, internships, competitions, and roles.
+- [Blog](https://keyzar.my.id/#blog): Short notes and field journal entries.
+- [Contact](https://keyzar.my.id/#contact): Send a message directly.
+
+## Optional
+
+- [Contact API (OpenAPI)](https://keyzar.my.id/openapi.json): OpenAPI descriptor for the contact endpoint.
+- [Agent catalog](https://keyzar.my.id/.well-known/ard.json): Agentic Resource Discovery manifest.
+- [Sitemap](https://keyzar.my.id/sitemap.xml): Machine-readable list of pages.

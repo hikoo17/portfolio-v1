@@ -143,13 +143,17 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
+        { rel: 'icon', type: 'image/png', sizes: '512x512', href: '/favicon-512x512.png' },
         { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/favicon-192x192.png' },
+        { rel: 'icon', type: 'image/png', sizes: '144x144', href: '/favicon-144x144.png' },
         { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon-96x96.png' },
         { rel: 'icon', type: 'image/png', sizes: '48x48', href: '/favicon-48x48.png' },
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
         { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
         { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+        { rel: 'manifest', href: '/site.webmanifest' },
+        { rel: 'ard', href: '/.well-known/ard.json' },
       ],
     },
   },
@@ -169,28 +173,52 @@ export default defineNuxtConfig({
       headers: { 'cache-control': 'public, max-age=31536000, immutable' },
     },
     '/favicon.svg': {
-      headers: { 'cache-control': 'public, max-age=604800' },
+      headers: { 'cache-control': 'public, max-age=86400' },
     },
     '/favicon.ico': {
-      headers: { 'cache-control': 'public, max-age=604800' },
+      headers: { 'cache-control': 'public, max-age=86400' },
     },
     '/favicon-16x16.png': {
-      headers: { 'cache-control': 'public, max-age=604800' },
+      headers: { 'cache-control': 'public, max-age=86400' },
     },
     '/favicon-32x32.png': {
-      headers: { 'cache-control': 'public, max-age=604800' },
+      headers: { 'cache-control': 'public, max-age=86400' },
     },
     '/favicon-48x48.png': {
-      headers: { 'cache-control': 'public, max-age=604800' },
+      headers: { 'cache-control': 'public, max-age=86400' },
     },
     '/favicon-96x96.png': {
-      headers: { 'cache-control': 'public, max-age=604800' },
+      headers: { 'cache-control': 'public, max-age=86400' },
     },
     '/favicon-192x192.png': {
-      headers: { 'cache-control': 'public, max-age=604800' },
+      headers: { 'cache-control': 'public, max-age=86400' },
     },
     '/apple-touch-icon.png': {
-      headers: { 'cache-control': 'public, max-age=604800' },
+      headers: { 'cache-control': 'public, max-age=86400' },
+    },
+    '/favicon-144x144.png': {
+      headers: { 'cache-control': 'public, max-age=86400' },
+    },
+    '/favicon-512x512.png': {
+      headers: { 'cache-control': 'public, max-age=86400' },
+    },
+    '/site.webmanifest': {
+      headers: { 'cache-control': 'public, max-age=86400' },
+    },
+    '/llms.txt': {
+      headers: { 'cache-control': 'public, max-age=3600' },
+    },
+    '/openapi.json': {
+      headers: { 'cache-control': 'public, max-age=3600' },
+    },
+    '/ard.json': {
+      headers: { 'cache-control': 'public, max-age=3600' },
+    },
+    '/ai-catalog.json': {
+      headers: { 'cache-control': 'public, max-age=3600' },
+    },
+    '/.well-known/**': {
+      headers: { 'cache-control': 'public, max-age=3600' },
     },
     '/og-image.png': {
       headers: { 'cache-control': 'public, max-age=2592000' },

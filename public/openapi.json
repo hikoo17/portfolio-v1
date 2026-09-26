@@ -1,0 +1,51 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Keyza Zaki Arkana — Contact API",
+    "version": "1.0.0",
+    "description": "Accepts a message from the portfolio contact form and delivers it by email."
+  },
+  "servers": [
+    { "url": "https://keyzar.my.id" }
+  ],
+  "paths": {
+    "/api/contact": {
+      "post": {
+        "operationId": "submitContactMessage",
+        "summary": "Send a message to Keyza Zaki Arkana",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["name", "email", "message"],
+                "properties": {
+                  "name": { "type": "string", "maxLength": 120 },
+                  "email": { "type": "string", "format": "email", "maxLength": 200 },
+                  "message": { "type": "string", "maxLength": 5000 }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Message accepted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": { "ok": { "type": "boolean" } }
+                }
+              }
+            }
+          },
+          "400": { "description": "Validation error." },
+          "502": { "description": "The message could not be delivered." },
+          "503": { "description": "Email delivery is not configured." }
+        }
+      }
+    }
+  }
+}

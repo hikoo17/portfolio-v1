@@ -1,0 +1,23 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Keyza Zaki Arkana — Portfolio",
+    "identifier": "https://keyzar.my.id"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:keyzar.my.id:api:contact",
+      "displayName": "Portfolio contact form",
+      "type": "application/openapi+json",
+      "url": "https://keyzar.my.id/openapi.json",
+      "description": "Submit a message to Keyza Zaki Arkana through the portfolio contact form.",
+      "capabilities": ["SubmitContactMessage"],
+      "representativeQueries": [
+        "contact Keyza Zaki Arkana",
+        "send a message to this web developer",
+        "ask Keyza about a project or collaboration"
+      ],
+      "tags": ["contact", "portfolio", "email"]
+    }
+  ]
+}

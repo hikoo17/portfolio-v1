@@ -1,0 +1,24 @@
+{
+  "name": "Keyza Zaki Arkana — Portfolio",
+  "short_name": "Keyza Zaki",
+  "description": "Portfolio of Keyza Zaki Arkana, a web developer based in Tasikmalaya, Indonesia.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#06453a",
+  "theme_color": "#06453a",
+  "icons": [
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
