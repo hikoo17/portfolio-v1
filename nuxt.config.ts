@@ -210,8 +210,10 @@ export default defineNuxtConfig({
   },
 
   nitro: {
-    // Diberi preset cloudflare-pages agar Cloudflare Workers dapat membaca runtime env
-    preset: 'cloudflare-pages',
+    // Preset Workers (bukan Pages) agar cocok dengan Cloudflare Workers Builds
+    // yang menjalankan `wrangler deploy`; Nitro akan menulis wrangler.json +
+    // .wrangler/deploy/config.json berisi `main` dan `assets`.
+    preset: 'cloudflare-module',
     compressPublicAssets: { gzip: true, brotli: true },
     prerender: {
       crawlLinks: true,
