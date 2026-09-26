@@ -2,7 +2,7 @@
   "specVersion": "1.0",
   "host": {
     "displayName": "Keyza Zaki Arkana — Portfolio",
-    "identifier": "https://keyzar.my.id"
+    "identifier": "did:web:keyzar.my.id"
   },
   "entries": [
     {
