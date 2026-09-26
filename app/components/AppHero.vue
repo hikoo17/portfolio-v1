@@ -18,48 +18,11 @@ const nameWords = computed(() => t('hero.name').split(' ').filter(Boolean))
       class="pointer-events-none absolute top-16 left-4 hidden w-24 text-cream/30 sm:block lg:top-20 lg:left-8 lg:w-28"
     />
 
-    <!-- The plane's trail continues out of its nose and drifts toward the
-         portrait, so the two halves of the hero read as one path. Decorative
-         only, and desktop-only so the stacked mobile layout stays calm. -->
-    <svg
-      class="pointer-events-none absolute top-14 left-24 hidden w-64 text-cream/20 lg:block xl:left-32 xl:w-72"
-      viewBox="0 0 300 90"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M28 44C76 48 108 26 152 20s98-8 136-4"
-        stroke="currentColor"
-        stroke-width="2.2"
-        stroke-linecap="round"
-        stroke-dasharray="0.5 9"
-      />
-      <path
-        d="m260 4 28 10-24 16"
-        stroke="currentColor"
-        stroke-width="2.2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-    </svg>
-
     <span
       class="pointer-events-none absolute top-6 right-8 hidden font-mono text-[10px] tracking-[0.3em] text-cream/30 lg:block"
       aria-hidden="true"
     >
       7.3°S — 108.2°E
-    </span>
-
-    <!-- Postmark beside the coordinates, using the same dashed-stamp kit as the
-         journal covers. Wrapped so the desktop-only hiding actually applies:
-         `.journal-stamp` sets its own `display`, which would beat `hidden`. -->
-    <span class="pointer-events-none absolute top-14 right-8 hidden lg:block" aria-hidden="true">
-      <span
-        class="journal-stamp text-[11px]"
-        style="--stamp-color: rgba(246, 241, 228, 0.55); --scrap-tilt: -7deg"
-      >
-        {{ t('hero.openToWork') }}
-      </span>
     </span>
     <span
       class="pointer-events-none absolute bottom-6 right-8 hidden font-mono text-[10px] tracking-[0.3em] text-cream/30 lg:block"
@@ -72,17 +35,7 @@ const nameWords = computed(() => t('hero.name').split(' ').filter(Boolean))
       class="relative z-10 mx-auto grid min-h-screen w-full max-w-6xl items-center gap-14 px-6 pt-36 pb-28 lg:grid-cols-[45fr_55fr] lg:gap-6 lg:px-8"
     >
       <!-- LEFT — introduction -->
-      <div class="relative flex flex-col justify-center">
-        <!-- One hand-drawn plus in the gutter, echoing the journal doodles. -->
-        <svg
-          class="pointer-events-none absolute top-[40%] -left-5 hidden w-5 rotate-12 text-cream/25 lg:block"
-          viewBox="0 0 100 100"
-          fill="none"
-          aria-hidden="true"
-        >
-          <path d="M50 12v28M50 60v28M12 50h28M60 50h28" stroke="currentColor" stroke-width="9" stroke-linecap="round" />
-        </svg>
-
+      <div class="flex flex-col justify-center">
         <h1
           class="animate-rise-in text-5xl leading-[1.04] font-extrabold tracking-tight sm:text-6xl xl:text-7xl"
           style="animation-delay: 0ms"
@@ -154,11 +107,6 @@ const nameWords = computed(() => t('hero.name').split(' ').filter(Boolean))
               style="--tape-tilt: -5deg; --tape-color: rgba(246, 241, 228, 0.5)"
               aria-hidden="true"
             />
-            <span
-              class="tape tape--bottom-left"
-              style="--tape-tilt: 8deg; --tape-color: rgba(216, 230, 239, 0.45)"
-              aria-hidden="true"
-            />
             <img
               src="/images/scrapbook/paperclip.svg"
               alt=""
@@ -206,22 +154,6 @@ const nameWords = computed(() => t('hero.name').split(' ').filter(Boolean))
               </span>
             </figcaption>
           </figure>
-
-          <!-- A little star tucked over the photo's top corner, like a doodle
-               someone drew on the print after it was glued down. -->
-          <svg
-            class="pointer-events-none absolute -top-3 -right-3 w-8 -rotate-6 text-note-yellow/80"
-            viewBox="0 0 100 100"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M50 8 58 40 90 50 58 60 50 92 42 60 10 50 42 40Z"
-              stroke="currentColor"
-              stroke-width="6"
-              stroke-linejoin="round"
-            />
-          </svg>
         </div>
       </div>
     </div>
