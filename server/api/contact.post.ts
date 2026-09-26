@@ -1,9 +1,11 @@
-import nodemailer from 'nodemailer'
-
 interface ContactBody {
   name?: unknown
   email?: unknown
   message?: unknown
+}
+
+interface ResendError {
+  message?: string
 }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -38,32 +40,39 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: 'Your message is too long.' })
   }
 
-  const { smtp } = useRuntimeConfig(event)
+  const config = useRuntimeConfig(event)
+  const apiKey = config.resendApiKey
+  // Resend only allows sending from `onboarding@resend.dev` until a domain is
+  // verified; once it is, set NUXT_CONTACT_FROM to an address on that domain.
+  const from = config.contactFrom || 'onboarding@resend.dev'
+  const to = config.contactTo || 'keyzazaki054@gmail.com'
 
-  if (!smtp.host || !smtp.user || !smtp.pass) {
+  if (!apiKey) {
     throw createError({ statusCode: 503, statusMessage: 'Email delivery is not configured yet.' })
   }
 
-  const port = Number(smtp.port) || 587
-  const transporter = nodemailer.createTransport({
-    host: smtp.host,
-    port,
-    secure: port === 465,
-    auth: { user: smtp.user, pass: smtp.pass },
-  })
-
+  // Cloudflare Workers cannot open the raw TCP/TLS sockets SMTP needs, so mail
+  // is delivered through Resend's HTTP API instead of nodemailer.
   try {
-    await transporter.sendMail({
-      from: smtp.from || smtp.user,
-      to: smtp.to || smtp.user,
-      replyTo: `${name} <${email}>`,
-      subject: `Portfolio message from ${name}`,
-      text: `${message}\n\n— ${name} <${email}>`,
-      html: `<p>${escapeHtml(message).replace(/\n/g, '<br>')}</p><p>— ${escapeHtml(name)} &lt;${escapeHtml(email)}&gt;</p>`,
+    await $fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: {
+        from,
+        to: [to],
+        reply_to: `${name} <${email}>`,
+        subject: `Portfolio message from ${name}`,
+        text: `${message}\n\n— ${name} <${email}>`,
+        html: `<p>${escapeHtml(message).replace(/\n/g, '<br>')}</p><p>— ${escapeHtml(name)} &lt;${escapeHtml(email)}&gt;</p>`,
+      },
     })
   }
   catch (error) {
-    console.error('[contact] failed to send message', error)
+    const detail = (error as { data?: ResendError })?.data?.message
+    console.error('[contact] failed to send message', detail || error)
     throw createError({ statusCode: 502, statusMessage: 'The message could not be sent right now.' })
   }
 

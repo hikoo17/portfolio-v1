@@ -120,23 +120,12 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     // Dipeta langsung agar otomatis membaca variabel lingkungan dari Cloudflare
-    // (Misal: NUXT_SMTP_HOST -> smtpHost)
-    smtpHost: process.env.NUXT_SMTP_HOST || '',
-    smtpPort: process.env.NUXT_SMTP_PORT || '',
-    smtpUser: process.env.NUXT_SMTP_USER || '',
-    smtpPass: process.env.NUXT_SMTP_PASS || '',
-    contactFrom: process.env.NUXT_CONTACT_FROM || '',
+    // (Misal: NUXT_RESEND_API_KEY -> resendApiKey)
+    // Email dikirim lewat HTTP API Resend karena Cloudflare Workers tidak bisa
+    // membuka koneksi TCP/TLS yang dibutuhkan SMTP.
+    resendApiKey: process.env.NUXT_RESEND_API_KEY || '',
+    contactFrom: process.env.NUXT_CONTACT_FROM || 'onboarding@resend.dev',
     contactTo: process.env.NUXT_CONTACT_TO || 'keyzazaki054@gmail.com',
-
-    // Tetap sediakan struktur objek 'smtp' jika backend server/api/contact.ts memanggilnya seperti `config.smtp.host`
-    smtp: {
-      host: process.env.NUXT_SMTP_HOST || '',
-      port: process.env.NUXT_SMTP_PORT || '',
-      user: process.env.NUXT_SMTP_USER || '',
-      pass: process.env.NUXT_SMTP_PASS || '',
-      from: process.env.NUXT_CONTACT_FROM || '',
-      to: process.env.NUXT_CONTACT_TO || 'keyzazaki054@gmail.com',
-    },
 
     public: {
       siteUrl: SITE_URL,
