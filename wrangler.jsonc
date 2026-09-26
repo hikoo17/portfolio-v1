@@ -1,6 +1,9 @@
 {
   // Nitro menggabungkan file ini ke wrangler.json hasil generate saat build.
-  // `keep_vars` mencegah `wrangler deploy` menghapus variable yang diisi lewat
-  // dashboard Cloudflare pada setiap deploy. (Secret tidak terhapus walau tanpa ini.)
+  // `name` memastikan deploy selalu menarget Worker `portfolio-v1` (yang
+  // melayani keyzar.my.id), bukan membuat Worker baru.
+  "name": "portfolio-v1",
+  // `keep_vars` mencegah `wrangler deploy` menghapus variable dashboard pada
+  // setiap deploy. (Secret tidak terhapus walau tanpa ini.)
   "keep_vars": true
 }
