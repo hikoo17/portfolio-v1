@@ -1,0 +1,6 @@
+{
+  // Nitro menggabungkan file ini ke wrangler.json hasil generate saat build.
+  // `keep_vars` mencegah `wrangler deploy` menghapus variable yang diisi lewat
+  // dashboard Cloudflare pada setiap deploy. (Secret tidak terhapus walau tanpa ini.)
+  "keep_vars": true
+}
