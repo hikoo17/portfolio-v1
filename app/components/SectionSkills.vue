@@ -28,14 +28,14 @@ const tilts = ['-2deg', '1.5deg', '-1deg', '2deg']
 <template>
   <section
     id="tools"
-    class="grid-paper grid-paper--fine grid-paper--light scroll-mt-24 bg-cream py-24 text-ink sm:py-32"
+    class="grid-paper grid-paper--light scroll-mt-24 bg-cream py-24 text-ink sm:py-32"
   >
-    <PaperPlane
-      variant="swoop"
-      class="pointer-events-none absolute right-2 bottom-6 -z-10 w-24 -scale-x-100 -rotate-6 text-ink/10 sm:right-4 sm:w-32 lg:right-8 lg:w-36"
-    />
     <div class="mx-auto max-w-6xl px-6 lg:px-8">
-      <div class="reveal flex flex-wrap items-end justify-between gap-6">
+      <div class="reveal relative flex flex-wrap items-end justify-between gap-6">
+        <PaperPlane
+          variant="swoop"
+          class="pointer-events-none absolute top-1/2 right-0 -z-10 w-24 -translate-y-1/2 -scale-x-100 -rotate-6 text-ink/10 sm:w-32 lg:w-36"
+        />
         <div>
           <p class="font-mono text-[11px] font-semibold tracking-[0.3em] text-ink-faint uppercase">
             {{ t('skills.eyebrow') }}
@@ -44,9 +44,6 @@ const tilts = ['-2deg', '1.5deg', '-1deg', '2deg']
             {{ t('skills.titleA') }} <span class="font-serif font-normal italic">{{ t('skills.titleB') }}</span>
           </h2>
         </div>
-        <p class="font-hand text-xl leading-tight text-ink-faint">
-          {{ t('skills.note1') }}<br />{{ t('skills.note2') }}
-        </p>
       </div>
 
       <div class="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">

@@ -28,14 +28,14 @@ const articles = [
 <template>
   <section
     id="blog"
-    class="grid-paper grid-paper--fine grid-paper--light scroll-mt-24 bg-paper-white py-24 text-ink sm:py-32"
+    class="grid-paper grid-paper--light scroll-mt-24 bg-paper-white py-24 text-ink sm:py-32"
   >
-    <PaperPlane
-      variant="wave"
-      class="pointer-events-none absolute right-2 bottom-8 -z-10 w-20 -scale-x-100 -rotate-6 text-ink/10 sm:right-4 sm:w-28 lg:right-8 lg:w-32"
-    />
     <div class="relative mx-auto max-w-5xl px-6 lg:px-8">
-      <div class="reveal flex flex-wrap items-end justify-between gap-6">
+      <div class="reveal relative flex flex-wrap items-end justify-between gap-6">
+        <PaperPlane
+          variant="wave"
+          class="pointer-events-none absolute top-1/2 right-0 -z-10 w-20 -translate-y-1/2 -scale-x-100 -rotate-6 text-ink/10 sm:w-28 lg:w-32"
+        />
         <div>
           <p class="font-mono text-[11px] font-semibold tracking-[0.3em] text-ink-faint uppercase">
             {{ t('blog.eyebrow') }}
@@ -44,9 +44,6 @@ const articles = [
             {{ t('blog.titleA') }} <span class="font-serif font-normal italic text-emerald-base">{{ t('blog.titleB') }}</span>
           </h2>
         </div>
-        <p class="max-w-xs font-hand text-xl leading-tight text-ink-faint">
-          {{ t('blog.note1') }}<br />{{ t('blog.note2') }}
-        </p>
       </div>
 
       <ul class="mt-16 grid gap-8 sm:grid-cols-2">

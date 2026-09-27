@@ -98,19 +98,19 @@ function pklWeeksFor(key?: string) {
 <template>
   <section
     id="journey"
-    class="grid-paper grid-paper--fine scroll-mt-24 overflow-hidden bg-emerald-deep py-24 text-cream sm:py-32"
+    class="grid-paper scroll-mt-24 overflow-hidden bg-emerald-deep py-24 text-cream sm:py-32"
   >
-    <PaperPlane
-      variant="curl"
-      class="pointer-events-none absolute top-12 left-2 -z-10 w-20 rotate-6 text-cream/15 sm:left-4 sm:w-28 lg:left-8 lg:w-32"
-    />
     <div
       class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_58%_46%_at_50%_42%,rgba(122,201,175,0.14),transparent_72%)]"
       aria-hidden="true"
     />
 
     <div class="relative mx-auto max-w-6xl px-6 lg:px-8">
-      <div class="reveal flex flex-wrap items-end justify-between gap-6">
+      <div class="reveal relative flex flex-wrap items-end justify-between gap-6">
+        <PaperPlane
+          variant="curl"
+          class="pointer-events-none absolute top-1/2 right-0 -z-10 w-20 -translate-y-1/2 rotate-6 text-cream/15 sm:w-28 lg:w-32"
+        />
         <div>
           <p class="font-mono text-[11px] font-semibold tracking-[0.3em] text-cream/40 uppercase">
             {{ t('journey.eyebrow') }}
@@ -119,9 +119,6 @@ function pklWeeksFor(key?: string) {
             {{ t('journey.books.titleA') }} <span class="font-serif font-normal italic text-note-yellow">{{ t('journey.books.titleB') }}</span>
           </h2>
         </div>
-        <p class="max-w-xs font-hand text-xl leading-tight text-cream/50">
-          {{ t('journey.books.hint') }}
-        </p>
       </div>
 
       <Transition name="stage" mode="out-in">
@@ -152,12 +149,6 @@ function pklWeeksFor(key?: string) {
                   aria-hidden="true"
                 >
               </span>
-
-              <span class="journal-pick__label">
-                <span class="text-note-yellow">{{ t('journey.books.myJourney.index') }}</span>
-                <span class="h-px w-6 bg-cream/30" aria-hidden="true" />
-                <span>{{ t('journey.books.myJourney.title') }}</span>
-              </span>
             </button>
 
             <!-- 02 · PKL JOURNAL -->
@@ -172,12 +163,6 @@ function pklWeeksFor(key?: string) {
               <span class="journal-pick__cover journal-pick__cover--pkl">
                 <span class="journal-pick__spine" aria-hidden="true" />
                 <PklCoverCollage />
-              </span>
-
-              <span class="journal-pick__label">
-                <span class="text-note-yellow">{{ t('journey.books.pkl.index') }}</span>
-                <span class="h-px w-6 bg-cream/30" aria-hidden="true" />
-                <span>{{ t('journey.books.pkl.title') }}</span>
               </span>
             </button>
 

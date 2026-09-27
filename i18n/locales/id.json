@@ -115,11 +115,11 @@
     "titleB": "Saya",
     "note1": "belajar sambil membangun,",
     "note2": "satu proyek demi satu",
-    "intro": "Aku seorang pelajar yang tertarik pada web development dan cloud computing. Aku senang membangun aplikasi web dan menelusuri cara kerjanya di luar kode, dari pengembangan sampai deployment. Aku belajar lewat proyek, bereksperimen dengan teknologi baru, dan menyelesaikan masalah sepanjang jalan, dan saat ini aku sedang mendalami cloud dan DevOps seiring aku terus berkembang sebagai developer.",
+    "intro": "Saya adalah seorang pelajar yang tertarik pada web development dan cloud computing. Saya senang membuat aplikasi web, mencoba teknologi baru, dan belajar melalui proyek serta pengalaman langsung.",
     "cards": {
       "currently": { "label": "Saat ini", "value": "Pelajar" },
       "focus": { "label": "Fokus", "value": "Web Development" },
-      "exploring": { "label": "Menjelajah", "value": "Cloud & DevOps" },
+      "exploring": { "label": "Menjelajah", "value": "Cloud Computing" },
       "basedIn": { "label": "Berdomisili di", "value": "Tasikmalaya, Indonesia" }
     }
   },
@@ -568,9 +568,9 @@
     }
   },
   "blog": {
-    "eyebrow": "06 — Blog Sederhana",
+    "eyebrow": "06 — Blog Mini",
     "titleA": "Blog",
-    "titleB": "Sederhana",
+    "titleB": "Mini",
     "note1": "liputan tentang karya,",
     "note2": "ditulis orang lain",
     "readMore": "Baca artikel",

@@ -55,7 +55,7 @@ async function submit() {
 <template>
   <section
     id="contact"
-    class="grid-paper grid-paper--fine grid-paper--light scroll-mt-24 bg-cream-warm py-24 text-ink sm:py-32"
+    class="grid-paper grid-paper--light scroll-mt-24 bg-cream-warm py-24 text-ink sm:py-32"
   >
     <PaperPlane
       variant="arc"

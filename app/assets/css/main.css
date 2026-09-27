@@ -227,9 +227,9 @@ body {
 /* ---------- Portrait photograph ---------- */
 
 /* A second sheet tucked behind a paper: only a slim edge shows along the
-   bottom, which sells the paperclip above it as holding a small stack. Tune
-   the peek per instance with --backing-tilt / --backing-x / --backing-y.
-   The sheet in front should carry .paper--stacked so it casts onto the back. */
+   bottom, so the front sheet reads as resting on a small stack. Tune the peek
+   per instance with --backing-tilt / --backing-x / --backing-y. The sheet in
+   front should carry .paper--stacked so it casts onto the back. */
 .paper-backing {
   position: absolute;
   inset: 0;
@@ -258,7 +258,7 @@ body {
 }
 
 .photo-sheet {
-  padding: 0.85rem 0.85rem 0.35rem;
+  padding: 1.3rem 0.95rem 0.9rem;
   border-radius: 3px;
   transition-duration: 0.5s;
 }
@@ -706,22 +706,6 @@ body {
   border-radius: 2px;
   pointer-events: none;
 }
-
-/* Triangular photo-corner mounts, sized against the photo they hold. */
-.photo-corner {
-  position: absolute;
-  z-index: 2;
-  width: 14%;
-  aspect-ratio: 1;
-  background: linear-gradient(135deg, #f0e6cd, #d6c49b);
-  box-shadow: 0 1px 2px rgba(10, 20, 15, 0.28);
-  pointer-events: none;
-}
-
-.photo-corner--tl { top: -5%; left: -5%; clip-path: polygon(0 0, 100% 0, 0 100%); }
-.photo-corner--tr { top: -5%; right: -5%; clip-path: polygon(0 0, 100% 0, 100% 100%); }
-.photo-corner--bl { bottom: -5%; left: -5%; clip-path: polygon(0 0, 0 100%, 100% 100%); }
-.photo-corner--br { right: -5%; bottom: -5%; clip-path: polygon(100% 0, 100% 100%, 0 100%); }
 
 .journal-polaroid {
   background: #fff;

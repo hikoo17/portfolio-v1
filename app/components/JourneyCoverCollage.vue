@@ -74,10 +74,6 @@ const { t } = useI18n()
             {{ t('journey.cover.started') }}
           </span>
         </span>
-        <span class="photo-corner photo-corner--tl" aria-hidden="true" />
-        <span class="photo-corner photo-corner--tr" aria-hidden="true" />
-        <span class="photo-corner photo-corner--bl" aria-hidden="true" />
-        <span class="photo-corner photo-corner--br" aria-hidden="true" />
       </span>
     </span>
 

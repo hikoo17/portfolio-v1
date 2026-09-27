@@ -14,14 +14,14 @@ const facts = [
 <template>
   <section
     id="about"
-    class="grid-paper grid-paper--fine scroll-mt-24 bg-emerald-deep py-24 text-cream sm:py-32"
+    class="grid-paper scroll-mt-24 bg-emerald-deep py-24 text-cream sm:py-32"
   >
-    <PaperPlane
-      variant="wave"
-      class="pointer-events-none absolute top-12 right-4 -z-10 w-20 rotate-6 text-cream/10 sm:right-8 sm:w-28 lg:top-16 lg:w-32"
-    />
     <div class="mx-auto max-w-6xl px-6 lg:px-8">
-      <div class="reveal flex flex-wrap items-end justify-between gap-6">
+      <div class="reveal relative flex flex-wrap items-end justify-between gap-6">
+        <PaperPlane
+          variant="wave"
+          class="pointer-events-none absolute top-1/2 right-0 -z-10 w-20 -translate-y-1/2 rotate-6 text-cream/10 sm:w-28 lg:w-32"
+        />
         <div>
           <p class="font-mono text-[11px] font-semibold tracking-[0.3em] text-cream/40 uppercase">
             {{ t('about.eyebrow') }}
@@ -30,9 +30,6 @@ const facts = [
             {{ t('about.titleA') }} <span class="font-serif font-normal italic text-note-yellow">{{ t('about.titleB') }}</span>
           </h2>
         </div>
-        <p class="max-w-xs font-hand text-xl leading-tight text-cream/50">
-          {{ t('about.note1') }}<br />{{ t('about.note2') }}
-        </p>
       </div>
 
       <div class="mt-14 grid items-center gap-12 lg:grid-cols-12 lg:gap-14">
@@ -70,17 +67,6 @@ const facts = [
               aria-hidden="true"
             >
 
-            <img
-              src="/images/scrapbook/paperclip.svg"
-              alt=""
-              width="272"
-              height="205"
-              class="pointer-events-none absolute -top-5 -left-5 z-10 w-16 -rotate-12 select-none sm:-top-6 sm:-left-6 sm:w-20"
-              draggable="false"
-              loading="lazy"
-              decoding="async"
-              aria-hidden="true"
-            >
           </ThePaper>
         </div>
 
