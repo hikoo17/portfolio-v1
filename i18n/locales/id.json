@@ -38,6 +38,8 @@
     "note1": "empat favorit, dipilih sendiri",
     "note2": "& sedikit bias",
     "projectLabel": "Proyek {number}",
+    "boardLabel": "Arsip Proyek",
+    "tech": "Teknologi",
     "viewProject": "Lihat Proyek",
     "viewProjectAria": "Lihat detail {title}",
     "detailsAria": "Detail proyek {title}",
@@ -91,6 +93,17 @@
           "Presensi dengan lokasi dan radius",
           "Bukti foto tiap presensi",
           "Dashboard kelas dan verifikasi"
+        ],
+        "role": "Full-stack Developer"
+      },
+      "stmsmart": {
+        "short": "Platform sekolah pintar yang menyatukan pengumuman, jadwal, dan data siswa dalam satu tempat.",
+        "description": "Platform web untuk sekolah yang menyatukan urusan administrasi harian dalam satu tempat — pengumuman, jadwal kelas, dan data siswa di balik satu login, dengan dashboard responsif untuk staf.",
+        "tagline": "satu sekolah, satu dashboard",
+        "highlights": [
+          "Pengumuman dan jadwal terpadu",
+          "Data siswa dalam satu tempat",
+          "Dashboard staf yang responsif"
         ],
         "role": "Full-stack Developer"
       }

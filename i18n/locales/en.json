@@ -37,6 +37,8 @@
     "note1": "four favorites, hand-picked",
     "note2": "& a little biased",
     "projectLabel": "Project {number}",
+    "boardLabel": "Project Archive",
+    "tech": "Tech",
     "viewProject": "View Project",
     "viewProjectAria": "View details of {title}",
     "detailsAria": "{title} project details",
@@ -69,6 +71,20 @@
         "tagline": "duty presence, verified",
         "highlights": ["Location and radius verified presence", "Camera evidence for each check-in", "Class dashboard and verification"],
         "role": "Full-stack Developer"
+      },
+      "stmsmart": {
+        "short": "A smart school platform that brings announcements, schedules, and student records into one place.",
+        "description": "A web platform for schools that gathers daily administration into a single place — announcements, class schedules, and student records behind one sign-in, with a responsive dashboard for staff.",
+        "tagline": "one school, one dashboard",
+        "highlights": ["Announcements and schedules in one place", "Student records gathered together", "Responsive dashboard for staff"],
+        "role": "Full-stack Developer"
+      },
+      "sicatat": {
+        "short": "A student-care platform for schools — incidents and commendations tracked in one dashboard.",
+        "description": "A student-care platform that records incidents and commendations separately, keeps a running points balance for each student, and gives teachers and admins one place to log events, attach photo evidence, and follow up.",
+        "tagline": "discipline and praise, balanced",
+        "highlights": ["Incident and commendation tracking", "Points balance for every student", "Event logs with photo evidence"],
+        "role": "Frontend Developer"
       }
     }
   },

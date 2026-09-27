@@ -1455,3 +1455,315 @@ body {
   transform: translateY(-50%) rotate(var(--holder-tilt, -2.5deg));
 }
 
+/* ---------- Works: the project corkboard ---------- */
+
+/* The board is an object on the page: the scene stays a touch narrower than
+   the content column so the cream background stays visible on all four sides. */
+.corkboard-scene {
+  position: relative;
+  max-width: 66rem;
+  margin-inline: auto;
+  padding-inline: clamp(0.75rem, 3vw, 2rem);
+}
+
+/* ---------- Wooden frame ---------- */
+.corkboard {
+  position: relative;
+  padding: clamp(0.7rem, 1.5vw, 1.15rem);
+  border-radius: clamp(11px, 1.7vw, 18px);
+  background-color: #6f4c2f;
+  background-image:
+    repeating-linear-gradient(96deg, rgba(255, 231, 196, 0.07) 0 1px, transparent 1px 6px),
+    repeating-linear-gradient(84deg, rgba(28, 15, 5, 0.18) 0 1px, transparent 1px 14px),
+    linear-gradient(158deg, #8a6039 0%, #6b482a 42%, #835a34 68%, #553821 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 226, 182, 0.35),
+    inset 0 -2px 0 rgba(28, 15, 5, 0.45),
+    inset 2px 0 0 rgba(255, 226, 182, 0.12),
+    inset -2px 0 0 rgba(28, 15, 5, 0.3),
+    0 30px 54px -22px rgba(3, 24, 19, 0.65),
+    0 10px 20px -12px rgba(3, 24, 19, 0.5);
+  isolation: isolate;
+}
+
+/* Natural grain over the wood, contained by the board's stacking context. */
+.corkboard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E");
+  background-size: 170px 170px;
+  mix-blend-mode: soft-light;
+  opacity: 0.65;
+}
+
+/* ---------- Cork surface ---------- */
+.corkboard__surface {
+  position: relative;
+  z-index: 1;
+  padding: clamp(1rem, 2.7vw, 2.4rem);
+  border-radius: clamp(6px, 1vw, 10px);
+  background-color: #b8895a;
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(90, 58, 30, 0.22) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 50% 50%, rgba(255, 240, 214, 0.18) 0 1px, transparent 1.7px),
+    radial-gradient(circle at 22% 24%, rgba(255, 244, 226, 0.14), transparent 44%),
+    radial-gradient(circle at 80% 78%, rgba(74, 44, 20, 0.22), transparent 48%),
+    linear-gradient(150deg, #c99f6d 0%, #bd9161 45%, #ad7f4f 100%);
+  background-size: 7px 7px, 11px 11px, auto, auto, auto;
+  background-position: 0 0, 3px 4px, 0 0, 0 0, 0 0;
+  box-shadow:
+    inset 0 0 0 1px rgba(56, 34, 16, 0.6),
+    inset 0 5px 15px rgba(44, 26, 11, 0.55),
+    inset 0 -4px 10px rgba(44, 26, 11, 0.34),
+    inset 0 0 48px rgba(120, 80, 45, 0.4);
+  isolation: isolate;
+}
+
+.corkboard__surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)'/%3E%3C/svg%3E");
+  background-size: 150px 150px;
+  mix-blend-mode: overlay;
+  opacity: 0.55;
+}
+
+.corkboard__label {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin: 0 0 clamp(1.1rem, 2.6vw, 2rem);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: rgba(58, 34, 16, 0.62);
+}
+
+.corkboard__papers {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(0.9rem, 2.4vw, 1.8rem);
+  row-gap: clamp(2.8rem, 5vw, 4.2rem);
+  align-items: start;
+}
+
+/* ---------- Pinned paper ---------- */
+.pin-slot {
+  position: relative;
+}
+
+.pin-slot:hover,
+.pin-slot:focus-within {
+  z-index: 6;
+}
+
+/* Soft hand-placed tilts. Only rotation is varied — the vertical rhythm stays
+   uniform, so the gap between the two rows is never squeezed. */
+.pin-slot:nth-child(4n + 1) .pin-paper { --pin-tilt: -2deg; }
+.pin-slot:nth-child(4n + 2) .pin-paper { --pin-tilt: 1.1deg; }
+.pin-slot:nth-child(4n + 3) .pin-paper { --pin-tilt: -1deg; }
+.pin-slot:nth-child(4n + 4) .pin-paper { --pin-tilt: 1.9deg; }
+
+.pin-paper {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transform: rotate(var(--pin-tilt, 0deg)) translateY(var(--pin-y, 0rem));
+  filter: drop-shadow(0 9px 12px rgba(3, 24, 19, 0.4));
+  transition:
+    transform 0.32s cubic-bezier(0.22, 0.85, 0.3, 1),
+    filter 0.32s ease;
+  will-change: transform;
+}
+
+/* Picking the sheet up off the board: straighten a touch, lift, deepen shadow. */
+.pin-paper:hover,
+.pin-paper:focus-visible {
+  transform: rotate(calc(var(--pin-tilt, 0deg) * 0.18)) translateY(calc(var(--pin-y, 0rem) - 0.7rem)) scale(1.045);
+  filter: drop-shadow(0 22px 26px rgba(3, 24, 19, 0.5));
+}
+
+.pin-paper:focus-visible {
+  outline: 2px dashed var(--color-emerald-deep);
+  outline-offset: 6px;
+}
+
+/* The sheet keeps a small white border around the screenshot (a printed-photo
+   frame); the lift shadow is applied on the button above so it deepens on hover. */
+.pin-paper__sheet {
+  position: relative;
+  display: block;
+  padding: clamp(0.5rem, 1.1vw, 0.72rem);
+  border-radius: 3px;
+  background-color: var(--color-paper-white);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(120, 110, 85, 0.03) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at 20% 6%, rgba(255, 255, 255, 0.6), transparent 58%),
+    radial-gradient(ellipse at 86% 96%, rgba(120, 100, 60, 0.07), transparent 60%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.55) inset,
+    0 0 0 1px rgba(90, 78, 55, 0.14);
+}
+
+.pin-paper__shot {
+  display: block;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+/* Hover pushes the screenshot forward inside the sheet. */
+.pin-paper__shot img {
+  transition: transform 0.4s cubic-bezier(0.22, 0.85, 0.3, 1);
+}
+
+.pin-paper:hover .pin-paper__shot img,
+.pin-paper:focus-visible .pin-paper__shot img {
+  transform: scale(1.05);
+}
+
+/* The caption is the only part of the paper that shows around the screenshot,
+   so it carries the title with a little air above and below. */
+.pin-paper__caption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  padding: clamp(0.6rem, 1.2vw, 0.8rem) clamp(0.6rem, 1.1vw, 0.75rem) clamp(0.65rem, 1.3vw, 0.85rem);
+}
+
+.pin-paper__name {
+  font-size: clamp(0.98rem, 1.5vw, 1.2rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
+
+/* ---------- Push pin ---------- */
+.pin {
+  position: absolute;
+  top: clamp(-0.38rem, -0.6vw, -0.22rem);
+  left: 50%;
+  z-index: 3;
+  width: clamp(0.72rem, 1.15vw, 0.92rem);
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 9999px;
+  background: radial-gradient(circle at 34% 30%, #ffd9d2, #c9503f 46%, #8f2f22 100%);
+  box-shadow:
+    0 2px 3px rgba(20, 10, 5, 0.5),
+    0 0 0 1px rgba(0, 0, 0, 0.16);
+}
+
+.pin::after {
+  content: "";
+  position: absolute;
+  top: 18%;
+  left: 22%;
+  width: 30%;
+  height: 24%;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+/* Muted pin heads, so a run of papers still reads as one collection. */
+.pin-slot:nth-child(3n + 2) .pin {
+  background: radial-gradient(circle at 34% 30%, #ffe9c2, #c1913c 46%, #8a641f 100%);
+}
+
+.pin-slot:nth-child(3n) .pin {
+  background: radial-gradient(circle at 34% 30%, #cfe6dd, #3f7d6a 46%, #1f4f42 100%);
+}
+
+/* Nudge each pin off-centre so the papers read as hand-pinned. */
+.pin-slot:nth-child(4n + 1) .pin { left: 45%; }
+.pin-slot:nth-child(4n + 2) .pin { left: 56%; }
+.pin-slot:nth-child(4n + 3) .pin { left: 48%; }
+.pin-slot:nth-child(4n + 4) .pin { left: 58%; }
+
+/* ---------- Desktop: two staggered rows, several papers in one view ---------- */
+@media (min-width: 1024px) {
+  .corkboard__papers {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: clamp(1rem, 1.8vw, 1.6rem);
+    row-gap: clamp(3.6rem, 5vw, 5rem);
+  }
+
+  .pin-slot:nth-child(4n + 1) { grid-column: 1 / span 5; }
+  .pin-slot:nth-child(4n + 2) { grid-column: 7 / span 5; }
+  .pin-slot:nth-child(4n + 3) { grid-column: 2 / span 5; }
+  .pin-slot:nth-child(4n + 4) { grid-column: 8 / span 5; }
+}
+
+/* ---------- Mobile: a touch more vertical breathing room ---------- */
+@media (max-width: 767px) {
+  /* The wooden frame gets a little taller. */
+  .corkboard {
+    padding-block: 0.9rem;
+  }
+
+  /* And so does the cork surface, so the papers are not crowded. */
+  .corkboard__surface {
+    padding-block: 1.65rem;
+  }
+
+  /* Each pinned sheet keeps a little white frame around its screenshot; the
+     caption still holds room above and below its title. */
+  .pin-paper__sheet {
+    padding-block: 0.62rem;
+  }
+
+  .pin-paper__shot > div {
+    aspect-ratio: 16 / 12;
+  }
+
+  .pin-paper__caption {
+    padding-block: 0.5rem 0.45rem;
+  }
+
+  /* The title under each screenshot stays small on phones so the pictures
+     keep the attention. */
+  .pin-paper__name {
+    font-size: 0.82rem;
+    line-height: 1.1;
+  }
+}
+
+/* The pinning entrance is quicker than the site default so the stagger reads as
+   papers being placed, not as a slow reveal. */
+.pin-slot.reveal {
+  transition-duration: 0.45s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pin-paper,
+  .pin-paper__shot img {
+    transition: none !important;
+  }
+
+  .pin-paper:hover,
+  .pin-paper:focus-visible {
+    transform: rotate(var(--pin-tilt, 0deg)) translateY(var(--pin-y, 0rem));
+  }
+
+  .pin-paper:hover .pin-paper__shot img,
+  .pin-paper:focus-visible .pin-paper__shot img {
+    transform: none;
+  }
+}
