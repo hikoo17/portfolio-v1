@@ -4,7 +4,7 @@ import type { ProjectDetail } from './ProjectModal.vue'
 const { t } = useI18n()
 
 // The projects pinned to the board. NihonAccess and Karoto carry screenshots;
-// STM Smart and Si Catat fall back to the built-in placeholder visual until
+// STM-Smart and SI-Catat fall back to the built-in placeholder visual until
 // real shots are added (see the hidden preload block below the board).
 const projects: ProjectDetail[] = [
   {
@@ -34,7 +34,7 @@ const projects: ProjectDetail[] = [
   {
     key: 'stmsmart',
     number: '03',
-    title: 'STM Smart',
+    title: 'STM-Smart',
     year: '2026',
     tags: ['Laravel', 'Vue JS', 'TailwindCSS', 'MySQL', 'REST API'],
     images: [],
@@ -44,7 +44,7 @@ const projects: ProjectDetail[] = [
   {
     key: 'sicatat',
     number: '04',
-    title: 'Si Catat',
+    title: 'SI-Catat',
     year: '2026',
     tags: ['Vue JS', 'TailwindCSS', 'Laravel', 'MySQL', 'REST API'],
     images: [],

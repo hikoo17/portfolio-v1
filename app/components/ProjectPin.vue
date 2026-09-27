@@ -31,6 +31,7 @@ const { t } = useI18n()
 
       <span class="pin-paper__caption">
         <span class="pin-paper__name">{{ project.title }}</span>
+        <span class="pin-paper__desc">{{ t(`projects.items.${project.key}.short`) }}</span>
       </span>
 
       <span class="sr-only">{{ t('projects.viewProjectAria', { title: project.title }) }}</span>

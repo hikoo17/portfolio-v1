@@ -1627,6 +1627,20 @@ body {
   color: var(--color-ink);
 }
 
+/* The one-line summary under the title. Clamped to two lines so every sheet on
+   the board keeps the same height however long the copy is. */
+.pin-paper__desc {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  margin-top: 0.25rem;
+  font-size: clamp(0.78rem, 1.05vw, 0.86rem);
+  line-height: 1.35;
+  color: var(--color-ink-soft);
+}
+
 /* ---------- Push pin ---------- */
 .pin {
   position: absolute;
@@ -1709,11 +1723,18 @@ body {
     padding-block: 0.5rem 0.45rem;
   }
 
-  /* The title under each screenshot stays small on phones so the pictures
-     keep the attention. */
+  /* The title and summary under each screenshot stay small on phones: two
+     sheets share the width, so the type has to shrink to keep the title on one
+     line and the summary readable. */
   .pin-paper__name {
-    font-size: 0.82rem;
-    line-height: 1.1;
+    font-size: 0.7rem;
+    line-height: 1.15;
+  }
+
+  .pin-paper__desc {
+    margin-top: 0.18rem;
+    font-size: 0.62rem;
+    line-height: 1.3;
   }
 }
 
