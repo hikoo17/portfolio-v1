@@ -13,7 +13,12 @@
   "hero": {
     "greeting": "Hi, I'm",
     "name": "Keyza Zaki Arkana",
-    "intro": "Web Developer focused on turning ideas into functional and meaningful digital experiences. I build web applications with clean interfaces, thoughtful solutions, and a focus on real-world needs.",
+    "role": "Web Developer",
+    "intro": "A web developer who enjoys building web applications and learning new things.",
+    "hello": "hello!",
+    "thisIsMe": "this is me",
+    "journalLabel": "personal journal · no. 01",
+    "stickyNote": "make it real.",
     "viewWork": "View My Work",
     "letsTalk": "Let's Talk",
     "startHere": "start here!",

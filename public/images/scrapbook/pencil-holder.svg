@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="340" viewBox="0 0 240 340" fill="none">
+  <defs>
+    <!-- cylindrical brushed-steel body -->
+    <linearGradient id="wm-steel" x1="52" y1="0" x2="188" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#eceff1"/>
+      <stop offset="0.18" stop-color="#c3cbd0"/>
+      <stop offset="0.42" stop-color="#8d979d"/>
+      <stop offset="0.6" stop-color="#aab3b8"/>
+      <stop offset="0.82" stop-color="#737d83"/>
+      <stop offset="1" stop-color="#d7dde0"/>
+    </linearGradient>
+
+    <!-- punched perforations -->
+    <pattern id="wm-perf" width="12" height="12" patternUnits="userSpaceOnUse">
+      <circle cx="6" cy="6.5" r="3" fill="#f4f7f8" fill-opacity="0.4"/>
+      <circle cx="6" cy="6" r="3" fill="#0d1114"/>
+    </pattern>
+
+    <linearGradient id="wm-shade" x1="52" y1="0" x2="188" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000000" stop-opacity="0.5"/>
+      <stop offset="0.18" stop-color="#000000" stop-opacity="0.1"/>
+      <stop offset="0.4" stop-color="#ffffff" stop-opacity="0.2"/>
+      <stop offset="0.58" stop-color="#ffffff" stop-opacity="0.03"/>
+      <stop offset="0.8" stop-color="#000000" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.55"/>
+    </linearGradient>
+
+    <linearGradient id="wm-ao" x1="120" y1="120" x2="120" y2="278" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="0.66" stop-color="#000000" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.46"/>
+    </linearGradient>
+
+    <linearGradient id="wm-ring" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2f5f6"/>
+      <stop offset="0.42" stop-color="#98a1a7"/>
+      <stop offset="0.62" stop-color="#cfd6da"/>
+      <stop offset="1" stop-color="#6b747a"/>
+    </linearGradient>
+
+    <linearGradient id="wm-pencil-y" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#a97c22"/>
+      <stop offset="0.3" stop-color="#e3b843"/>
+      <stop offset="1" stop-color="#c8962c"/>
+    </linearGradient>
+    <linearGradient id="wm-pencil-b" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2b4b63"/>
+      <stop offset="0.32" stop-color="#5c8bab"/>
+      <stop offset="1" stop-color="#33566f"/>
+    </linearGradient>
+    <linearGradient id="wm-pen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#cdc2a6"/>
+      <stop offset="0.32" stop-color="#fdf8ec"/>
+      <stop offset="1" stop-color="#ddd2b8"/>
+    </linearGradient>
+    <linearGradient id="wm-wood" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e6cfa4"/>
+      <stop offset="1" stop-color="#bd9d68"/>
+    </linearGradient>
+
+    <filter id="wm-soft" x="-14%" y="-120%" width="128%" height="340%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+  </defs>
+
+  <!-- contact shadow -->
+  <ellipse cx="120" cy="300" rx="78" ry="15" fill="#02110d" filter="url(#wm-soft)" opacity="0.55"/>
+
+  <!-- ============ stationery inside ============ -->
+
+  <!-- wooden ruler, angled out -->
+  <g transform="rotate(29 156 128)">
+    <rect x="147" y="-6" width="19" height="150" rx="2" fill="url(#wm-wood)"/>
+    <rect x="147" y="-6" width="4" height="150" fill="#f2e2c2" opacity="0.85"/>
+    <rect x="161" y="-6" width="5" height="150" fill="#a5814d" opacity="0.55"/>
+    <g stroke="#6f5631" stroke-opacity="0.7" stroke-width="1">
+      <line x1="147" y1="4" x2="152" y2="4"/>
+      <line x1="147" y1="16" x2="152" y2="16"/>
+      <line x1="147" y1="28" x2="152" y2="28"/>
+      <line x1="147" y1="40" x2="152" y2="40"/>
+      <line x1="147" y1="52" x2="152" y2="52"/>
+    </g>
+  </g>
+
+  <!-- blue pencil -->
+  <g transform="rotate(-7 108 122)">
+    <rect x="101" y="-34" width="14" height="164" rx="2" fill="url(#wm-pencil-b)"/>
+    <rect x="101" y="-34" width="4" height="164" fill="#9cc0d6" opacity="0.6"/>
+    <rect x="111" y="-34" width="4" height="164" fill="#1f3b4f" opacity="0.5"/>
+    <path d="M101 -34 L108 -62 L115 -34 Z" fill="#f0e4c6"/>
+    <path d="M104.5 -49 L108 -62 L111.5 -49 Z" fill="#3b3a34"/>
+  </g>
+
+  <!-- yellow pencil -->
+  <g transform="rotate(-22 88 126)">
+    <rect x="81" y="-46" width="14" height="172" rx="2" fill="url(#wm-pencil-y)"/>
+    <rect x="81" y="-46" width="4" height="172" fill="#f3d886" opacity="0.85"/>
+    <rect x="91" y="-46" width="4" height="172" fill="#8f661c" opacity="0.55"/>
+    <path d="M81 -46 L88 -74 L95 -46 Z" fill="#f2e6c8"/>
+    <path d="M84.5 -61 L88 -74 L91.5 -61 Z" fill="#3b3a34"/>
+    <rect x="81" y="-28" width="14" height="7" fill="#8f661c" opacity="0.6"/>
+  </g>
+
+  <!-- cream pen with clip -->
+  <g transform="rotate(13 146 126)">
+    <rect x="139" y="-40" width="15" height="170" rx="7" fill="url(#wm-pen)"/>
+    <rect x="139" y="-40" width="4.5" height="170" rx="2.2" fill="#fffdf6"/>
+    <rect x="149" y="-40" width="4.5" height="170" rx="2.2" fill="#bdb098" opacity="0.7"/>
+    <rect x="139" y="-40" width="15" height="30" rx="7" fill="#0a6e5c"/>
+    <rect x="153" y="-32" width="5" height="56" rx="2.5" fill="#0a6e5c"/>
+    <circle cx="146.5" cy="-25" r="5" fill="url(#wm-pen)"/>
+  </g>
+
+  <!-- ============ perforated steel holder ============ -->
+
+  <!-- body -->
+  <path
+    d="M52 122 L62 258 Q66 276 84 276 H156 Q174 276 178 258 L188 122 Z"
+    fill="url(#wm-steel)"
+  />
+  <path
+    d="M52 122 L62 258 Q66 276 84 276 H156 Q174 276 178 258 L188 122 Z"
+    fill="url(#wm-perf)"
+  />
+  <path
+    d="M52 122 L62 258 Q66 276 84 276 H156 Q174 276 178 258 L188 122 Z"
+    fill="url(#wm-shade)"
+    opacity="0.72"
+  />
+  <path
+    d="M52 122 L62 258 Q66 276 84 276 H156 Q174 276 178 258 L188 122 Z"
+    fill="url(#wm-ao)"
+  />
+
+  <!-- rolled-steel seams -->
+  <path d="M76 124 L84 270" stroke="#ffffff" stroke-opacity="0.28" stroke-width="1.5" fill="none"/>
+  <path d="M164 124 L156 270" stroke="#000000" stroke-opacity="0.24" stroke-width="1.5" fill="none"/>
+  <path d="M120 123 L120 275" stroke="#000000" stroke-opacity="0.12" stroke-width="1" fill="none"/>
+
+  <!-- base ring -->
+  <ellipse cx="120" cy="274" rx="59" ry="15" fill="none" stroke="url(#wm-ring)" stroke-width="4.2"/>
+  <ellipse cx="120" cy="274" rx="59" ry="15" fill="none" stroke="#ffffff" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="42 22 58 30"/>
+
+  <!-- top rim -->
+  <ellipse cx="120" cy="122" rx="68" ry="18" fill="none" stroke="url(#wm-ring)" stroke-width="5"/>
+  <ellipse cx="120" cy="123.5" rx="59" ry="14" fill="none" stroke="#6d757a" stroke-width="2"/>
+  <path
+    d="M56 116 A68 18 0 0 1 184 116"
+    fill="none"
+    stroke="#ffffff"
+    stroke-opacity="0.6"
+    stroke-width="1.8"
+    stroke-linecap="round"
+  />
+  <path
+    d="M54 126 A68 18 0 0 0 96 138"
+    fill="none"
+    stroke="#000000"
+    stroke-opacity="0.35"
+    stroke-width="1.6"
+    stroke-linecap="round"
+  />
+
+  <!-- imperfections: faint scratches and a dulled spot -->
+  <path d="M96 170 L132 226" stroke="#ffffff" stroke-opacity="0.22" stroke-width="0.9"/>
+  <path d="M150 196 L168 226" stroke="#000000" stroke-opacity="0.16" stroke-width="0.9"/>
+  <ellipse cx="74" cy="236" rx="13" ry="6" fill="#ffffff" opacity="0.07"/>
+</svg>

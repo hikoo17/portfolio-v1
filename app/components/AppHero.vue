@@ -6,161 +6,160 @@ const nameWords = computed(() => t('hero.name').split(' ').filter(Boolean))
 </script>
 
 <template>
-  <section
-    class="grid-paper grid-paper--fine relative min-h-screen overflow-hidden bg-emerald-deep text-cream"
-  >
+  <section class="grid-paper relative min-h-screen overflow-hidden bg-emerald-deep text-cream">
+    <!-- Desk lamp light falling across the workspace. -->
     <div
-      class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_85%_55%_at_62%_-10%,rgba(122,201,175,0.15),transparent_65%)]"
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_78%_52%_at_54%_-8%,rgba(122,201,175,0.16),transparent_66%)]"
       aria-hidden="true"
     />
 
-    <PaperPlane
-      class="pointer-events-none absolute top-16 left-4 hidden w-24 text-cream/30 sm:block lg:top-20 lg:left-8 lg:w-28"
-    />
+    <div class="relative mx-auto w-full max-w-6xl px-6 pt-28 pb-40 sm:px-8 sm:pt-32 lg:pb-48">
+      <div class="scrapbook-scene">
+        <div class="relative mx-auto w-full max-w-[40rem] md:max-w-[44rem]">
+          <span class="scrapbook__shadow" aria-hidden="true" />
 
-    <span
-      class="pointer-events-none absolute top-6 right-8 hidden font-mono text-[10px] tracking-[0.3em] text-cream/30 lg:block"
-      aria-hidden="true"
-    >
-      7.3°S — 108.2°E
-    </span>
-    <span
-      class="pointer-events-none absolute bottom-6 right-8 hidden font-mono text-[10px] tracking-[0.3em] text-cream/30 lg:block"
-      aria-hidden="true"
-    >
-      EST. 2024 / 01·07
-    </span>
+          <!-- ==================== THE OPEN SCRAPBOOK ==================== -->
+          <div class="scrapbook">
+          <span class="scrapbook__stack scrapbook__stack--left" aria-hidden="true" />
+          <span class="scrapbook__stack scrapbook__stack--right" aria-hidden="true" />
+          <span class="scrapbook__stack scrapbook__stack--bottom" aria-hidden="true" />
 
-    <div
-      class="relative z-10 mx-auto grid min-h-screen w-full max-w-6xl items-center gap-14 px-6 pt-36 pb-28 lg:grid-cols-[45fr_55fr] lg:gap-6 lg:px-8"
-    >
-      <!-- LEFT — introduction -->
-      <div class="flex flex-col justify-center">
-        <h1
-          class="animate-rise-in text-5xl leading-[1.04] font-extrabold tracking-tight sm:text-6xl xl:text-7xl"
-          style="animation-delay: 0ms"
-        >
-          <span class="block text-base font-semibold tracking-[0.2em] text-cream/60 uppercase sm:text-lg">
-            {{ t('hero.greeting') }}
-          </span>
-          <span class="mt-2 block whitespace-nowrap text-2xl sm:text-4xl xl:text-5xl">
-            <span
-              v-for="(word, i) in nameWords"
-              :key="word"
-              class="inline-block"
-              :class="i > 0 ? 'ml-[0.34em]' : ''"
-            >{{ word }}</span>
-          </span>
-        </h1>
+          <!-- ---------- LEFT PAGE · introduction ---------- -->
+          <article class="scrapbook__page scrapbook__page--left">
+            <div class="relative z-[4] flex h-full flex-col justify-center p-6 sm:p-9 lg:p-10">
+              <div class="relative mt-4">
+                <span
+                  class="pointer-events-none absolute -top-8 right-0 -rotate-6 font-hand text-2xl text-emerald-soft sm:text-3xl"
+                  aria-hidden="true"
+                >{{ t('hero.hello') }}</span>
 
-        <p
-          class="animate-rise-in mt-7 max-w-xl text-base leading-relaxed text-cream/75 sm:text-lg"
-          style="animation-delay: 260ms"
-        >
-          {{ t('hero.intro') }}
-        </p>
+                <p class="font-mono text-xs font-semibold tracking-[0.34em] text-ink-faint uppercase sm:text-sm">
+                  {{ t('hero.greeting') }}
+                </p>
 
-        <div
-          class="animate-rise-in mt-10 flex flex-wrap items-center gap-x-5 gap-y-4"
-          style="animation-delay: 340ms"
-        >
-          <a
-            href="#work"
-            class="group inline-flex -rotate-1 items-center gap-2 rounded-sm bg-cream px-6 py-3 text-sm font-bold text-emerald-deep shadow-paper transition-all duration-300 hover:-translate-y-1 hover:rotate-0 hover:shadow-paper-lift"
-          >
-            {{ t('hero.viewWork') }}
-            <span class="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
-          </a>
-          <a
-            href="#contact"
-            class="inline-flex rotate-[0.5deg] items-center rounded-sm border border-cream/35 px-6 py-3 text-sm font-semibold text-cream/90 transition-all duration-300 hover:-translate-y-1 hover:rotate-0 hover:border-cream/70 hover:bg-cream/5"
-          >
-            {{ t('hero.letsTalk') }}
-          </a>
-          <p
-            class="hand-arrow hidden -rotate-3 xl:block"
-            aria-hidden="true"
-          >
-            {{ t('hero.startHere') }}
-          </p>
-        </div>
-      </div>
+                <h1 class="mt-3 text-[1.35rem] leading-[1.02] font-extrabold tracking-tight whitespace-nowrap text-ink sm:text-[1.45rem] lg:text-[1.6rem]">
+                  <span v-for="word in nameWords" :key="word" class="mr-[0.2em] inline-block">{{ word }}</span>
+                </h1>
 
-      <!-- RIGHT — the photograph -->
-      <div class="relative mt-14 lg:mt-0 lg:-mr-4 lg:translate-y-4 xl:-mr-12">
-        <div
-          class="animate-photo-in relative mx-auto w-full max-w-[20rem] sm:max-w-[24rem] lg:ml-auto lg:max-w-[27rem]"
-          style="animation-delay: 0ms"
-        >
-          <div
-            class="paper-backing"
-            style="--backing-tilt: -3deg; --backing-x: 3px; --backing-y: 12px"
-            aria-hidden="true"
-          />
+                <p class="mt-4 inline-block -rotate-1 border-b-2 border-note-yellow/80 pb-0.5 font-hand text-xl text-emerald-deep sm:text-2xl lg:text-[1.75rem]">
+                  {{ t('hero.role') }}
+                </p>
+              </div>
 
-          <figure
-            class="paper photo-sheet paper--stacked"
-            style="--tilt: -2deg; --tilt-hover: -5deg; --paper-color: var(--color-cream-warm)"
-          >
-            <span
-              class="tape tape--top-center"
-              style="--tape-tilt: -5deg; --tape-color: rgba(246, 241, 228, 0.5)"
-              aria-hidden="true"
-            />
-            <img
-              src="/images/scrapbook/paperclip.svg"
-              alt=""
-              width="272"
-              height="205"
-              class="pointer-events-none absolute -top-5 -left-5 z-10 w-16 -rotate-12 select-none sm:-top-6 sm:-left-6 sm:w-20"
-              draggable="false"
-              loading="lazy"
-              decoding="async"
-              aria-hidden="true"
-            >
-            <div class="relative overflow-hidden border border-ink/15">
-              <NuxtPicture
-                src="/images/keyza.webp"
-                alt="Portrait photograph of Keyza"
-                class="block aspect-[4/5] w-full"
-                width="640"
-                height="800"
-                fit="cover"
-                format="avif,webp"
-                legacy-format="webp"
-                quality="70"
-                sizes="xs:292px sm:356px lg:404px"
-                loading="eager"
+              <p class="mt-6 max-w-md text-[0.9rem] leading-relaxed text-ink-soft sm:text-[0.95rem]">
+                {{ t('hero.intro') }}
+              </p>
+
+              <div class="mt-8 flex items-center justify-between gap-3">
+                <a
+                  href="#work"
+                  class="group -rotate-1 bg-emerald-deep px-5 py-3 text-sm font-bold text-cream shadow-paper transition-transform duration-300 hover:-translate-y-1 hover:rotate-0"
+                >
+                  {{ t('hero.viewWork') }}
+                  <span class="inline-block transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
+                </a>
+
+                <a
+                  href="#contact"
+                  class="rotate-[0.5deg] border border-ink/25 px-5 py-3 text-sm font-semibold text-ink-soft transition-colors duration-300 hover:border-emerald-deep hover:text-emerald-deep"
+                >
+                  {{ t('hero.letsTalk') }}
+                </a>
+              </div>
+
+              <!-- A pen resting on the page, below the buttons, nib to the right. -->
+              <img
+                src="/images/scrapbook/pen.svg"
+                alt=""
+                width="529"
+                height="120"
+                class="pointer-events-none mt-8 w-[60%] -scale-x-100 rotate-[1.2deg] select-none drop-shadow-[0_7px_9px_rgba(10,20,15,0.4)] sm:mt-14 sm:w-[88%]"
+                draggable="false"
+                loading="lazy"
                 decoding="async"
-                :img-attrs="{
-                  class: 'h-full w-full object-cover',
-                  fetchpriority: 'high',
-                }"
-                :preload="{ fetchPriority: 'high' }"
-              />
-              <div
-                class="pointer-events-none absolute inset-0 shadow-[inset_0_1px_6px_rgba(10,20,15,0.22)]"
                 aria-hidden="true"
-              />
-            </div>
-            <figcaption class="flex items-end justify-between gap-3 px-1.5 pt-3.5 pb-1.5">
-              <span class="-rotate-1 font-hand text-[1.7rem] leading-none text-ink/85">
-                {{ t('hero.photoCaption') }}
-              </span>
-              <span
-                class="mb-0.5 font-mono text-[9px] font-semibold tracking-[0.28em] text-ink/45 uppercase"
               >
-                fig. 01
-              </span>
-            </figcaption>
-          </figure>
+
+            </div>
+          </article>
+
+          <!-- ---------- RIGHT PAGE · portrait ---------- -->
+          <article class="scrapbook__page scrapbook__page--right">
+            <div class="relative z-[4] flex h-full flex-col p-6 sm:p-9 lg:p-10">
+              <div class="relative flex flex-1 items-center justify-center">
+                  <figure
+                    class="paper photo-sheet hero-photo relative w-full max-w-[14rem] sm:max-w-[15rem]"
+                    style="--paper-color: #fff"
+                  >
+                    <div class="relative overflow-hidden border border-ink/10">
+                      <NuxtPicture
+                        src="/images/keyza.webp"
+                        alt="Portrait photograph of Keyza"
+                        class="block aspect-[4/5] w-full"
+                        width="640"
+                        height="800"
+                        fit="cover"
+                        format="avif,webp"
+                        legacy-format="webp"
+                        quality="70"
+                        sizes="xs:224px sm:240px lg:260px"
+                        loading="eager"
+                        decoding="async"
+                        :img-attrs="{ class: 'h-full w-full object-cover', fetchpriority: 'high' }"
+                        :preload="{ fetchPriority: 'high' }"
+                      />
+                    </div>
+                    <figcaption class="px-1.5 pt-3 pb-0.5">
+                      <span class="-rotate-1 font-hand text-[1.35rem] leading-none text-ink/85">
+                        {{ t('hero.photoCaption') }}
+                      </span>
+                    </figcaption>
+
+                    <span
+                      class="tape tape--top-left"
+                      style="--tape-tilt: -12deg; --tape-color: rgba(216, 230, 239, 0.85)"
+                      aria-hidden="true"
+                    />
+                    <span
+                      class="tape tape--top-right"
+                      style="--tape-tilt: 12deg; --tape-color: rgba(249, 233, 168, 0.85)"
+                      aria-hidden="true"
+                    />
+                  </figure>
+              </div>
+            </div>
+          </article>
+
+            <!-- ---------- CENTRE SPIRAL ---------- -->
+            <div class="scrapbook__binding" aria-hidden="true">
+              <span v-for="coil in 16" :key="coil" class="scrapbook__coil" />
+            </div>
+          </div>
         </div>
+
+        <!-- ==================== DESK STATIONERY ==================== -->
+        <DeskRuler
+          class="desk-item desk-ruler top-1/2 left-[4%] hidden xl:block"
+          style="--ruler-tilt: -72deg"
+        />
+        <img
+          src="/images/scrapbook/pencil-holder.svg"
+          alt=""
+          width="240"
+          height="340"
+          class="desk-item desk-pencil-holder top-[56%] right-0 hidden w-auto select-none xl:block"
+          draggable="false"
+          loading="lazy"
+          decoding="async"
+          aria-hidden="true"
+        >
+
       </div>
     </div>
 
     <a
       href="#work"
-      class="absolute bottom-7 left-1/2 hidden -translate-x-1/2 font-hand text-lg text-cream/50 transition-colors hover:text-note-yellow [@media(min-height:780px)]:block"
+      class="absolute bottom-6 left-1/2 -translate-x-1/2 font-hand text-lg text-cream/50 transition-colors hover:text-note-yellow"
     >
       {{ t('hero.keepExploring') }}
     </a>

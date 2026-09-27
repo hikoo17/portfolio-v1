@@ -1187,3 +1187,271 @@ body {
     transition: none;
   }
 }
+
+/* ---------- Hero: the open scrapbook on the desk ---------- */
+
+/* The scene is the desk surface; the book plus its stationary share it. */
+.scrapbook-scene {
+  position: relative;
+  perspective: 2000px;
+}
+
+.scrapbook {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  --book-tilt: -2.5deg;
+  border-radius: 5px;
+  transform: rotateX(3.5deg) rotateZ(var(--book-tilt, -0.5deg));
+  transform-style: preserve-3d;
+  box-shadow:
+    0 1px 2px rgba(2, 20, 16, 0.45),
+    0 26px 44px -20px rgba(2, 20, 16, 0.72),
+    0 60px 96px -52px rgba(2, 20, 16, 0.85);
+}
+
+/* Soft contact shadow pooling under the book, on the desk. */
+.scrapbook__shadow {
+  position: absolute;
+  inset: 6% 4% -6%;
+  z-index: 0;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 55%, rgba(2, 20, 16, 0.55), transparent 68%);
+  filter: blur(16px);
+  pointer-events: none;
+}
+
+/* Paper block thickness peeking out along the outer edges. */
+.scrapbook__stack {
+  position: absolute;
+  top: 1.2%;
+  bottom: 1.2%;
+  z-index: 1;
+  width: 7px;
+  border-radius: 3px;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 253, 246, 0.95) 0 2px,
+    rgba(203, 196, 176, 0.95) 2px 3px
+  );
+  box-shadow: 0 0 8px rgba(2, 20, 16, 0.3);
+}
+
+.scrapbook__stack--left { left: -6px; }
+.scrapbook__stack--right { right: -6px; }
+
+.scrapbook__page {
+  position: relative;
+  min-height: clamp(32rem, 68vh, 44rem);
+  overflow: hidden;
+  background-color: var(--page-color, #fcf8ec);
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 calc(var(--rule-gap, 2.15rem) - 1px),
+      var(--rule-color, rgba(96, 118, 146, 0.2)) calc(var(--rule-gap, 2.15rem) - 1px) var(--rule-gap, 2.15rem)
+    ),
+    repeating-linear-gradient(0deg, rgba(120, 110, 85, 0.028) 0 1px, transparent 1px 3px),
+    repeating-linear-gradient(90deg, rgba(120, 110, 85, 0.02) 0 1px, transparent 1px 4px),
+    radial-gradient(ellipse at 32% 6%, rgba(255, 255, 255, 0.55), transparent 58%);
+}
+
+/* The outer bottom corner is rounded a touch more so the sheet reads as
+   lifting off the desk; the mobile rules below flatten it again. */
+.scrapbook__page--left {
+  border-radius: 4px 1px 3px 15px;
+}
+
+.scrapbook__page--right {
+  --page-color: #fdfbf4;
+  border-radius: 1px 4px 15px 3px;
+}
+
+/* The page curls into the spine: shade the gutter edge and lift the top with
+   a cool highlight, so the sheet reads as curved rather than flat. */
+.scrapbook__page--left::after,
+.scrapbook__page--right::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.scrapbook__page--left::after {
+  background:
+    radial-gradient(ellipse 46% 24% at 8% 102%, rgba(255, 255, 255, 0.55), transparent 72%),
+    linear-gradient(to right, rgba(2, 20, 16, 0) 70%, rgba(2, 20, 16, 0.14) 96%, rgba(2, 20, 16, 0.28) 100%),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0) 14%),
+    linear-gradient(to top, rgba(2, 20, 16, 0.06), rgba(2, 20, 16, 0) 12%);
+}
+
+.scrapbook__page--right::after {
+  background:
+    radial-gradient(ellipse 46% 24% at 92% 102%, rgba(255, 255, 255, 0.55), transparent 72%),
+    linear-gradient(to left, rgba(2, 20, 16, 0) 70%, rgba(2, 20, 16, 0.14) 96%, rgba(2, 20, 16, 0.28) 100%),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0) 14%),
+    linear-gradient(to top, rgba(2, 20, 16, 0.06), rgba(2, 20, 16, 0) 12%);
+}
+
+/* Spiral binding down the centre seam. */
+.scrapbook__binding {
+  position: absolute;
+  top: 1.5%;
+  bottom: 1.5%;
+  left: 50%;
+  z-index: 40;
+  display: flex;
+  width: 2.4rem;
+  transform: translateX(-50%);
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  pointer-events: none;
+}
+
+.scrapbook__binding::before {
+  content: "";
+  position: absolute;
+  inset: 0 -0.45rem;
+  background: linear-gradient(to right, rgba(2, 20, 16, 0) 8%, rgba(2, 20, 16, 0.3) 50%, rgba(2, 20, 16, 0) 92%);
+}
+
+.scrapbook__coil {
+  position: relative;
+  width: 1.9rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: linear-gradient(180deg, #fbf9f3 0%, #c6c0b0 42%, #6f6a5c 58%, #e2ddd0 100%);
+  box-shadow:
+    0 1px 2px rgba(2, 20, 16, 0.55),
+    0 0 0 1px rgba(2, 20, 16, 0.2);
+}
+
+/* The portrait sheet. The tilt is desktop/tablet only; on mobile the whole
+   spread is flattened (see the max-width: 767px block below). */
+.hero-photo {
+  --tilt: -2.5deg;
+  --tilt-hover: -4deg;
+}
+
+@media (max-width: 767px) {
+  .scrapbook {
+    grid-template-columns: 1fr;
+    --book-tilt: 0deg;
+  }
+
+  .hero-photo {
+    --tilt: 0deg;
+    --tilt-hover: 0deg;
+  }
+
+  .scrapbook__page {
+    min-height: auto;
+  }
+
+  /* On a phone the two stacked pages run taller, so their content keeps its
+     distance from the spiral binding and never looks cramped. */
+  .scrapbook__page > div {
+    padding-block: 4rem;
+  }
+
+  .scrapbook__page--left { border-radius: 4px 4px 1px 1px; }
+  .scrapbook__page--right { border-radius: 1px 1px 4px 4px; }
+
+  .scrapbook__page--left::after {
+    background:
+      linear-gradient(to bottom, rgba(2, 20, 16, 0) 70%, rgba(2, 20, 16, 0.22) 100%),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0) 12%);
+  }
+
+  .scrapbook__page--right::after {
+    background:
+      linear-gradient(to top, rgba(2, 20, 16, 0) 70%, rgba(2, 20, 16, 0.22) 100%),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0) 12%);
+  }
+
+  .scrapbook__binding {
+    top: 50%;
+    right: 1.5%;
+    bottom: auto;
+    left: 1.5%;
+    width: auto;
+    height: 2.4rem;
+    transform: translateY(-50%);
+    flex-direction: row;
+  }
+
+  .scrapbook__coil {
+    width: 0.5rem;
+    height: 1.9rem;
+  }
+
+  .scrapbook__binding::before {
+    inset: -0.45rem 0;
+    background: linear-gradient(to bottom, rgba(2, 20, 16, 0) 8%, rgba(2, 20, 16, 0.3) 50%, rgba(2, 20, 16, 0) 92%);
+  }
+
+  .scrapbook__stack {
+    display: none;
+  }
+}
+
+/* ---------- Hero: loose paper & camera lens ---------- */
+
+/* A hand-torn sheet on every side, for loose paper lying on the desk. */
+.scrap--torn-all {
+  clip-path: polygon(
+    0.6% 2.2%, 9% 0.8%, 19% 2.4%, 30% 0.9%, 42% 2.3%, 54% 0.8%, 66% 2.2%,
+    78% 1%, 90% 2.4%, 99.3% 1.2%, 99.5% 13%, 98.5% 26%, 99.5% 39%, 98.4% 52%,
+    99.5% 65%, 98.6% 78%, 99.4% 90%, 99.1% 98.4%, 90% 99.2%, 78% 97.9%,
+    66% 99.3%, 54% 98%, 42% 99.3%, 30% 97.9%, 19% 99.2%, 9% 98%, 0.7% 99%,
+    0.5% 87%, 1.6% 74%, 0.5% 61%, 1.6% 48%, 0.6% 35%, 1.7% 22%, 0.7% 10%
+  );
+}
+
+/* Layered sheet edges along the bottom, so the open book reads as a thick
+   stack with real depth instead of two flat cards. */
+.scrapbook__stack--bottom {
+  top: auto;
+  right: 1.2%;
+  bottom: -6px;
+  left: 1.2%;
+  width: auto;
+  height: 6px;
+  background-image: repeating-linear-gradient(
+    to right,
+    rgba(255, 253, 246, 0.95) 0 3px,
+    rgba(203, 196, 176, 0.95) 3px 4px
+  );
+  box-shadow: 0 4px 8px rgba(2, 20, 16, 0.32);
+}
+
+/* A vintage magnifying glass resting on the desk. */
+.desk-magnifier {
+  filter: drop-shadow(0 14px 16px rgba(2, 20, 16, 0.5));
+}
+
+/* ---------- Desk stationery ---------- */
+
+.desk-item {
+  position: absolute;
+  z-index: 30;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 16px 18px rgba(2, 20, 16, 0.5));
+}
+
+/* A steel ruler leaning against the left edge of the scrapbook. */
+.desk-ruler {
+  width: clamp(10.5rem, 19vw, 17rem);
+  transform: translate(-50%, -50%) rotate(var(--ruler-tilt, -72deg));
+}
+
+/* A perforated-steel pencil holder resting on the right of the desk. */
+.desk-pencil-holder {
+  width: clamp(6.5rem, 11vw, 10rem);
+  transform: translateY(-50%) rotate(var(--holder-tilt, -2.5deg));
+}
+
