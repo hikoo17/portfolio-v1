@@ -15,7 +15,7 @@
     "name": "Keyza Zaki Arkana",
     "headingHighlight": "pengalaman digital",
     "role": "Software Engineer",
-    "intro": "Software Engineer yang senang membangun aplikasi web dan mempelajari hal baru.",
+    "intro": "Seorang software engineer yang memiliki rasa ingin tahu terhadap teknologi dan semangat untuk terus belajar.",
     "hello": "hai!",
     "thisIsMe": "ini aku",
     "journalLabel": "jurnal pribadi · no. 01",
@@ -116,10 +116,10 @@
     "titleB": "Saya",
     "note1": "belajar sambil membangun,",
     "note2": "satu proyek demi satu",
-    "intro": "Saya adalah seorang pelajar yang tertarik pada web development dan cloud computing. Saya senang membuat aplikasi web, mencoba teknologi baru, dan belajar melalui proyek serta pengalaman langsung.",
+    "intro": "Saya seorang pelajar yang tertarik pada software engineering dan teknologi. Saya senang mengeksplorasi cara kerja sesuatu, mempelajari teknologi baru, serta mendapatkan pengalaman melalui berbagai proyek dan tantangan di dunia nyata.",
     "cards": {
       "currently": { "label": "Saat ini", "value": "Pelajar" },
-      "focus": { "label": "Fokus", "value": "Web Development" },
+      "focus": { "label": "Fokus", "value": "Membangun Solusi Berbasis Digital" },
       "exploring": { "label": "Menjelajah", "value": "Cloud Computing" },
       "basedIn": { "label": "Berdomisili di", "value": "Tasikmalaya, Indonesia" }
     }
