@@ -14,8 +14,8 @@
     "greeting": "Hai, aku",
     "name": "Keyza Zaki Arkana",
     "headingHighlight": "pengalaman digital",
-    "role": "Web Developer",
-    "intro": "Web Developer yang senang membangun aplikasi web dan mempelajari hal baru.",
+    "role": "Software Engineer",
+    "intro": "Software Engineer yang senang membangun aplikasi web dan mempelajari hal baru.",
     "hello": "hai!",
     "thisIsMe": "ini aku",
     "journalLabel": "jurnal pribadi · no. 01",
@@ -62,7 +62,7 @@
           "Dashboard siswa dengan progres",
           "Materi, latihan, dan sertifikat"
         ],
-        "role": "Magang Web Developer"
+        "role": "Magang Software Engineer"
       },
       "karoto": {
         "short": "Sistem manajemen data dengan login aman dan akses admin terpisah.",
@@ -73,7 +73,7 @@
           "Akses admin terpisah",
           "Dashboard manajemen yang responsif"
         ],
-        "role": "Magang Web Developer"
+        "role": "Magang Software Engineer"
       },
       "sicatat": {
         "short": "Sistem student care untuk sekolah — memantau pelanggaran dan apresiasi dalam satu dashboard.",
@@ -212,12 +212,12 @@
       "intro": {
         "eyebrow": "00 — dari awal",
         "title": "Masa magang",
-        "text": "Enam belas minggu sebagai web developer magang di CV Access Media — membangun website klien, belajar soal server dan pipeline, lalu mencatat setiap pelajarannya.",
+        "text": "Enam belas minggu sebagai software engineer magang di CV Access Media — membangun website klien, belajar soal server dan pipeline, lalu mencatat setiap pelajarannya.",
         "caption": "dasarnya",
         "note": "Aku menulis jurnal ini supaya setiap pelajarannya tidak hilang begitu saja.",
         "sticker": "PKL 2026",
         "list": [
-          "Web developer magang",
+          "Software engineer magang",
           "CV Access Media, Tasikmalaya",
           "Jun — Sep 2026 · 16 minggu",
           "Frontend, deploy & infrastruktur"
@@ -524,7 +524,7 @@
       },
       "province": {
         "title": "LKS Jawa Barat",
-        "text": "Mewakili Tasikmalaya melawan web developer terbaik se-Jawa Barat.",
+        "text": "Mewakili Tasikmalaya melawan software engineer terbaik se-Jawa Barat.",
         "badge": "Juara 6 — Provinsi",
         "kicker": "melawan yang terbaik di Jawa Barat",
         "date": "2026",
@@ -612,7 +612,7 @@
   },
   "seo": {
     "title": "Keyza Zaki Arkana — Portfolio",
-    "description": "Portofolio Keyza Zaki Arkana, web developer dari Tasikmalaya, Indonesia — membangun pengalaman web yang bersih dan bermakna, saat ini magang di CV Access Media.",
-    "ogImageAlt": "Keyza Zaki Arkana — Web Developer"
+    "description": "Portofolio Keyza Zaki Arkana, software engineer dari Tasikmalaya, Indonesia — membangun pengalaman web yang bersih dan bermakna, saat ini magang di CV Access Media.",
+    "ogImageAlt": "Keyza Zaki Arkana — Software Engineer"
   }
 }

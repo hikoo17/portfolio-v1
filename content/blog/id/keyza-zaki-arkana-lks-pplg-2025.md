@@ -30,7 +30,7 @@ sources:
 #   - LKS Web Technology 2026, tingkat kota, juara 1
 #   - LKS tingkat Provinsi Jawa Barat 2026, juara 6
 #   - Kompetisi IoT, juara 1 (jurusan Teknik Listrik sekolah)
-#   - Magang web developer di CV Access Media
+#   - Magang software engineer di CV Access Media
 ---
 
 Pada Sabtu, 26 April 2025, MGMP (Musyawarah Guru Mata Pelajaran) Kota Tasikmalaya menggelar Lomba Kompetensi Siswa (LKS) untuk program keahlian Pengembangan Perangkat Lunak dan Gim (PPLG) di SMK BPN Tasikmalaya. Lomba berjalan dalam dua kategori: Web Technology, yang menuntut peserta membuat aplikasi berbasis web, dan IT Software, yang menuntut peserta mengembangkan program berbasis sistem operasi.

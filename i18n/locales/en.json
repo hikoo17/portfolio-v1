@@ -13,8 +13,8 @@
   "hero": {
     "greeting": "Hi, I'm",
     "name": "Keyza Zaki Arkana",
-    "role": "Web Developer",
-    "intro": "A web developer who enjoys building web applications and learning new things.",
+    "role": "Software Engineer",
+    "intro": "A software engineer who enjoys building web applications and learning new things.",
     "hello": "hello!",
     "thisIsMe": "this is me",
     "journalLabel": "personal journal · no. 01",
@@ -57,14 +57,14 @@
         "description": "A Japanese learning platform for beginners and beyond. Learners pick a course package, filter classes by level, work through video and PDF lessons, and track their progress, quizzes, and certificates from a personal dashboard.",
         "tagline": "Japanese, step by step",
         "highlights": ["Course packages and level filters", "Student dashboard with progress tracking", "Lessons, quizzes, and certificates"],
-        "role": "Web Developer Intern"
+        "role": "Software Engineer Intern"
       },
       "karoto": {
         "short": "A data management system with a secured sign-in and a separate admin channel.",
         "description": "A web-based management system for handling operational data. It pairs a secured sign-in for regular users with a dedicated admin login, behind a responsive dashboard built on Laravel, Vue, and SQL Server.",
         "tagline": "manage data, minus the clutter",
         "highlights": ["Secured user sign-in", "Separate admin access", "Responsive management dashboard"],
-        "role": "Web Developer Intern"
+        "role": "Software Engineer Intern"
       },
       "sijadwal": {
         "short": "A digital duty board for schools — location-verified attendance, photo evidence, and class dashboards.",
@@ -192,12 +192,12 @@
       "intro": {
         "eyebrow": "00 — how it started",
         "title": "The internship",
-        "text": "Sixteen weeks as a web developer intern at CV Access Media — building client websites, learning servers and pipelines, and keeping a note of every lesson on the way.",
+        "text": "Sixteen weeks as a software engineer intern at CV Access Media — building client websites, learning servers and pipelines, and keeping a note of every lesson on the way.",
         "caption": "the basics",
         "note": "I kept this journal so the lessons would not fade.",
         "sticker": "PKL 2026",
         "list": [
-          "Web developer intern",
+          "Software engineer intern",
           "CV Access Media, Tasikmalaya",
           "Jun — Sep 2026 · 16 weeks",
           "Frontend, deployment & infrastructure"
@@ -484,7 +484,7 @@
       },
       "province": {
         "title": "LKS West Java Provincial",
-        "text": "Representing Tasikmalaya against the best web developers across West Java.",
+        "text": "Representing Tasikmalaya against the best software engineers across West Java.",
         "badge": "6th Place — Province",
         "kicker": "against the best in West Java",
         "date": "2026",
@@ -560,7 +560,7 @@
   },
   "seo": {
     "title": "Keyza Zaki Arkana — Portfolio",
-    "description": "Portfolio of Keyza Zaki Arkana, a web developer from Tasikmalaya, Indonesia — building clean, purposeful web experiences and currently interning at CV Access Media.",
-    "ogImageAlt": "Keyza Zaki Arkana — Web Developer"
+    "description": "Portfolio of Keyza Zaki Arkana, a software engineer from Tasikmalaya, Indonesia — building clean, purposeful web experiences and currently interning at CV Access Media.",
+    "ogImageAlt": "Keyza Zaki Arkana — Software Engineer"
   }
 }

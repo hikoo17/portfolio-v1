@@ -30,7 +30,7 @@ sources:
 #   - LKS Web Technology 2026, city level, 1st place
 #   - LKS West Java provincial level 2026, 6th place
 #   - IoT competition, 1st place (school Electrical Engineering department)
-#   - Web developer internship at CV Access Media
+#   - Software engineer internship at CV Access Media
 ---
 
 On Saturday, 26 April 2025, the MGMP (Subject Teacher Working Group) of Kota Tasikmalaya held its Lomba Kompetensi Siswa (LKS) for the Pengembangan Perangkat Lunak dan Gim (PPLG) program at SMK BPN Tasikmalaya. The event ran in two categories: Web Technology, where participants built a web-based application, and IT Software, where they developed an operating-system-based program.

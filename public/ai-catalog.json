@@ -14,7 +14,7 @@
       "capabilities": ["SubmitContactMessage"],
       "representativeQueries": [
         "contact Keyza Zaki Arkana",
-        "send a message to this web developer",
+        "send a message to this software engineer",
         "ask Keyza about a project or collaboration"
       ],
       "tags": ["contact", "portfolio", "email"]

@@ -1,6 +1,6 @@
 # Keyza Zaki Arkana — Portfolio
 
-> Keyza Zaki Arkana is a web developer based in Tasikmalaya, Indonesia, building modern, high-performance web applications with Vue/Nuxt, Laravel, and Tailwind CSS.
+> Keyza Zaki Arkana is a software engineer based in Tasikmalaya, Indonesia, building modern, high-performance web applications with Vue/Nuxt, Laravel, and Tailwind CSS.
 
 This site is the personal portfolio and contact point for Keyza Zaki Arkana. It presents selected project case studies, a short biography, the tools and technologies he works with, a professional journey, and a contact form.
 
