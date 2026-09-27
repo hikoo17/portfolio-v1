@@ -138,10 +138,18 @@ onBeforeUnmount(() => {
               </p>
 
               <LazyProjectGallery
-                v-if="project.images"
+                v-if="project.images?.length"
                 :images="project.images"
                 :label="project.title"
                 class="mt-6"
+              />
+
+              <!-- No screenshots yet: keep the same neutral plate as the card. -->
+              <ImagePlaceholder
+                v-else
+                class="mt-6 aspect-[16/11] w-full overflow-hidden rounded-sm border border-ink/10"
+                large
+                :label="t('projects.noScreenshot', { title: project.title })"
               />
 
               <div class="mt-6 grid gap-6 sm:grid-cols-5">

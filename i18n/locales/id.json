@@ -44,6 +44,7 @@
     "viewProjectAria": "Lihat detail {title}",
     "detailsAria": "Detail proyek {title}",
     "closeAria": "Tutup detail proyek",
+    "noScreenshot": "Belum ada tangkapan layar untuk {title}",
     "projectMeta": "Proyek {number} / {year}",
     "story": "Ceritanya",
     "highlights": "Poin Utama",

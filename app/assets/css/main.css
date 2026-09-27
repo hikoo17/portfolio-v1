@@ -1739,3 +1739,30 @@ body {
     transform: none;
   }
 }
+
+/* ---------- "No screenshot yet" plate ---------- */
+
+/* Nuxt Icon ships its glyph CSS unlayered, so its 1em box beats any Tailwind
+   size utility (which lives in a cascade layer). Sizing the glyph needs a rule
+   of our own, declared here so it wins on specificity. */
+.image-placeholder__icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.image-placeholder__icon--lg {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+@media (min-width: 640px) {
+  .image-placeholder__icon {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .image-placeholder__icon--lg {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}

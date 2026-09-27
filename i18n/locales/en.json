@@ -43,6 +43,7 @@
     "viewProjectAria": "View details of {title}",
     "detailsAria": "{title} project details",
     "closeAria": "Close project details",
+    "noScreenshot": "No screenshot yet for {title}",
     "projectMeta": "Project {number} / {year}",
     "story": "The story",
     "highlights": "Highlights",
