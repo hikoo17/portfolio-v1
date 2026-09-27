@@ -1295,13 +1295,6 @@ body {
   pointer-events: none;
 }
 
-.scrapbook__binding::before {
-  content: "";
-  position: absolute;
-  inset: 0 -0.45rem;
-  background: linear-gradient(to right, rgba(2, 20, 16, 0) 8%, rgba(2, 20, 16, 0.3) 50%, rgba(2, 20, 16, 0) 92%);
-}
-
 .scrapbook__coil {
   position: relative;
   width: 1.9rem;
@@ -1370,11 +1363,6 @@ body {
   .scrapbook__coil {
     width: 0.5rem;
     height: 1.9rem;
-  }
-
-  .scrapbook__binding::before {
-    inset: -0.45rem 0;
-    background: linear-gradient(to bottom, rgba(2, 20, 16, 0) 8%, rgba(2, 20, 16, 0.3) 50%, rgba(2, 20, 16, 0) 92%);
   }
 
   .scrapbook__stack {
