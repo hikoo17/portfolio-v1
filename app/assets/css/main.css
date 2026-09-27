@@ -1317,7 +1317,9 @@ body {
 @media (max-width: 767px) {
   .scrapbook {
     grid-template-columns: 1fr;
-    --book-tilt: 0deg;
+    /* A slight lean keeps the spread from reading as a plain rectangle. The
+       inner sheet stays straight so the photograph is not double-rotated. */
+    --book-tilt: -1.2deg;
   }
 
   .hero-photo {
@@ -1335,8 +1337,10 @@ body {
     padding-block: 4rem;
   }
 
-  .scrapbook__page--left { border-radius: 4px 4px 1px 1px; }
-  .scrapbook__page--right { border-radius: 1px 1px 4px 4px; }
+  /* The outer corners keep the lifted-sheet rounding the desktop spread has;
+     only the seam between the two pages stays tight. */
+  .scrapbook__page--left { border-radius: 12px 12px 2px 2px; }
+  .scrapbook__page--right { border-radius: 2px 2px 12px 12px; }
 
   .scrapbook__page--left::after {
     background:
@@ -1366,6 +1370,8 @@ body {
     height: 1.9rem;
   }
 
+  /* The layered sheet edges are desktop-only: on a phone the spread reads as a
+     single sheet, so the paper stack is left off. */
   .scrapbook__stack {
     display: none;
   }
