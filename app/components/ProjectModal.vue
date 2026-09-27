@@ -87,7 +87,7 @@ onBeforeUnmount(() => {
     >
       <div
         v-if="project"
-        class="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-emerald-deep/80 p-4 backdrop-blur-[3px] sm:p-8"
+        class="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-black/70 p-4 backdrop-blur-[3px] sm:p-8"
         role="presentation"
         @click.self="emit('close')"
       >
@@ -167,12 +167,6 @@ onBeforeUnmount(() => {
                       {{ h }}
                     </li>
                   </ul>
-                  <h4 class="mt-5 font-mono text-[10px] font-bold tracking-[0.3em] text-ink-faint uppercase">
-                    {{ t('projects.role') }}
-                  </h4>
-                  <p class="mt-1 text-sm font-semibold text-ink">
-                    {{ t(`projects.items.${project.key}.role`) }}
-                  </p>
                 </div>
               </div>
 
@@ -186,8 +180,12 @@ onBeforeUnmount(() => {
                 </span>
               </div>
 
-              <div class="mt-8 flex flex-wrap items-center gap-4">
+              <div
+                v-if="project.liveUrl || project.codeUrl"
+                class="mt-8 flex flex-wrap items-center gap-4"
+              >
                 <a
+                  v-if="project.liveUrl"
                   :href="project.liveUrl"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -197,6 +195,7 @@ onBeforeUnmount(() => {
                   <span class="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">→</span>
                 </a>
                 <a
+                  v-if="project.codeUrl"
                   :href="project.codeUrl"
                   target="_blank"
                   rel="noopener noreferrer"
