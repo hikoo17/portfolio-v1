@@ -31,7 +31,7 @@ const isActive = (id: string) => activeSection.value === id
 <template>
   <header class="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4">
     <nav
-      class="animate-rise-in relative grid w-full max-w-3xl grid-cols-[1fr_auto_1fr] items-center gap-4 rounded-full bg-cream/95 py-2.5 pr-2.5 pl-5 shadow-paper backdrop-blur-sm"
+      class="animate-rise-in relative grid w-full max-w-3xl grid-cols-[1fr_auto_1fr] items-center gap-4 rounded-full bg-cream/95 py-2.5 pr-2.5 pl-5 shadow-paper"
       aria-label="Main navigation"
     >
       <a
