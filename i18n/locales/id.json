@@ -75,16 +75,16 @@
         ],
         "role": "Magang Software Engineer"
       },
-      "sicatat": {
-        "short": "Sistem student care untuk sekolah — memantau pelanggaran dan apresiasi dalam satu dashboard.",
-        "description": "Platform student care yang mencatat pelanggaran dan apresiasi secara terpisah, menyimpan saldo poin tiap siswa, dan memberi guru serta admin satu tempat untuk mencatat kejadian, melampirkan bukti foto, dan menindaklanjutinya.",
-        "tagline": "disiplin dan apresiasi, seimbang",
+      "kuiskita": {
+        "short": "Kuis interaktif untuk kelas — siswa mengacungkan tangan digital untuk maju menjawab.",
+        "description": "Aplikasi kuis kelas tempat guru memberikan pertanyaan dan siswa yang ingin menjawab mengklik namanya di laptop untuk maju ke depan. Dilengkapi menu kelola kelas, siswa, soal, riwayat, dan pengaturan kuis — soal bisa diimpor dari Word, siswa dari Excel, dan riwayat poin diekspor ke Excel.",
+        "tagline": "tunjuk tangan, maju menjawab",
         "highlights": [
-          "Pelacakan pelanggaran dan apresiasi",
-          "Saldo poin tiap siswa",
-          "Catatan kejadian dengan bukti foto"
+          "Kelola kelas, siswa, soal, dan riwayat",
+          "Impor soal dari Word, siswa dari Excel",
+          "Ekspor riwayat poin ke Excel"
         ],
-        "role": "Frontend Developer"
+        "role": "Full-stack Developer"
       },
       "sijadwal": {
         "short": "Papan piket digital untuk sekolah — presensi terverifikasi lokasi, bukti foto, dan dashboard kelas.",

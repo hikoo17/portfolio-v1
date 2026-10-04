@@ -80,12 +80,12 @@
         "highlights": ["Announcements and schedules in one place", "Student records gathered together", "Responsive dashboard for staff"],
         "role": "Full-stack Developer"
       },
-      "sicatat": {
-        "short": "A student-care platform for schools — incidents and commendations tracked in one dashboard.",
-        "description": "A student-care platform that records incidents and commendations separately, keeps a running points balance for each student, and gives teachers and admins one place to log events, attach photo evidence, and follow up.",
-        "tagline": "discipline and praise, balanced",
-        "highlights": ["Incident and commendation tracking", "Points balance for every student", "Event logs with photo evidence"],
-        "role": "Frontend Developer"
+      "kuiskita": {
+        "short": "An interactive classroom quiz — students raise a digital hand to step up and answer.",
+        "description": "A classroom quiz app where the teacher presents questions and students tap their name on the laptop to raise their hand and answer up front. It ships with class, student, question, history, and quiz-settings management — questions import from Word, students import from Excel, and point history exports to Excel.",
+        "tagline": "hands up, quiz time",
+        "highlights": ["Class, student, question, and history management", "Word import for questions, Excel import for students", "Point history export to Excel"],
+        "role": "Full-stack Developer"
       }
     }
   },
