@@ -28,7 +28,7 @@ const articles = [
 <template>
   <section
     id="blog"
-    class="grid-paper grid-paper--light scroll-mt-24 bg-paper-white py-24 text-ink sm:py-32"
+    class="section-bg section-bg-paper scroll-mt-24 py-24 text-ink sm:py-32"
   >
     <div class="relative mx-auto max-w-5xl px-6 lg:px-8">
       <div class="reveal relative flex flex-wrap items-end justify-between gap-6">

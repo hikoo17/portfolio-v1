@@ -14,7 +14,7 @@ const facts = [
 <template>
   <section
     id="about"
-    class="grid-paper scroll-mt-24 bg-emerald-deep py-24 text-cream sm:py-32"
+    class="section-bg section-bg-emerald scroll-mt-24 py-24 text-cream sm:py-32"
   >
     <div class="mx-auto max-w-6xl px-6 lg:px-8">
       <div class="reveal relative flex flex-wrap items-end justify-between gap-6">

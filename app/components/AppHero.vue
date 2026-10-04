@@ -6,13 +6,7 @@ const nameWords = computed(() => t('hero.name').split(' ').filter(Boolean))
 </script>
 
 <template>
-  <section class="grid-paper relative min-h-screen overflow-hidden bg-emerald-deep text-cream">
-    <!-- Desk lamp light falling across the workspace. -->
-    <div
-      class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_78%_52%_at_54%_-8%,rgba(122,201,175,0.16),transparent_66%)]"
-      aria-hidden="true"
-    />
-
+  <section class="hero-desk relative min-h-screen overflow-hidden bg-emerald-deep text-cream">
     <div class="relative mx-auto w-full max-w-6xl px-6 pt-28 pb-40 sm:px-8 sm:pt-32 lg:pb-48">
       <div class="scrapbook-scene">
         <div class="relative mx-auto w-full max-w-[40rem] md:max-w-[44rem]">
@@ -138,9 +132,20 @@ const nameWords = computed(() => t('hero.name').split(' ').filter(Boolean))
         </div>
 
         <!-- ==================== DESK STATIONERY ==================== -->
-        <DeskRuler
-          class="desk-item desk-ruler top-1/2 left-[4%] hidden xl:block"
+        <!-- Static ruler image: the old inline-SVG component carried an
+             feTurbulence grain filter plus ~100 tick/number nodes that were
+             re-painted every frame. An <img> rasterizes once. -->
+        <img
+          src="/images/scrapbook/ruler.svg"
+          alt=""
+          width="480"
+          height="76"
+          class="desk-item desk-ruler top-1/2 left-[4%] hidden select-none xl:block"
           style="--ruler-tilt: -72deg"
+          draggable="false"
+          loading="lazy"
+          decoding="async"
+          aria-hidden="true"
         />
         <img
           src="/images/scrapbook/pencil-holder.svg"

@@ -75,7 +75,7 @@ watch(activeProject, (open) => {
 <template>
   <section
     id="work"
-    class="grid-paper grid-paper--fine grid-paper--light scroll-mt-24 overflow-x-clip bg-cream-warm py-24 text-ink sm:py-32"
+    class="section-bg section-bg-cream-warm grid-paper--fine scroll-mt-24 overflow-x-clip py-24 text-ink sm:py-32"
   >
     <div class="mx-auto max-w-6xl px-6 lg:px-8">
       <!-- Section heading stays outside the board, clean and editorial. -->

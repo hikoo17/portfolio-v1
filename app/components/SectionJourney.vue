@@ -98,7 +98,7 @@ function pklWeeksFor(key?: string) {
 <template>
   <section
     id="journey"
-    class="grid-paper scroll-mt-24 overflow-hidden bg-emerald-deep py-24 text-cream sm:py-32"
+    class="section-bg section-bg-emerald scroll-mt-24 overflow-hidden py-24 text-cream sm:py-32"
   >
     <div
       class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_58%_46%_at_50%_42%,rgba(122,201,175,0.14),transparent_72%)]"
