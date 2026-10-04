@@ -74,7 +74,6 @@ body {
   font-family: var(--font-sans);
   background: var(--color-emerald-deep);
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
 }
 
 ::selection {
@@ -308,6 +307,21 @@ body {
   line-height: 1;
   text-shadow: 0 1px 0 rgba(3, 24, 19, 0.4);
   user-select: none;
+}
+
+/* Below-the-fold sections skip layout/paint while offscreen; the browser
+   renders them as they approach the viewport. `auto` remembers the last
+   rendered size so the scrollbar does not jump on scroll-back. Anchor
+   links and IntersectionObserver (scroll reveal, hydrate-on-visible)
+   force rendering as needed, so reveals keep working. */
+#work,
+#about,
+#tools,
+#journey,
+#blog,
+#contact {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1200px;
 }
 
 /* ---------- Scroll reveal ---------- */
