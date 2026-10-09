@@ -31,6 +31,15 @@ useSeoMeta({
   twitterImage: () => `${siteUrl}/og-image.png`,
   twitterImageAlt: () => t('seo.ogImageAlt'),
 })
+
+// Site name signal for Google: canonical name + known alternates so
+// "Keyzar" / domain fallback resolves to the personal name.
+useSchemaOrg([
+  defineWebSite({
+    name: 'Keyza Zaki Arkana',
+    alternateName: ['Keyzar', 'keyzar.my.id'],
+  }),
+])
 </script>
 
 <template>

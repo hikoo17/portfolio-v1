@@ -37,8 +37,9 @@ const isActive = (id: string) => activeSection.value === id
       <a
         href="#top"
         class="col-start-1 flex items-center gap-0.5 justify-self-start leading-none"
-        aria-label="Keyzar"
+        aria-label="Keyza Zaki Arkana"
       >
+        <span class="sr-only">Keyza Zaki Arkana</span>
         <svg
           class="block size-6 shrink-0"
           viewBox="0 0 64 64"
